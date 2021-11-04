@@ -1,5 +1,6 @@
 package com.SagaLogistic.backend.database;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.SagaLogistic.backend.models.Item;
@@ -10,23 +11,23 @@ public class RepositoryFirebase implements Repository{
     private static final ItemDAOFirebase itemDAO = new ItemDAOFirebase();
 
     @Override
-    public void addItem(@Nullable Item item) {
+    public void addItem(@NonNull Item item) {
         itemDAO.add(item);
     }
 
     @Nullable
     @Override
-    public Future<Item> getItem(@Nullable String id) {
+    public Future<Item> getItem(@NonNull String id) {
         return itemDAO.get(id);
     }
 
     @Override
-    public void updateItem(@Nullable String id, @Nullable Item item) {
+    public void updateItem(@NonNull String id, @NonNull Item item) {
         itemDAO.update(id, item);
     }
 
     @Override
-    public void deleteItem(@Nullable String id) {
+    public void deleteItem(@NonNull String id) {
         itemDAO.delete(id);
     }
 }
