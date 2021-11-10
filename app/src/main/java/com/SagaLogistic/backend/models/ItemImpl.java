@@ -1,4 +1,4 @@
 package com.SagaLogistic.backend.models;
 
-public interface Item {
+public class ItemImpl {
 }

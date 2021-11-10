@@ -7,8 +7,12 @@ import com.SagaLogistic.backend.models.Item;
 
 import java.util.concurrent.Future;
 
-public class RepositoryFirebase implements Repository{
-    private static final ItemDAOFirebase itemDAO = new ItemDAOFirebase();
+public class RepositoryImpl implements Repository{
+    private final ItemDAO itemDAO;
+
+    public RepositoryImpl(RepositoryFactory factory){
+        this.itemDAO = factory.createItemDAO();
+    }
 
     @Override
     public void addItem(@NonNull Item item) {
