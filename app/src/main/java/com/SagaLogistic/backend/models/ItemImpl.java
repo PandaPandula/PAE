@@ -1,4 +1,4 @@
 package com.SagaLogistic.backend.models;
 
-public class ItemImpl {
+public class ItemImpl implements Item{
 }
