@@ -23,6 +23,11 @@ public class ItemImpl implements Item, Parcelable{
     private String name;
     private Float weight;
 
+    /**
+     * Empty constructor; needed for Firebase to serialize the result of a query
+     */
+    public ItemImpl(){}
+
     public ItemImpl(String key, String name, Float weight){
         this.key = key;
         this.name = name;

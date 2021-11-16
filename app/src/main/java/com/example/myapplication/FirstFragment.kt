@@ -27,6 +27,7 @@ class FirstFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
 
+        //test
         val repo = RepositoryImpl(RepositoryFactoryFirebase())
         val test1 = ItemImpl("test1", 0.0F)
         repo.addItem(test1)
@@ -34,6 +35,7 @@ class FirstFragment : Fragment() {
         repo.addItem(test2)
 
         val test1fetched = repo.getItem(test1.key).get()
+        //end of test
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
