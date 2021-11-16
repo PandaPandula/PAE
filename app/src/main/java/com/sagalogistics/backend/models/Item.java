@@ -1,8 +1,6 @@
 package com.sagalogistics.backend.models;
 
-import android.os.Parcelable;
-
-public interface Item extends Parcelable {
+public interface Item {
     String getKey();
 
     void setKey(String key);

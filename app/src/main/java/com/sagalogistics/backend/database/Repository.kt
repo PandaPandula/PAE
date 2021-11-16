@@ -5,7 +5,7 @@ import java.util.concurrent.Future
 
 interface Repository {
     fun addItem(item: Item)
-    fun getItem(id: String): Future<Item>?
-    fun updateItem(id: String, item: Item)
-    fun deleteItem(id: String)
+    fun getItem(key: String): Future<Item>
+    fun updateItem(key: String, item: Item)
+    fun deleteItem(key: String)
 }

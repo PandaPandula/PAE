@@ -1,9 +1,11 @@
 package com.sagalogistics.backend.database;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.sagalogistics.backend.models.Item;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.Future;
 
@@ -19,19 +21,19 @@ public class RepositoryImpl implements Repository{
         itemDAO.add(item);
     }
 
-    @Nullable
+    @NonNull
     @Override
-    public Future<Item> getItem(@NonNull String id) {
-        return itemDAO.get(id);
+    public Future<Item> getItem(@NotNull String key) {
+        return itemDAO.get(key);
     }
 
     @Override
-    public void updateItem(@NonNull String id, @NonNull Item item) {
-        itemDAO.update(id, item);
+    public void updateItem(@NotNull String key, @NotNull Item item) {
+        itemDAO.update(key, item);
     }
 
     @Override
-    public void deleteItem(@NonNull String id) {
-        itemDAO.delete(id);
+    public void deleteItem(@NotNull String key) {
+        itemDAO.delete(key);
     }
 }

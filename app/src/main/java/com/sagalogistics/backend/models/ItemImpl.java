@@ -3,7 +3,9 @@ package com.sagalogistics.backend.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class ItemImpl implements Item{
+import com.google.firebase.database.Exclude;
+
+public class ItemImpl implements Item, Parcelable{
 
     public static final Parcelable.Creator CREATOR = new Creator() {
         @Override
@@ -32,10 +34,12 @@ public class ItemImpl implements Item{
         this.weight = weight;
     }
 
+    @Exclude
     public String getKey() {
         return key;
     }
 
+    @Exclude
     public void setKey(String key) {
         this.key = key;
     }
