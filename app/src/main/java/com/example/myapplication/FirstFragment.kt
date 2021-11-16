@@ -35,6 +35,11 @@ class FirstFragment : Fragment() {
         repo.addItem(test2)
 
         val test1fetched = repo.getItem(test1.key).get()
+
+        test2.weight = 1.5F
+        repo.updateItem(test2.key, test2)
+
+        repo.deleteItem(test1.key)
         //end of test
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)

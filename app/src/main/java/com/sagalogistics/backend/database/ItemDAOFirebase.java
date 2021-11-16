@@ -43,11 +43,13 @@ public class ItemDAOFirebase implements ItemDAO{
 
     @Override
     public void update(@NotNull String key, @NotNull Item item) {
-
+        DatabaseReference itemRef = itemsRef.child(key);
+        itemRef.setValue(item);
     }
 
     @Override
     public void delete(@NotNull String key) {
-
+        DatabaseReference itemRef = itemsRef.child(key);
+        itemRef.removeValue();
     }
 }
