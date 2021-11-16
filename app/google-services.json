@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "478773197679",
+    "firebase_url": "https://pae-damm-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "pae-damm",
+    "storage_bucket": "pae-damm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478773197679:android:87826036372ce1592c069a",
+        "android_client_info": {
+          "package_name": "com.sagalogistics.pae"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478773197679-5nse2571tp71k36jeq2kupoghbo9b99f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeL0K-me3cQr6T6tJnWDm8jNtv3VKguCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478773197679-5nse2571tp71k36jeq2kupoghbo9b99f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

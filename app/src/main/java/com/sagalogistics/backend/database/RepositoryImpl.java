@@ -1,9 +1,9 @@
-package com.SagaLogistic.backend.database;
+package com.sagalogistics.backend.database;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.SagaLogistic.backend.models.Item;
+import com.sagalogistics.backend.models.Item;
 
 import java.util.concurrent.Future;
 

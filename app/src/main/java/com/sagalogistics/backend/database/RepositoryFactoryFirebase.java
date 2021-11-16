@@ -1,4 +1,4 @@
-package com.SagaLogistic.backend.database;
+package com.sagalogistics.backend.database;
 
 import androidx.annotation.NonNull;
 

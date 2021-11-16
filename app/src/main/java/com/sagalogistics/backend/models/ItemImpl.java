@@ -1,4 +1,4 @@
-package com.SagaLogistic.backend.models;
+package com.sagalogistics.backend.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
