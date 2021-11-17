@@ -34,7 +34,8 @@ class FirstFragment : Fragment() {
         val test2 = ItemImpl("test2", 0.0F)
         repo.addItem(test2)
 
-        val test1fetched = repo.getItem(test1.key).get()
+        val repo2 = RepositoryImpl(RepositoryFactoryFirebase())
+        val test1fetched = repo2.getItem(test1.key)
 
         test2.weight = 1.5F
         repo.updateItem(test2.key, test2)
