@@ -1,6 +1,8 @@
 package com.sagalogistics.backend.models;
 
-public interface Item {
+import java.io.Serializable;
+
+public interface Item extends Serializable {
     String getKey();
 
     void setKey(String key);
