@@ -33,6 +33,7 @@ public class RepositoryImpl implements Repository{
         Item item = loadedItems.get(key);
         if(item == null){
             item = itemDAO.get(key).get();
+            loadedItems.put(key, item);
         }
         return item;
     }
