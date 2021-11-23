@@ -4,13 +4,17 @@ import java.io.Serializable;
 import java.util.Map;
 
 public interface Order extends Serializable {
-    void addItem(String key, Integer quantity);
+    String getKey();
 
-    Map<String, Integer> getOrder();
+    void setKey(String key);
+
+    Map<String, Integer> getItems();
+
+    void setItems(Map<String, Integer> items);
+
+    void updateItem(String key, Integer quantity);
 
     Integer getQuantityItem(String key);
-
-    void updateQuantity(String key, Integer newQuantity);
 
     void removeItem(String key);
 }

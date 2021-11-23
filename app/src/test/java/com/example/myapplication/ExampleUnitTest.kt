@@ -21,8 +21,8 @@ class ExampleUnitTest {
     @Test
     fun test_order(){
         var test = OrderImpl()
-        test.addItem("hola", 0)
-        var test2 = test.order
+        test.updateItem("hola", 0)
+        var test2 = test.items
         test2.put("hola", 1)
         assertEquals(0, test.getQuantityItem("hola"))
     }
@@ -36,6 +36,6 @@ class ExampleUnitTest {
         if (item != null) {
             item.key = "test2"
         }
-        assertEquals("test", test.get("a")?.key)
+        assertNotEquals("test", test.get("a")?.key)
     }
 }

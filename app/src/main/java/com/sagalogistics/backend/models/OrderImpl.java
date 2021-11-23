@@ -3,6 +3,8 @@ package com.sagalogistics.backend.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.database.Exclude;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,36 +28,41 @@ public class OrderImpl implements Order, Parcelable{
     public OrderImpl(){
     }
 
-    public OrderImpl(Map<String, Integer> items){
-        this.items = items;
-    }
-
     public OrderImpl(String key, Map<String, Integer> items) {
         this.key = key;
         this.items = items;
     }
 
-    @Override
-    public void addItem(String key, Integer quantity) {
-        items.put(key, quantity);
+    public OrderImpl(Map<String, Integer> items){
+        this.items = items;
     }
 
-    @Override
-    public Map<String, Integer> getOrder() {
+    @Exclude
+    public String getKey() {
+        return key;
+    }
+
+    @Exclude
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public Map<String, Integer> getItems() {
         return new HashMap<>(items); //Creem una shallow copy per impedir modificacions a la ordre real
     }
 
-    @Override
+    public void setItems(Map<String, Integer> items) {
+        this.items = items;
+    }
+
+    public void updateItem(String key, Integer quantity) {
+        items.put(key, quantity);
+    }
+
     public Integer getQuantityItem(String key) {
         return items.get(key);
     }
 
-    @Override
-    public void updateQuantity(String key, Integer newQuantity) {
-        items.put(key, newQuantity);
-    }
-
-    @Override
     public void removeItem(String key) {
         items.remove(key);
     }
