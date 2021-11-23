@@ -7,6 +7,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.sagalogistics.backend.models.Order;
 import com.sagalogistics.backend.models.OrderImpl;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -48,7 +50,28 @@ public class OrderDAOFirebase implements OrderDAO{
     }
 
     @Override
-    public void deleteItem(String orderKey, String itemKey) {
-        //WIP
+    public void deleteItem(String itemKey) {
+        /*ordersRef.get().addOnCompleteListener(task -> {
+            if(task.isSuccessful()){
+                DataSnapshot data = task.getResult();
+                if (data != null) {
+                    Map<String, Object> orders = (Map<String, Object>) data.getValue();
+                    for(Map.Entry<String, Object> order : orders.entrySet()){
+                        ordersRef.child(order.getKey()).child(itemKey).removeValue();
+                    }
+                }
+            }
+        });*/
+        Task<DataSnapshot> task = ordersRef.get();
+        while(!task.isComplete());
+        if(task.isSuccessful()) {
+            DataSnapshot data = task.getResult();
+            if (data != null) {
+                Map<String, Object> orders = (Map<String, Object>) data.getValue();
+                for (Map.Entry<String, Object> order : orders.entrySet()) {
+                    ordersRef.child(order.getKey()).child("items").child(itemKey).removeValue();
+                }
+            }
+        }
     }
 }

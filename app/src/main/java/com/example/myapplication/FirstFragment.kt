@@ -42,13 +42,13 @@ class FirstFragment : Fragment() {
         test2.weight = 1.5F
         repo.updateItem(test2.key, test2)
 
-        repo.deleteItem(test1.key)
-
         val orderTest = OrderImpl()
+        orderTest.updateItem(test1.key, 2)
         orderTest.updateItem(test2.key, 5)
         repo.addOrder(orderTest)
         val orderTest2 = repo.getOrder(orderTest.key)
 
+        repo.deleteItem(test1.key)
         //end of test
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)

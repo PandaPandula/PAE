@@ -41,6 +41,7 @@ public class RepositoryImpl implements Repository{
     @Override
     public void deleteItem(@NotNull String key) {
         itemDAO.delete(key);
+        orderDAO.deleteItem(key);
     }
 
     @Override

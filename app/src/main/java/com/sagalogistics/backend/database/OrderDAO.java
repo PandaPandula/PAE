@@ -9,5 +9,5 @@ public interface OrderDAO {
     Future<Order> get(String key);
     void update(String key, Order order);
     void delete(String key);
-    void deleteItem(String orderKey, String itemKey);
+    void deleteItem(String itemKey);
 }
