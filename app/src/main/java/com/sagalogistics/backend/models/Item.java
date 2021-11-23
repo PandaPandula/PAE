@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 
 import java.io.Serializable;
 
-public interface Item extends Serializable, Cloneable {
+public interface Item extends Serializable {
     String getKey();
 
     void setKey(String key);
@@ -16,7 +16,4 @@ public interface Item extends Serializable, Cloneable {
     Float getWeight();
 
     void setWeight(Float weight);
-
-    @NonNull
-    Object clone() throws CloneNotSupportedException;
 }

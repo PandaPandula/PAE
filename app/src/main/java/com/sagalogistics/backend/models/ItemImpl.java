@@ -67,12 +67,6 @@ public class ItemImpl implements Item, Parcelable{
         this.weight = weight;
     }
 
-    @NonNull
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
-
     public ItemImpl(Parcel in){
         this.key = in.readString();
         this.name = in.readString();
