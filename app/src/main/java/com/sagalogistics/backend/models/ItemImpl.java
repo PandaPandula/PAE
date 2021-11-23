@@ -3,6 +3,8 @@ package com.sagalogistics.backend.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
 import com.google.firebase.database.Exclude;
 
 public class ItemImpl implements Item, Parcelable{
@@ -63,6 +65,12 @@ public class ItemImpl implements Item, Parcelable{
 
     public void setWeight(Float weight) {
         this.weight = weight;
+    }
+
+    @NonNull
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public ItemImpl(Parcel in){

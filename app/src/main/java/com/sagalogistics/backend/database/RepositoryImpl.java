@@ -35,7 +35,7 @@ public class RepositoryImpl implements Repository{
             item = itemDAO.get(key).get();
             loadedItems.put(key, item);
         }
-        return item;
+        return (Item) item.clone();
     }
 
     @Override

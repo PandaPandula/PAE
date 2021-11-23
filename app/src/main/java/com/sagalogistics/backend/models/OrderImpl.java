@@ -1,12 +1,7 @@
 package com.sagalogistics.backend.models;
 
-import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import androidx.annotation.RequiresApi;
-
-import com.google.firebase.database.Exclude;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -25,38 +20,29 @@ public class OrderImpl implements Order, Parcelable{
         }
     };
 
-    private String identifier;
-    private Map<String, Integer> items;
+    private String key;
+    private Map<String, Integer> items = new HashMap<>();
 
     public OrderImpl(){
     }
 
-    public OrderImpl(String identifier) {
-        this.identifier = identifier;
-        this.items = new HashMap<String, Integer>();
+    public OrderImpl(Map<String, Integer> items){
+        this.items = items;
     }
 
-    public OrderImpl(String identifier, Map<String, Integer> items) {
-        this.identifier = identifier;
+    public OrderImpl(String key, Map<String, Integer> items) {
+        this.key = key;
         this.items = items;
     }
 
     @Override
-    public Map<String, Integer> getOrder() {
-        return items;
+    public void addItem(String key, Integer quantity) {
+        items.put(key, quantity);
     }
 
     @Override
-    public void addItem(String key) {
-        int aux;
-        if(items.containsKey(key)) {
-            aux = items.get(key);
-            ++aux;
-            items.remove(key);
-            items.put(key, aux);
-        }
-        else
-            items.put(key,1);
+    public Map<String, Integer> getOrder() {
+        return new HashMap<>(items); //Creem una shallow copy per impedir modificacions a la ordre real
     }
 
     @Override
@@ -64,8 +50,18 @@ public class OrderImpl implements Order, Parcelable{
         return items.get(key);
     }
 
+    @Override
+    public void updateQuantity(String key, Integer newQuantity) {
+        items.put(key, newQuantity);
+    }
+
+    @Override
+    public void removeItem(String key) {
+        items.remove(key);
+    }
+
     protected OrderImpl(Parcel in) {
-        this.identifier = in.readString();
+        this.key = in.readString();
         in.readMap(this.items, Map.class.getClassLoader());
     }
 
@@ -76,7 +72,7 @@ public class OrderImpl implements Order, Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.identifier);
+        dest.writeString(this.key);
         dest.writeMap(this.items);
     }
 }

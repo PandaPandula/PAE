@@ -1,8 +1,10 @@
 package com.sagalogistics.backend.models;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
-public interface Item extends Serializable {
+public interface Item extends Serializable, Cloneable {
     String getKey();
 
     void setKey(String key);
@@ -14,4 +16,7 @@ public interface Item extends Serializable {
     Float getWeight();
 
     void setWeight(Float weight);
+
+    @NonNull
+    Object clone() throws CloneNotSupportedException;
 }
