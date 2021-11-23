@@ -8,4 +8,10 @@ public class RepositoryFactoryFirebase implements RepositoryFactory{
     public ItemDAO createItemDAO() {
         return new ItemDAOFirebase();
     }
+
+    @NonNull
+    @Override
+    public OrderDAO createOrderDAO() {
+        return new OrderDAOFirebase();
+    }
 }

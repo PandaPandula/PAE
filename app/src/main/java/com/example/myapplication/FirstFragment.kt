@@ -10,6 +10,8 @@ import com.example.myapplication.databinding.FragmentFirstBinding
 import com.sagalogistics.backend.database.RepositoryFactoryFirebase
 import com.sagalogistics.backend.database.RepositoryImpl
 import com.sagalogistics.backend.models.ItemImpl
+import com.sagalogistics.backend.models.Order
+import com.sagalogistics.backend.models.OrderImpl
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -41,6 +43,12 @@ class FirstFragment : Fragment() {
         repo.updateItem(test2.key, test2)
 
         repo.deleteItem(test1.key)
+
+        val orderTest = OrderImpl()
+        orderTest.updateItem(test2.key, 5)
+        repo.addOrder(orderTest)
+        val orderTest2 = repo.getOrder(orderTest.key)
+
         //end of test
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
