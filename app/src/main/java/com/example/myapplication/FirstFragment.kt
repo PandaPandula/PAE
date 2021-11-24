@@ -46,13 +46,14 @@ class FirstFragment : Fragment() {
         orderTest.updateItem(test1.key, 2)
         orderTest.updateItem(test2.key, 5)
         repo.addOrder(orderTest)
-        val orderTest2 = repo.getOrder(orderTest.key)
+        var orderTest2 = repo.getOrder(orderTest.key)
 
         repo.deleteItem(test1.key)
+        orderTest2 = repo.getOrder(orderTest.key)
         orderTest.removeItem(test1.key)
         //repo.addItem(test1)
-        orderTest.updateItem(test1.key, 8)
-        repo.updateOrder(orderTest.key, orderTest)
+        //orderTest.updateItem(test1.key, 8)
+        //repo.updateOrder(orderTest.key, orderTest)
         //end of test
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)

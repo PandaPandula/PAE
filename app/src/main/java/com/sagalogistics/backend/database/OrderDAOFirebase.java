@@ -3,6 +3,7 @@ package com.sagalogistics.backend.database;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -13,6 +14,7 @@ import com.sagalogistics.backend.models.OrderImpl;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -33,7 +35,7 @@ public class OrderDAOFirebase implements OrderDAO{
         ExecutorService executor = Executors.newSingleThreadExecutor();
         return executor.submit(() -> {
             Task<DataSnapshot> task = ordersRef.child(key).get();
-            while(!task.isComplete());
+            Tasks.await(task);
             DataSnapshot data = task.getResult();
             Order order = data.getValue(OrderImpl.class);
             order.setKey(data.getKey());
@@ -56,7 +58,11 @@ public class OrderDAOFirebase implements OrderDAO{
     @Override
     public void deleteItem(String itemKey) {
         Task<DataSnapshot> task = ordersRef.get();
-        while(!task.isComplete()); //forcem concurrencia
+        try { //temporal; a Kotlin no caldra
+            Tasks.await(task); //forcem concurrencia
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
         if(task.isSuccessful()) {
             DataSnapshot data = task.getResult();
             if (data != null) {

@@ -3,6 +3,7 @@ package com.sagalogistics.backend.database;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,7 +34,7 @@ public class ItemDAOFirebase implements ItemDAO{
         ExecutorService executor = Executors.newSingleThreadExecutor();
         return executor.submit(() -> {
             Task<DataSnapshot> task = itemsRef.child(key).get();
-            while(!task.isComplete());
+            Tasks.await(task); //caldria considerar que passa si la tasca falla
             DataSnapshot data = task.getResult();
             Item item = data.getValue(ItemImpl.class);
             item.setKey(data.getKey());
