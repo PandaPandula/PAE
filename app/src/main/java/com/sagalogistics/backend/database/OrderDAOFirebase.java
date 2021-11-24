@@ -1,9 +1,13 @@
 package com.sagalogistics.backend.database;
 
+import androidx.annotation.NonNull;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.sagalogistics.backend.models.Order;
 import com.sagalogistics.backend.models.OrderImpl;
 
@@ -51,19 +55,8 @@ public class OrderDAOFirebase implements OrderDAO{
 
     @Override
     public void deleteItem(String itemKey) {
-        /*ordersRef.get().addOnCompleteListener(task -> {
-            if(task.isSuccessful()){
-                DataSnapshot data = task.getResult();
-                if (data != null) {
-                    Map<String, Object> orders = (Map<String, Object>) data.getValue();
-                    for(Map.Entry<String, Object> order : orders.entrySet()){
-                        ordersRef.child(order.getKey()).child(itemKey).removeValue();
-                    }
-                }
-            }
-        });*/
         Task<DataSnapshot> task = ordersRef.get();
-        while(!task.isComplete());
+        while(!task.isComplete()); //forcem concurrencia
         if(task.isSuccessful()) {
             DataSnapshot data = task.getResult();
             if (data != null) {
