@@ -13,54 +13,57 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-public class RepositoryImpl implements Repository{
+public class Repository {
+    private static Repository instance;
+
     private final ItemDAO itemDAO;
     private final OrderDAO orderDAO;
 
-    public RepositoryImpl(RepositoryFactory factory){
+    public static void initialize(RepositoryFactory factory){
+        if(instance == null)
+            instance = new Repository(factory);
+    }
+
+    public static Repository getInstance(){
+        return instance;
+    }
+
+    private Repository(RepositoryFactory factory){
         this.itemDAO = factory.createItemDAO();
         this.orderDAO = factory.createOrderDAO();
     }
 
-    @Override
     public void addItem(@NonNull Item item) {
         itemDAO.add(item);
     }
 
     @NonNull
-    @Override
     public Item getItem(@NotNull String key) throws Exception {
         return itemDAO.get(key).get();
     }
 
-    @Override
     public void updateItem(@NotNull String key, @NotNull Item item) {
         itemDAO.update(key, item);
     }
 
-    @Override
     public void deleteItem(@NotNull String key) {
         itemDAO.delete(key);
         orderDAO.deleteItem(key);
     }
 
-    @Override
     public void addOrder(@NonNull Order order) {
         orderDAO.add(order);
     }
 
     @NonNull
-    @Override
     public Order getOrder(@NonNull String key) throws Exception {
         return orderDAO.get(key).get();
     }
 
-    @Override
     public void updateOrder(@NonNull String key, @NonNull Order order) {
         orderDAO.update(key, order);
     }
 
-    @Override
     public void deleteOrder(@NonNull String key) {
         orderDAO.delete(key);
     }

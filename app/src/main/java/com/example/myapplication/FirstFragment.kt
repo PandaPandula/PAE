@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.databinding.FragmentFirstBinding
 import com.sagalogistics.backend.database.RepositoryFactoryFirebase
-import com.sagalogistics.backend.database.RepositoryImpl
+import com.sagalogistics.backend.database.Repository
 import com.sagalogistics.backend.models.ItemImpl
-import com.sagalogistics.backend.models.Order
 import com.sagalogistics.backend.models.OrderImpl
 
 /**
@@ -30,14 +29,13 @@ class FirstFragment : Fragment() {
     ): View? {
 
         //test
-        val repo = RepositoryImpl(RepositoryFactoryFirebase())
+        Repository.initialize(RepositoryFactoryFirebase())
+        val repo = Repository.getInstance()
         val test1 = ItemImpl("test1", 0.0F)
         repo.addItem(test1)
         val test2 = ItemImpl("test2", 0.0F)
         repo.addItem(test2)
 
-        val repo2 = RepositoryImpl(RepositoryFactoryFirebase())
-        val test1fetched = repo2.getItem(test1.key)
 
         test2.weight = 1.5F
         repo.updateItem(test2.key, test2)
@@ -51,8 +49,8 @@ class FirstFragment : Fragment() {
         repo.deleteItem(test1.key)
         orderTest.removeItem(test1.key)
         //repo.addItem(test1)
-        orderTest.updateItem(test1.key, 8)
-        repo.updateOrder(orderTest.key, orderTest)
+        //orderTest.updateItem(test1.key, 8)
+        //repo.updateOrder(orderTest.key, orderTest)
         //end of test
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
