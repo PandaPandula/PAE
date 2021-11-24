@@ -3,8 +3,6 @@ package com.sagalogistics.backend.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import androidx.annotation.NonNull;
-
 import com.google.firebase.database.Exclude;
 
 public class ItemImpl implements Item, Parcelable{
