@@ -22,9 +22,15 @@ public class ItemDAOFirebase implements ItemDAO{
 
     @Override
     public void add(@NonNull Item item) {
-        DatabaseReference pushedPostRef = itemsRef.push();
-        item.setKey(pushedPostRef.getKey());
-        pushedPostRef.setValue(item);
+        String key = item.getKey();
+        if(key == null){
+            DatabaseReference pushedPostRef = itemsRef.push();
+            item.setKey(pushedPostRef.getKey());
+            pushedPostRef.setValue(item);
+        }
+        else{
+            update(key, item); //reuse code
+        }
     }
 
     @NonNull

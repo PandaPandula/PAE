@@ -20,9 +20,15 @@ public class OrderDAOFirebase implements OrderDAO{
 
     @Override
     public void add(Order order) {
-        DatabaseReference pushedPostRef = ordersRef.push();
-        order.setKey(pushedPostRef.getKey());
-        pushedPostRef.setValue(order);
+        String key = order.getKey();
+        if(key == null){
+            DatabaseReference pushedPostRef = ordersRef.push();
+            order.setKey(pushedPostRef.getKey());
+            pushedPostRef.setValue(order);
+        }
+        else{
+            update(key, order);
+        }
     }
 
     @Override
@@ -52,20 +58,23 @@ public class OrderDAOFirebase implements OrderDAO{
 
     @Override
     public void deleteItem(String itemKey) {
-        Task<DataSnapshot> task = ordersRef.get();
-        try { //temporal; a Kotlin no caldra
-            Tasks.await(task); //forcem concurrencia
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        if(task.isSuccessful()) {
-            DataSnapshot data = task.getResult();
-            if (data != null) {
-                Map<String, Object> orders = (Map<String, Object>) data.getValue();
-                for (Map.Entry<String, Object> order : orders.entrySet()) {
-                    ordersRef.child(order.getKey()).child("items").child(itemKey).removeValue();
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.submit(() -> {
+            Task<DataSnapshot> task = ordersRef.get();
+            try {
+                Tasks.await(task);
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
+            }
+            if(task.isSuccessful()) {
+                DataSnapshot data = task.getResult();
+                if (data != null) {
+                    Map<String, Object> orders = (Map<String, Object>) data.getValue();
+                    for (Map.Entry<String, Object> order : orders.entrySet()) {
+                        ordersRef.child(order.getKey()).child("items").child(itemKey).removeValue();
+                    }
                 }
             }
-        }
+        });
     }
 }

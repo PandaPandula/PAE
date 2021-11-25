@@ -33,6 +33,7 @@ class FirstFragment : Fragment() {
         val repo = Repository.getInstance()
         val test1 = ItemImpl("test1", 0.0F)
         repo.addItem(test1)
+        repo.addItem(test1)
         val test2 = ItemImpl("test2", 0.0F)
         repo.addItem(test2)
 
