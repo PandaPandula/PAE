@@ -39,17 +39,17 @@ class FirstFragment : Fragment() {
 
 
         test2.weight = 1.5F
-        repo.updateItem(test2.key, test2)
+        test2.key?.let { repo.updateItem(it, test2) }
 
         val orderTest = OrderImpl()
-        orderTest.updateItem(test1.key, 2)
-        orderTest.updateItem(test2.key, 5)
+        test1.key?.let { orderTest.updateItem(it, 2) }
+        test2.key?.let { orderTest.updateItem(it, 5) }
         repo.addOrder(orderTest)
-        var orderTest2 = repo.getOrder(orderTest.key)
+        var orderTest2 = orderTest.key?.let { repo.getOrder(it) }
 
-        repo.deleteItem(test1.key)
-        orderTest2 = repo.getOrder(orderTest.key)
-        orderTest.removeItem(test1.key)
+        test1.key?.let { repo.deleteItem(it) }
+        orderTest2 = orderTest.key?.let { repo.getOrder(it) }
+        test1.key?.let { orderTest.removeItem(it) }
         //repo.addItem(test1)
         //orderTest.updateItem(test1.key, 8)
         //repo.updateOrder(orderTest.key, orderTest)
