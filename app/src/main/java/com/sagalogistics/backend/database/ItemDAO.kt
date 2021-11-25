@@ -5,7 +5,7 @@ import java.util.concurrent.Future
 
 interface ItemDAO {
     fun add(item: Item)
-    fun get(key: String): Future<Item>
+    fun get(key: String): Future<Item?>
     fun update(key: String, item: Item)
     fun delete(key: String)
 }
