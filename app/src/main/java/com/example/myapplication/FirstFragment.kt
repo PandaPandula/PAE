@@ -37,7 +37,6 @@ class FirstFragment : Fragment() {
         val test2 = ItemImpl("test2", 0.0F)
         repo.addItem(test2)
 
-
         test2.weight = 1.5F
         test2.key?.let { repo.updateItem(it, test2) }
 
@@ -50,6 +49,8 @@ class FirstFragment : Fragment() {
         test1.key?.let { repo.deleteItem(it) }
         orderTest2 = orderTest.key?.let { repo.getOrder(it) }
         test1.key?.let { orderTest.removeItem(it) }
+
+        val testnull = repo.getItem("keythatdoesnotexist")
         //repo.addItem(test1)
         //orderTest.updateItem(test1.key, 8)
         //repo.updateOrder(orderTest.key, orderTest)

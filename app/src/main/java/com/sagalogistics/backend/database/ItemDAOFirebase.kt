@@ -30,10 +30,10 @@ class ItemDAOFirebase : ItemDAO {
         return executor.submit(Callable {
             val task = itemsRef.child(key).get()
             Tasks.await(task)
-            if(task.isSuccessful){
-                val data = task.result
-                val item: Item? = data!!.getValue(ItemImpl::class.java)
-                item!!.key = data.key
+            val data = task.result
+            val item: Item? = data!!.getValue(ItemImpl::class.java)
+            if(item != null){
+                item.key = data.key
                 item
             }
             else{

@@ -22,7 +22,7 @@ class OrderDAOFirebase : OrderDAO {
             order.key = pushedPostRef.key
             pushedPostRef.setValue(order)
         } else {
-            update(key, order)
+            update(key, order) //reuse code
         }
     }
 
@@ -31,10 +31,10 @@ class OrderDAOFirebase : OrderDAO {
         return executor.submit(Callable {
             val task = ordersRef.child(key).get()
             Tasks.await(task)
-            if(task.isSuccessful){
-                val data = task.result
-                val order: Order? = data!!.getValue(OrderImpl::class.java)
-                order!!.key = data.key
+            val data = task.result
+            val order: Order? = data!!.getValue(OrderImpl::class.java)
+            if(order != null){
+                order.key = data.key
                 order
             }
             else{
