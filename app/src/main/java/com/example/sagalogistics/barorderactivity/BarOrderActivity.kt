@@ -5,13 +5,9 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sagalogistics.backend.database.Repository
-import com.sagalogistics.backend.database.RepositoryFactory
-import com.sagalogistics.backend.database.RepositoryFactoryFirebase
 import com.sagalogistics.backend.models.ItemImpl
-import com.sagalogistics.backend.models.OrderImpl
 
-class MainActivity : Activity()
+class BarOrderActivity : Activity()
 {
     lateinit var mRecyclerView : RecyclerView
 
@@ -37,7 +33,7 @@ class MainActivity : Activity()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_order_bar)
         setUpRecyclerView()
     }
 
