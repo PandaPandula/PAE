@@ -6,4 +6,5 @@ interface Item : Serializable {
     var key: String?
     var name: String
     var weight: Float
+    var image: String?
 }
