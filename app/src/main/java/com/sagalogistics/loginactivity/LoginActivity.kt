@@ -1,13 +1,13 @@
-package com.example.sagalogistics.loginactivity
+package com.sagalogistics.loginactivity
 
 import android.app.Activity
 import android.os.Bundle
-import com.example.sagalogistics.R
-import com.example.sagalogistics.registeractivity.RegisterActivity
+import com.sagalogistics.R
+import com.sagalogistics.registeractivity.RegisterActivity
 
 import android.content.Intent
 import android.view.View
-import com.example.sagalogistics.BarOrderActivity
+import com.sagalogistics.BarOrderActivity
 
 
 class LoginActivity : Activity(){

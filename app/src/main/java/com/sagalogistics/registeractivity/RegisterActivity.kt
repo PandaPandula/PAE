@@ -1,17 +1,14 @@
-package com.example.sagalogistics.registeractivity
+package com.sagalogistics.registeractivity
 
 import android.app.Activity
 import android.os.Bundle
 
-import com.example.sagalogistics.loginactivity.LoginActivity
+import com.sagalogistics.loginactivity.LoginActivity
 
 import android.content.Intent
-import android.view.WindowManager
 
-import android.os.Build
 import android.view.View
-import android.view.Window
-import com.example.sagalogistics.R
+import com.sagalogistics.R
 
 
 class RegisterActivity: Activity(){

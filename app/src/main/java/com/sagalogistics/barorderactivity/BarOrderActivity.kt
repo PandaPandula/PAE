@@ -1,4 +1,4 @@
-package com.example.sagalogistics
+package com.sagalogistics
 
 import CustomAdapter
 import android.app.Activity

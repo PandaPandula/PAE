@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.sagalogistics.R
+import com.sagalogistics.R
 import com.sagalogistics.backend.models.ItemImpl
 import com.squareup.picasso.Picasso
 
