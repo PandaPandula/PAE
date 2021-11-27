@@ -22,31 +22,30 @@ class OrderImpl : Order, Parcelable {
     override var items: MutableMap<String, Int>
         get() = LinkedHashMap(_items)
         set(value) {
-            _items = value
+            _items = LinkedHashMap(value)
         }
     private var _items: MutableMap<String, Int> = LinkedHashMap()
 
+    /**
+     * Empty constructor; needed for Firebase to serialize the result of a query
+     */
     constructor() {}
 
-    constructor(key: String?, items: MutableMap<String, Int>) {
+    constructor(key: String? = null, items: MutableMap<String, Int>) {
         this.key = key
         this._items = items
     }
 
-    constructor(items: MutableMap<String, Int>) {
-        this._items = items
+    override fun updateItem(itemKey: String, quantity: Int) {
+        _items[itemKey] = quantity
     }
 
-    override fun updateItem(key: String, quantity: Int) {
-        _items[key] = quantity
+    override fun getQuantityItem(itemKey: String): Int? {
+        return _items[itemKey]
     }
 
-    override fun getQuantityItem(key: String): Int? {
-        return _items[key]
-    }
-
-    override fun removeItem(key: String) {
-        _items.remove(key)
+    override fun removeItem(itemKey: String) {
+        _items.remove(itemKey)
     }
 
     constructor(parcel: Parcel) {

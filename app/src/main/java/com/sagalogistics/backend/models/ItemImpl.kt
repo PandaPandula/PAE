@@ -28,19 +28,8 @@ class ItemImpl : Item, Parcelable {
      */
     constructor() {}
 
-    constructor(key: String?, name: String, weight: Float) {
+    constructor(key: String? = null, name: String, weight: Float, image: String? = null) {
         this.key = key
-        this.name = name
-        this.weight = weight
-        this.image = image
-    }
-
-    constructor(name: String, weight: Float, image: String?) {
-        this.name = name
-        this.weight = weight
-        this.image = image
-    }
-    constructor(name: String, weight: Float) {
         this.name = name
         this.weight = weight
         this.image = image
@@ -50,7 +39,7 @@ class ItemImpl : Item, Parcelable {
         key = parcel.readString()
         name = parcel.readString()!!
         weight = parcel.readFloat()
-        image = parcel.readString()!!
+        image = parcel.readString()
     }
 
     override fun describeContents(): Int {

@@ -16,7 +16,7 @@ class OrderImplTest {
     @Test
     fun test_shallow_copy(){
         var test = HashMap<String, Item>()
-        test.put("a", ItemImpl("test", 0.0f))
+        test.put("a", ItemImpl(name = "test", weight = 0.0f))
         var test2 = HashMap<String, Item>(test)
         var item = test2.get("a")
         if (item != null) {

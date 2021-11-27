@@ -25,7 +25,7 @@ class ItemDAOFirebase : ItemDAO {
         }
     }
 
-    override operator fun get(key: String): Future<Item?> {
+    override fun get(key: String): Future<Item?> {
         val executor = Executors.newSingleThreadExecutor()
         return executor.submit(Callable {
             val task = itemsRef.child(key).get()
