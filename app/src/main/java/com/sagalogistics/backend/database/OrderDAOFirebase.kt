@@ -57,19 +57,13 @@ class OrderDAOFirebase : OrderDAO {
         val executor = Executors.newSingleThreadExecutor()
         executor.submit {
             val task = ordersRef.get()
-            try {
-                Tasks.await(task)
-            } catch (e: ExecutionException) {
-                e.printStackTrace()
-            } catch (e: InterruptedException) {
-                e.printStackTrace()
-            }
+            Tasks.await(task)
             if (task.isSuccessful) {
                 val data = task.result
                 if (data != null) {
-                    val orders = data.value as Map<String, Any>?
+                    val orders = data.value as Map<*, *>?
                     for ((key) in orders!!) {
-                        ordersRef.child(key).child("items").child(itemKey).removeValue()
+                        ordersRef.child(key as String).child("items").child(itemKey).removeValue()
                     }
                 }
             }
