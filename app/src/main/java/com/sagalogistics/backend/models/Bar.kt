@@ -1,6 +1,8 @@
 package com.sagalogistics.backend.models
 
-interface Bar {
+import java.io.Serializable
+
+interface Bar : Serializable{
     var key: String?
     var name: String
     var orders: MutableList<String>

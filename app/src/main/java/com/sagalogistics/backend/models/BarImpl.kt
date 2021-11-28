@@ -28,6 +28,12 @@ class BarImpl : Bar, Parcelable{
 
     constructor() {}
 
+    constructor(key: String? = null, name: String, orders: MutableList<String>){
+        this.key = key
+        this.name = name
+        this._orders = orders
+    }
+
     override fun addOrder(orderKey: String) {
         _orders.add(orderKey)
     }
