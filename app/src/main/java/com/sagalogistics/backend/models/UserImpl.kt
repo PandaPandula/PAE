@@ -28,7 +28,7 @@ class UserImpl : User, Parcelable{
     constructor(key: String? = null, name: String, bars: MutableList<String>){
         this.key = key
         this.name = name
-        this._bars = bars
+        this.bars = bars
     }
 
     override fun addBar(barKey: String) {
@@ -42,7 +42,7 @@ class UserImpl : User, Parcelable{
     constructor(parcel: Parcel) {
         key = parcel.readString()
         name = parcel.readString()!!
-        parcel.readList(_bars, MutableList::class.java.classLoader)
+        parcel.readList(bars, MutableList::class.java.classLoader)
     }
 
     override fun writeToParcel(dest: Parcel, flags: Int) {

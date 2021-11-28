@@ -31,7 +31,7 @@ class BarImpl : Bar, Parcelable{
     constructor(key: String? = null, name: String, orders: MutableList<String>){
         this.key = key
         this.name = name
-        this._orders = orders
+        this.orders = orders
     }
 
     override fun addOrder(orderKey: String) {
@@ -45,7 +45,7 @@ class BarImpl : Bar, Parcelable{
     constructor(parcel: Parcel) {
         key = parcel.readString()
         name = parcel.readString()!!
-        parcel.readList(_orders, MutableList::class.java.classLoader)
+        parcel.readList(orders, MutableList::class.java.classLoader)
     }
 
     override fun writeToParcel(dest: Parcel, flags: Int) {

@@ -6,11 +6,14 @@ import org.junit.Test
 class OrderImplTest {
     @Test
     fun test_true_private(){
-        var test = OrderImpl()
+        var map = HashMap<String, Int>()
+        map.put("adeu", 10)
+        var test = OrderImpl(items = map)
         test.updateItem("hola", 0)
         var test2 = test.items
         test2["hola"] = 1
         Assert.assertEquals(0, test.getQuantityItem("hola"))
+        Assert.assertEquals(10, test.getQuantityItem("adeu"))
     }
 
     @Test

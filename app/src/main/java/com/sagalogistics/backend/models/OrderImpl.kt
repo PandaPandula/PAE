@@ -33,7 +33,7 @@ class OrderImpl : Order, Parcelable {
 
     constructor(key: String? = null, items: MutableMap<String, Int>) {
         this.key = key
-        this._items = items
+        this.items = items
     }
 
     override fun updateItem(itemKey: String, quantity: Int) {
@@ -50,7 +50,7 @@ class OrderImpl : Order, Parcelable {
 
     constructor(parcel: Parcel) {
         key = parcel.readString()
-        parcel.readMap(_items, MutableMap::class.java.classLoader)
+        parcel.readMap(items, MutableMap::class.java.classLoader)
     }
 
     override fun describeContents(): Int {
