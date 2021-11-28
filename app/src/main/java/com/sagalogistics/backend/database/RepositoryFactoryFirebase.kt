@@ -8,4 +8,12 @@ class RepositoryFactoryFirebase : RepositoryFactory {
     override fun createOrderDAO(): OrderDAO {
         return OrderDAOFirebase()
     }
+
+    override fun createBarDAO(): BarDAO {
+        return BarDAOFirebase()
+    }
+
+    override fun createUserDAO(): UserDAO {
+        return UserDAOFirebase()
+    }
 }
