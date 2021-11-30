@@ -7,14 +7,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
-import com.sagalogistics.backend.implementation.models.ItemImpl
+import com.sagalogistics.backend.api.models.Item
 import com.squareup.picasso.Picasso
 
-class CustomAdapter (private val items: List<ItemImpl>): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
+class CustomAdapter (private val items: List<Item>): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
 
     lateinit var context: Context
     class ItemHolder(private val view: View): RecyclerView.ViewHolder(view) {
-        fun render(item: ItemImpl) {
+        fun render(item: Item) {
 
             val itemName = view.findViewById<TextView>(R.id.name)
             val itemWeight = view.findViewById<TextView>(R.id.weight)

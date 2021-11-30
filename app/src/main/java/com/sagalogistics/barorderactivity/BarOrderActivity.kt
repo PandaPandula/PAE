@@ -5,13 +5,14 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sagalogistics.backend.api.models.Item
 import com.sagalogistics.backend.implementation.models.ItemImpl
 
 class BarOrderActivity : Activity()
 {
     lateinit var mRecyclerView : RecyclerView
 
-    private var items: List<ItemImpl> = listOf(
+    private var items: List<Item> = listOf(
         ItemImpl(name = "Pito",weight = 3f,image = "https://res.cloudinary.com/teepublic/image/private/s--AO0td9Wb--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1602419580/production/designs/14927736_0.jpg"),
         ItemImpl(name = "Pito",weight = 3f,image = "https://res.cloudinary.com/teepublic/image/private/s--AO0td9Wb--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1602419580/production/designs/14927736_0.jpg"),
         ItemImpl(name = "Pito",weight = 3f,image = "https://res.cloudinary.com/teepublic/image/private/s--AO0td9Wb--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_000000,e_outline:48/co_000000,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1602419580/production/designs/14927736_0.jpg"),
