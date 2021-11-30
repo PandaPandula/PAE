@@ -1,9 +1,10 @@
-package com.sagalogistics.backend.database
+package com.sagalogistics.backend.implementation.database
 
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.database.FirebaseDatabase
-import com.sagalogistics.backend.models.Bar
-import com.sagalogistics.backend.models.BarImpl
+import com.sagalogistics.backend.api.database.BarDAO
+import com.sagalogistics.backend.api.models.Bar
+import com.sagalogistics.backend.implementation.models.BarImpl
 import java.util.concurrent.Callable
 import java.util.concurrent.Executors
 import java.util.concurrent.Future

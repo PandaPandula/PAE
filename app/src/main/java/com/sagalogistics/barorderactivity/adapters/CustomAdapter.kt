@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
-import com.sagalogistics.backend.models.ItemImpl
+import com.sagalogistics.backend.implementation.models.ItemImpl
 import com.squareup.picasso.Picasso
 
 class CustomAdapter (private val items: List<ItemImpl>): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {

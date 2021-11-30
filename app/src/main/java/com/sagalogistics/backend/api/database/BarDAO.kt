@@ -1,6 +1,6 @@
-package com.sagalogistics.backend.database
+package com.sagalogistics.backend.api.database
 
-import com.sagalogistics.backend.models.Bar
+import com.sagalogistics.backend.api.models.Bar
 import java.util.concurrent.Future
 
 interface BarDAO {

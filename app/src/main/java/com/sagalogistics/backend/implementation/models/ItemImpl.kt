@@ -1,9 +1,10 @@
-package com.sagalogistics.backend.models
+package com.sagalogistics.backend.implementation.models
 
 import android.os.Parcelable
 import com.google.firebase.database.Exclude
 import android.os.Parcel
 import android.os.Parcelable.Creator
+import com.sagalogistics.backend.api.models.Item
 
 class ItemImpl : Item, Parcelable {
     companion object CREATOR : Creator<ItemImpl> {

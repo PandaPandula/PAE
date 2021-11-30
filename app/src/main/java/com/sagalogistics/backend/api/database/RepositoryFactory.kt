@@ -1,4 +1,4 @@
-package com.sagalogistics.backend.database
+package com.sagalogistics.backend.api.database
 
 interface RepositoryFactory {
     fun createItemDAO(): ItemDAO

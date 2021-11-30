@@ -1,5 +1,7 @@
-package com.sagalogistics.backend.models
+package com.sagalogistics.backend.api.models
 
+import com.sagalogistics.backend.implementation.models.ItemImpl
+import com.sagalogistics.backend.implementation.models.OrderImpl
 import org.junit.Assert
 import org.junit.Test
 

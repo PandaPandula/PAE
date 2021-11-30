@@ -1,6 +1,6 @@
-package com.sagalogistics.backend.database
+package com.sagalogistics.backend.api.database
 
-import com.sagalogistics.backend.models.User
+import com.sagalogistics.backend.api.models.User
 import java.util.concurrent.Future
 
 interface UserDAO {

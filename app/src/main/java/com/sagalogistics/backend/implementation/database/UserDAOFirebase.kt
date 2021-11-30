@@ -1,9 +1,10 @@
-package com.sagalogistics.backend.database
+package com.sagalogistics.backend.implementation.database
 
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.database.FirebaseDatabase
-import com.sagalogistics.backend.models.User
-import com.sagalogistics.backend.models.UserImpl
+import com.sagalogistics.backend.api.database.UserDAO
+import com.sagalogistics.backend.api.models.User
+import com.sagalogistics.backend.implementation.models.UserImpl
 import java.util.concurrent.Callable
 import java.util.concurrent.Executors
 import java.util.concurrent.Future

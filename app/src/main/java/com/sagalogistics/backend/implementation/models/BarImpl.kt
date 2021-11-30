@@ -1,8 +1,9 @@
-package com.sagalogistics.backend.models
+package com.sagalogistics.backend.implementation.models
 
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.firebase.database.Exclude
+import com.sagalogistics.backend.api.models.Bar
 
 class BarImpl : Bar, Parcelable{
     companion object CREATOR : Parcelable.Creator<BarImpl> {

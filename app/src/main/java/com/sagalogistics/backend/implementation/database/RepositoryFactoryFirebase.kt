@@ -1,4 +1,6 @@
-package com.sagalogistics.backend.database
+package com.sagalogistics.backend.implementation.database
+
+import com.sagalogistics.backend.api.database.*
 
 class RepositoryFactoryFirebase : RepositoryFactory {
     override fun createItemDAO(): ItemDAO {

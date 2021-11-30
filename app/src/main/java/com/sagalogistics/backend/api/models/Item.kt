@@ -1,4 +1,4 @@
-package com.sagalogistics.backend.models
+package com.sagalogistics.backend.api.models
 
 import java.io.Serializable
 

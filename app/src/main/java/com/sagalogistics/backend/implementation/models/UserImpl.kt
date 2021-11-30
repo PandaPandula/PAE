@@ -1,7 +1,8 @@
-package com.sagalogistics.backend.models
+package com.sagalogistics.backend.implementation.models
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.sagalogistics.backend.api.models.User
 
 class UserImpl : User, Parcelable{
     companion object CREATOR : Parcelable.Creator<UserImpl> {

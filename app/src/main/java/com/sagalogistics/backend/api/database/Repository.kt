@@ -1,9 +1,9 @@
-package com.sagalogistics.backend.database
+package com.sagalogistics.backend.api.database
 
-import com.sagalogistics.backend.models.Bar
-import com.sagalogistics.backend.models.Item
-import com.sagalogistics.backend.models.Order
-import com.sagalogistics.backend.models.User
+import com.sagalogistics.backend.api.models.Bar
+import com.sagalogistics.backend.api.models.Item
+import com.sagalogistics.backend.api.models.Order
+import com.sagalogistics.backend.api.models.User
 import java.lang.NullPointerException
 
 class Repository private constructor(factory: RepositoryFactory) {

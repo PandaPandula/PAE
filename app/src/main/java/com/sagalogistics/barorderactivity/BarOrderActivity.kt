@@ -5,7 +5,7 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sagalogistics.backend.models.ItemImpl
+import com.sagalogistics.backend.implementation.models.ItemImpl
 
 class BarOrderActivity : Activity()
 {
