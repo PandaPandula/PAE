@@ -1,3 +1,4 @@
+package com.sagalogistics.barorderactivity.adapters
 
 import android.content.Context
 import android.view.LayoutInflater

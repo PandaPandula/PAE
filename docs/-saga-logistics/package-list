@@ -1,16 +1,5 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:////PointingToDeclaration/-saga-logistics/[root]/index.html
-$dokka.location:/CustomAdapter.ItemHolder///PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/-item-holder/index.html
-$dokka.location:/CustomAdapter.ItemHolder/ItemHolder/#android.view.View/PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/-item-holder/-item-holder.html
-$dokka.location:/CustomAdapter.ItemHolder/loadUrl/android.widget.ImageView#kotlin.String/PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/-item-holder/load-url.html
-$dokka.location:/CustomAdapter.ItemHolder/render/#com.sagalogistics.backend.api.models.Item/PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/-item-holder/render.html
-$dokka.location:/CustomAdapter///PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/index.html
-$dokka.location:/CustomAdapter/CustomAdapter/#kotlin.collections.List[com.sagalogistics.backend.api.models.Item]/PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/-custom-adapter.html
-$dokka.location:/CustomAdapter/context/#/PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/context.html
-$dokka.location:/CustomAdapter/getItemCount/#/PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/get-item-count.html
-$dokka.location:/CustomAdapter/onBindViewHolder/#CustomAdapter.ItemHolder#kotlin.Int/PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/on-bind-view-holder.html
-$dokka.location:/CustomAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/-saga-logistics/[root]/-custom-adapter/on-create-view-holder.html
 $dokka.location:com.sagalogistics.backend.api.database////PointingToDeclaration/-saga-logistics/com.sagalogistics.backend.api.database/index.html
 $dokka.location:com.sagalogistics.backend.api.database/BarDAO///PointingToDeclaration/-saga-logistics/com.sagalogistics.backend.api.database/-bar-d-a-o/index.html
 $dokka.location:com.sagalogistics.backend.api.database/BarDAO/add/#com.sagalogistics.backend.api.models.Bar/PointingToDeclaration/-saga-logistics/com.sagalogistics.backend.api.database/-bar-d-a-o/add.html
@@ -178,33 +167,8 @@ $dokka.location:com.sagalogistics.backend.implementation.models/UserImpl/key/#/P
 $dokka.location:com.sagalogistics.backend.implementation.models/UserImpl/name/#/PointingToDeclaration/-saga-logistics/com.sagalogistics.backend.implementation.models/-user-impl/name.html
 $dokka.location:com.sagalogistics.backend.implementation.models/UserImpl/removeBar/#kotlin.String/PointingToDeclaration/-saga-logistics/com.sagalogistics.backend.implementation.models/-user-impl/remove-bar.html
 $dokka.location:com.sagalogistics.backend.implementation.models/UserImpl/writeToParcel/#android.os.Parcel#kotlin.Int/PointingToDeclaration/-saga-logistics/com.sagalogistics.backend.implementation.models/-user-impl/write-to-parcel.html
-$dokka.location:com.sagalogistics.barorderactivity////PointingToDeclaration/-saga-logistics/com.sagalogistics.barorderactivity/index.html
-$dokka.location:com.sagalogistics.barorderactivity/BarOrderViewModel///PointingToDeclaration/-saga-logistics/com.sagalogistics.barorderactivity/-bar-order-view-model/index.html
-$dokka.location:com.sagalogistics.barorderactivity/BarOrderViewModel/BarOrderViewModel/#/PointingToDeclaration/-saga-logistics/com.sagalogistics.barorderactivity/-bar-order-view-model/-bar-order-view-model.html
-$dokka.location:com.sagalogistics.loginactivity////PointingToDeclaration/-saga-logistics/com.sagalogistics.loginactivity/index.html
-$dokka.location:com.sagalogistics.loginactivity/LoginActivity///PointingToDeclaration/-saga-logistics/com.sagalogistics.loginactivity/-login-activity/index.html
-$dokka.location:com.sagalogistics.loginactivity/LoginActivity/LoginActivity/#/PointingToDeclaration/-saga-logistics/com.sagalogistics.loginactivity/-login-activity/-login-activity.html
-$dokka.location:com.sagalogistics.loginactivity/LoginActivity/checkAndLogin/#android.view.View?/PointingToDeclaration/-saga-logistics/com.sagalogistics.loginactivity/-login-activity/check-and-login.html
-$dokka.location:com.sagalogistics.loginactivity/LoginActivity/onLoginClick/#android.view.View?/PointingToDeclaration/-saga-logistics/com.sagalogistics.loginactivity/-login-activity/on-login-click.html
-$dokka.location:com.sagalogistics.loginactivity/LoginActivityViewModel///PointingToDeclaration/-saga-logistics/com.sagalogistics.loginactivity/-login-activity-view-model/index.html
-$dokka.location:com.sagalogistics.loginactivity/LoginActivityViewModel/LoginActivityViewModel/#/PointingToDeclaration/-saga-logistics/com.sagalogistics.loginactivity/-login-activity-view-model/-login-activity-view-model.html
-$dokka.location:com.sagalogistics.registeractivity////PointingToDeclaration/-saga-logistics/com.sagalogistics.registeractivity/index.html
-$dokka.location:com.sagalogistics.registeractivity/RegisterActivity///PointingToDeclaration/-saga-logistics/com.sagalogistics.registeractivity/-register-activity/index.html
-$dokka.location:com.sagalogistics.registeractivity/RegisterActivity/RegisterActivity/#/PointingToDeclaration/-saga-logistics/com.sagalogistics.registeractivity/-register-activity/-register-activity.html
-$dokka.location:com.sagalogistics.registeractivity/RegisterActivity/onLoginClick/#android.view.View?/PointingToDeclaration/-saga-logistics/com.sagalogistics.registeractivity/-register-activity/on-login-click.html
-$dokka.location:com.sagalogistics.registeractivity/RegisterActivityViewModel///PointingToDeclaration/-saga-logistics/com.sagalogistics.registeractivity/-register-activity-view-model/index.html
-$dokka.location:com.sagalogistics.registeractivity/RegisterActivityViewModel/RegisterActivityViewModel/#/PointingToDeclaration/-saga-logistics/com.sagalogistics.registeractivity/-register-activity-view-model/-register-activity-view-model.html
-$dokka.location:com.sagalogistics////PointingToDeclaration/-saga-logistics/com.sagalogistics/index.html
-$dokka.location:com.sagalogistics/BarOrderActivity///PointingToDeclaration/-saga-logistics/com.sagalogistics/-bar-order-activity/index.html
-$dokka.location:com.sagalogistics/BarOrderActivity/BarOrderActivity/#/PointingToDeclaration/-saga-logistics/com.sagalogistics/-bar-order-activity/-bar-order-activity.html
-$dokka.location:com.sagalogistics/BarOrderActivity/mRecyclerView/#/PointingToDeclaration/-saga-logistics/com.sagalogistics/-bar-order-activity/m-recycler-view.html
-$dokka.location:com.sagalogistics/BarOrderActivity/setUpRecyclerView/#/PointingToDeclaration/-saga-logistics/com.sagalogistics/-bar-order-activity/set-up-recycler-view.html
-com.sagalogistics
 com.sagalogistics.backend.api.database
 com.sagalogistics.backend.api.models
 com.sagalogistics.backend.implementation.database
 com.sagalogistics.backend.implementation.models
-com.sagalogistics.barorderactivity
-com.sagalogistics.loginactivity
-com.sagalogistics.registeractivity
 
