@@ -1,7 +1,8 @@
 package com.sagalogistics.backend.implementation.database
 
 import com.google.android.gms.tasks.Tasks
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.sagalogistics.backend.api.database.UserDAO
 import com.sagalogistics.backend.api.models.User
 import com.sagalogistics.backend.implementation.models.UserImpl
@@ -11,7 +12,7 @@ import java.util.concurrent.Future
 
 class UserDAOFirebase : UserDAO {
     companion object {
-        private val database = FirebaseDatabase.getInstance()
+        private val database = Firebase.database
         private val usersRef = database.getReference("users")
     }
 

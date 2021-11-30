@@ -1,7 +1,8 @@
 package com.sagalogistics.backend.implementation.database
 
 import com.google.android.gms.tasks.Tasks
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.sagalogistics.backend.api.database.BarDAO
 import com.sagalogistics.backend.api.models.Bar
 import com.sagalogistics.backend.implementation.models.BarImpl
@@ -11,7 +12,7 @@ import java.util.concurrent.Future
 
 class BarDAOFirebase : BarDAO {
     companion object {
-        private val database = FirebaseDatabase.getInstance()
+        private val database = Firebase.database
         private val barsRef = database.getReference("bars")
     }
 

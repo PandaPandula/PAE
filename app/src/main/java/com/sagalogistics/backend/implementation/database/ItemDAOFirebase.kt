@@ -2,7 +2,8 @@ package com.sagalogistics.backend.implementation.database
 
 import com.google.android.gms.tasks.Tasks
 import com.sagalogistics.backend.implementation.models.ItemImpl
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.sagalogistics.backend.api.database.ItemDAO
 import com.sagalogistics.backend.api.models.Item
 import java.util.concurrent.Callable
@@ -11,7 +12,7 @@ import java.util.concurrent.Future
 
 class ItemDAOFirebase : ItemDAO {
     companion object {
-        private val database = FirebaseDatabase.getInstance()
+        private val database = Firebase.database
         private val itemsRef = database.getReference("items")
     }
 
