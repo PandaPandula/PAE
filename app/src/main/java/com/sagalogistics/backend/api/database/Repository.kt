@@ -7,10 +7,31 @@ import com.sagalogistics.backend.api.models.User
 import java.lang.NullPointerException
 import java.util.concurrent.Future
 
+/**
+ * Class in charge of managing communication with the database
+ *
+ * @author Gerard Queralt
+ * @constructor the [factory] responsible for creating each DAO
+ */
 class Repository private constructor(factory: RepositoryFactory) {
+    /**
+     * The DAO of the [Item] class
+     */
     private val itemDAO: ItemDAO = factory.createItemDAO()
+
+    /**
+     * The DAO of the [Order] class
+     */
     private val orderDAO: OrderDAO = factory.createOrderDAO()
+
+    /**
+     * The DAO of the [Bar] class
+     */
     private val barDAO: BarDAO = factory.createBarDAO()
+
+    /**
+     * The DAO of the [User] class
+     */
     private val userDAO: UserDAO = factory.createUserDAO()
 
     fun addItem(item: Item) {

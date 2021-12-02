@@ -62,6 +62,11 @@ $dokka.location:com.sagalogistics.backend.api.database/UserDAO/delete/#kotlin.St
 $dokka.location:com.sagalogistics.backend.api.database/UserDAO/deleteBar/#kotlin.String/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.database/-user-d-a-o/delete-bar.html
 $dokka.location:com.sagalogistics.backend.api.database/UserDAO/get/#kotlin.String/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.database/-user-d-a-o/get.html
 $dokka.location:com.sagalogistics.backend.api.database/UserDAO/update/#kotlin.String#com.sagalogistics.backend.api.models.User/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.database/-user-d-a-o/update.html
+$dokka.location:com.sagalogistics.backend.api.database/WeightCalculator.Companion///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.database/-weight-calculator/-companion/index.html
+$dokka.location:com.sagalogistics.backend.api.database/WeightCalculator.Companion/weightOfItemInOrder/#com.sagalogistics.backend.api.models.Order#kotlin.String/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.database/-weight-calculator/-companion/weight-of-item-in-order.html
+$dokka.location:com.sagalogistics.backend.api.database/WeightCalculator.Companion/weightOfOrder/#com.sagalogistics.backend.api.models.Order/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.database/-weight-calculator/-companion/weight-of-order.html
+$dokka.location:com.sagalogistics.backend.api.database/WeightCalculator///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.database/-weight-calculator/index.html
+$dokka.location:com.sagalogistics.backend.api.database/WeightCalculator/WeightCalculator/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.database/-weight-calculator/-weight-calculator.html
 $dokka.location:com.sagalogistics.backend.api.models////PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/index.html
 $dokka.location:com.sagalogistics.backend.api.models/Bar///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-bar/index.html
 $dokka.location:com.sagalogistics.backend.api.models/Bar/addOrder/#kotlin.String/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-bar/add-order.html
@@ -86,11 +91,6 @@ $dokka.location:com.sagalogistics.backend.api.models/User/bars/#/PointingToDecla
 $dokka.location:com.sagalogistics.backend.api.models/User/key/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-user/key.html
 $dokka.location:com.sagalogistics.backend.api.models/User/name/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-user/name.html
 $dokka.location:com.sagalogistics.backend.api.models/User/removeBar/#kotlin.String/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-user/remove-bar.html
-$dokka.location:com.sagalogistics.backend.api.models/WeightCalculator.Companion///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-weight-calculator/-companion/index.html
-$dokka.location:com.sagalogistics.backend.api.models/WeightCalculator.Companion/weightOfItemInOrder/#com.sagalogistics.backend.api.models.Order#kotlin.String/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-weight-calculator/-companion/weight-of-item-in-order.html
-$dokka.location:com.sagalogistics.backend.api.models/WeightCalculator.Companion/weightOfOrder/#com.sagalogistics.backend.api.models.Order/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-weight-calculator/-companion/weight-of-order.html
-$dokka.location:com.sagalogistics.backend.api.models/WeightCalculator///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-weight-calculator/index.html
-$dokka.location:com.sagalogistics.backend.api.models/WeightCalculator/WeightCalculator/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-weight-calculator/-weight-calculator.html
 $dokka.location:com.sagalogistics.backend.implementation.database////PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.database/index.html
 $dokka.location:com.sagalogistics.backend.implementation.database/BarDAOFirebase.Companion///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.database/-bar-d-a-o-firebase/-companion/index.html
 $dokka.location:com.sagalogistics.backend.implementation.database/BarDAOFirebase.Companion/barsRef/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.database/-bar-d-a-o-firebase/-companion/bars-ref.html
