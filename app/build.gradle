@@ -42,24 +42,12 @@ android {
 tasks.dokkaHtml.configure {
     outputDirectory.set(file("../docs"))
     moduleName.set("Saga Logistics")
-}
-
-tasks.withType(dokkaHtml.getClass()).configureEach {
-    pluginsMapConfiguration.set(
-            ["org.jetbrains.dokka.base.DokkaBase": """{ "separateInheritedMembers": true}"""]
-    )
-}
-
-dokkaHtml.configure {
     dokkaSourceSets {
         named("main") {
             perPackageOption {
-                matchingRegex.set("[root]")
-                suppress.set(true)
-            }
-            perPackageOption {
                 matchingRegex.set("com.sagalogistics.*")
                 suppress.set(true)
+                includeNonPublic.set(true)
             }
             perPackageOption {
                 matchingRegex.set("com.sagalogistics.backend.*")
@@ -67,6 +55,12 @@ dokkaHtml.configure {
             }
         }
     }
+}
+
+tasks.withType(dokkaHtml.getClass()).configureEach {
+    pluginsMapConfiguration.set(
+            ["org.jetbrains.dokka.base.DokkaBase": """{ "separateInheritedMembers": true}"""]
+    )
 }
 
 dependencies {
