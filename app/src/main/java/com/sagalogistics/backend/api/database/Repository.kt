@@ -5,6 +5,7 @@ import com.sagalogistics.backend.api.models.Item
 import com.sagalogistics.backend.api.models.Order
 import com.sagalogistics.backend.api.models.User
 import java.lang.NullPointerException
+import java.util.concurrent.Future
 
 class Repository private constructor(factory: RepositoryFactory) {
     private val itemDAO: ItemDAO = factory.createItemDAO()
@@ -29,8 +30,8 @@ class Repository private constructor(factory: RepositoryFactory) {
         itemDAO.add(item)
     }
 
-    fun getItem(key: String): Item? {
-        return itemDAO.get(key).get()
+    fun getItem(key: String): Future<Item?> {
+        return itemDAO.get(key)
     }
 
     fun updateItem(key: String, item: Item) {
@@ -46,8 +47,8 @@ class Repository private constructor(factory: RepositoryFactory) {
         orderDAO.add(order)
     }
 
-    fun getOrder(key: String): Order? {
-        return orderDAO.get(key).get()
+    fun getOrder(key: String): Future<Order?> {
+        return orderDAO.get(key)
     }
 
     fun updateOrder(key: String, order: Order) {
@@ -63,8 +64,8 @@ class Repository private constructor(factory: RepositoryFactory) {
         barDAO.add(bar)
     }
 
-    fun getBar(key: String): Bar? {
-        return barDAO.get(key).get()
+    fun getBar(key: String): Future<Bar?> {
+        return barDAO.get(key)
     }
 
     fun updateBar(key: String, bar: Bar) {
@@ -80,8 +81,8 @@ class Repository private constructor(factory: RepositoryFactory) {
         userDAO.add(user)
     }
 
-    fun getUser(key: String): User? {
-        return userDAO.get(key).get()
+    fun getUser(key: String): Future<User?> {
+        return userDAO.get(key)
     }
 
     fun updateUser(key: String, user: User) {

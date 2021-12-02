@@ -41,7 +41,7 @@ android {
 
 tasks.dokkaHtml.configure {
     outputDirectory.set(file("../docs"))
-    moduleName.set("SagaLogistics")
+    moduleName.set("Saga Logistics")
 }
 
 tasks.withType(dokkaHtml.getClass()).configureEach {
