@@ -5,16 +5,6 @@ import android.os.Parcelable
 import com.sagalogistics.backend.api.models.User
 
 class UserImpl : User, Parcelable{
-    companion object CREATOR : Parcelable.Creator<UserImpl> {
-        override fun createFromParcel(parcel: Parcel): UserImpl {
-            return UserImpl(parcel)
-        }
-
-        override fun newArray(size: Int): Array<UserImpl?> {
-            return arrayOfNulls(size)
-        }
-    }
-
     override var key: String? = null
     override lateinit var name: String
     override var bars: MutableList<String>
@@ -26,7 +16,7 @@ class UserImpl : User, Parcelable{
 
     constructor() {}
 
-    constructor(key: String? = null, name: String, bars: MutableList<String>){
+    constructor(key: String? = null, name: String, bars: MutableList<String> = ArrayList()){
         this.key = key
         this.name = name
         this.bars = bars
@@ -54,5 +44,15 @@ class UserImpl : User, Parcelable{
 
     override fun describeContents(): Int {
         return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<UserImpl> {
+        override fun createFromParcel(parcel: Parcel): UserImpl {
+            return UserImpl(parcel)
+        }
+
+        override fun newArray(size: Int): Array<UserImpl?> {
+            return arrayOfNulls(size)
+        }
     }
 }

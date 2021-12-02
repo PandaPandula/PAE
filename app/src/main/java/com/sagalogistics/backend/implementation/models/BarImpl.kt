@@ -6,16 +6,6 @@ import com.google.firebase.database.Exclude
 import com.sagalogistics.backend.api.models.Bar
 
 class BarImpl : Bar, Parcelable{
-    companion object CREATOR : Parcelable.Creator<BarImpl> {
-        override fun createFromParcel(parcel: Parcel): BarImpl {
-            return BarImpl(parcel)
-        }
-
-        override fun newArray(size: Int): Array<BarImpl?> {
-            return arrayOfNulls(size)
-        }
-    }
-
     @get:Exclude
     @set:Exclude
     override var key: String? = null
@@ -29,7 +19,7 @@ class BarImpl : Bar, Parcelable{
 
     constructor() {}
 
-    constructor(key: String? = null, name: String, orders: MutableList<String>){
+    constructor(key: String? = null, name: String, orders: MutableList<String> = ArrayList()){
         this.key = key
         this.name = name
         this.orders = orders
@@ -57,5 +47,15 @@ class BarImpl : Bar, Parcelable{
 
     override fun describeContents(): Int {
         return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<BarImpl> {
+        override fun createFromParcel(parcel: Parcel): BarImpl {
+            return BarImpl(parcel)
+        }
+
+        override fun newArray(size: Int): Array<BarImpl?> {
+            return arrayOfNulls(size)
+        }
     }
 }

@@ -11,11 +11,6 @@ import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
 class BarDAOFirebase : BarDAO {
-    companion object {
-        private val database = Firebase.database
-        private val barsRef = database.getReference("bars")
-    }
-
     override fun add(bar: Bar) {
         val key = bar.key
         if (key == null) {
@@ -69,5 +64,10 @@ class BarDAOFirebase : BarDAO {
                 }
             }
         }
+    }
+
+    companion object {
+        private val database = Firebase.database
+        private val barsRef = database.getReference("bars")
     }
 }

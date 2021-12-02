@@ -7,16 +7,6 @@ import android.os.Parcelable.Creator
 import com.sagalogistics.backend.api.models.Item
 
 class ItemImpl : Item, Parcelable {
-    companion object CREATOR : Creator<ItemImpl> {
-        override fun createFromParcel(parcel: Parcel): ItemImpl {
-            return ItemImpl(parcel)
-        }
-
-        override fun newArray(size: Int): Array<ItemImpl?> {
-            return arrayOfNulls(size)
-        }
-    }
-
     @get:Exclude
     @set:Exclude
     override var key: String? = null
@@ -25,10 +15,13 @@ class ItemImpl : Item, Parcelable {
     override var image: String? = null
 
     /**
-     * Empty constructor; needed for Firebase to serialize the result of a query
+     * Empty constructor needed for serialization; should not be used
      */
     constructor() {}
 
+    /**
+     * @constructor standard constructor
+     */
     constructor(key: String? = null, name: String, weight: Float, image: String? = null) {
         this.key = key
         this.name = name
@@ -52,5 +45,15 @@ class ItemImpl : Item, Parcelable {
         dest.writeString(name)
         dest.writeFloat(weight)
         dest.writeString(image)
+    }
+
+    companion object CREATOR : Creator<ItemImpl> {
+        override fun createFromParcel(parcel: Parcel): ItemImpl {
+            return ItemImpl(parcel)
+        }
+
+        override fun newArray(size: Int): Array<ItemImpl?> {
+            return arrayOfNulls(size)
+        }
     }
 }

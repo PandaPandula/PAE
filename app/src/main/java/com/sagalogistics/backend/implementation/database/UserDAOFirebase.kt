@@ -10,7 +10,7 @@ import java.util.concurrent.Callable
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
-class UserDAOFirebase : UserDAO {
+class UserDAOFirebase : UserDAO { //temporary, will be changed after GoogleAuth integration
     companion object {
         private val database = Firebase.database
         private val usersRef = database.getReference("users")

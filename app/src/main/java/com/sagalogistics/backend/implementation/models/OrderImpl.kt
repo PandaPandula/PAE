@@ -7,16 +7,6 @@ import android.os.Parcelable.Creator
 import com.sagalogistics.backend.api.models.Order
 
 class OrderImpl : Order, Parcelable {
-    companion object CREATOR : Creator<OrderImpl> {
-        override fun createFromParcel(parcel: Parcel): OrderImpl {
-            return OrderImpl(parcel)
-        }
-
-        override fun newArray(size: Int): Array<OrderImpl?> {
-            return arrayOfNulls(size)
-        }
-    }
-
     @get:Exclude
     @set:Exclude
     override var key: String? = null
@@ -28,11 +18,14 @@ class OrderImpl : Order, Parcelable {
     private var _items: MutableMap<String, Int> = LinkedHashMap()
 
     /**
-     * Empty constructor; needed for Firebase to serialize the result of a query
+     * Empty constructor needed for serialization
      */
     constructor() {}
 
-    constructor(key: String? = null, items: MutableMap<String, Int>) {
+    /**
+     * @constructor standard constructor
+     */
+    constructor(key: String? = null, items: MutableMap<String, Int> = LinkedHashMap()) {
         this.key = key
         this.items = items
     }
@@ -61,5 +54,15 @@ class OrderImpl : Order, Parcelable {
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeString(key)
         dest.writeMap(items)
+    }
+
+    companion object CREATOR : Creator<OrderImpl> {
+        override fun createFromParcel(parcel: Parcel): OrderImpl {
+            return OrderImpl(parcel)
+        }
+
+        override fun newArray(size: Int): Array<OrderImpl?> {
+            return arrayOfNulls(size)
+        }
     }
 }

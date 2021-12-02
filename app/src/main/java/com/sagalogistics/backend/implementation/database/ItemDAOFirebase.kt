@@ -11,11 +11,6 @@ import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
 class ItemDAOFirebase : ItemDAO {
-    companion object {
-        private val database = Firebase.database
-        private val itemsRef = database.getReference("items")
-    }
-
     override fun add(item: Item) {
         val key = item.key
         if (key == null) {
@@ -52,5 +47,10 @@ class ItemDAOFirebase : ItemDAO {
     override fun delete(key: String) {
         val itemRef = itemsRef.child(key)
         itemRef.removeValue()
+    }
+
+    companion object {
+        private val database = Firebase.database
+        private val itemsRef = database.getReference("items")
     }
 }

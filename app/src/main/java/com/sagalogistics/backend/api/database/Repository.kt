@@ -13,19 +13,6 @@ class Repository private constructor(factory: RepositoryFactory) {
     private val barDAO: BarDAO = factory.createBarDAO()
     private val userDAO: UserDAO = factory.createUserDAO()
 
-    companion object {
-        private var instance: Repository? = null
-
-        fun initialize(factory: RepositoryFactory) {
-            if (instance == null) instance = Repository(factory)
-        }
-
-        fun getInstance(): Repository {
-            if (instance == null) throw NullPointerException("Error: Repository not initialized")
-            return instance!!
-        }
-    }
-
     fun addItem(item: Item) {
         itemDAO.add(item)
     }
@@ -91,5 +78,18 @@ class Repository private constructor(factory: RepositoryFactory) {
 
     fun deleteUser(key: String) {
         userDAO.delete(key)
+    }
+
+    companion object {
+        private var instance: Repository? = null
+
+        fun initialize(factory: RepositoryFactory) {
+            if (instance == null) instance = Repository(factory)
+        }
+
+        fun getInstance(): Repository {
+            if (instance == null) throw NullPointerException("Error: Repository not initialized")
+            return instance!!
+        }
     }
 }
