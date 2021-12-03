@@ -2,9 +2,12 @@ package com.sagalogistics.backend.implementation.models
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.firebase.database.Exclude
 import com.sagalogistics.backend.api.models.User
 
 class UserImpl : User, Parcelable{
+    @get:Exclude
+    @set:Exclude
     override var key: String? = null
     override lateinit var name: String
     override var bars: MutableList<String>

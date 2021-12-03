@@ -27,15 +27,38 @@ class BarDAOFirebase : BarDAO {
         return executor.submit(Callable {
             val task = barsRef.child(key).get()
             Tasks.await(task)
-            val data = task.result
-            val bar: Bar? = data!!.getValue(BarImpl::class.java)
-            if(bar != null){
-                bar.key = data.key
-                bar
+            if(task.isSuccessful) {
+                val data = task.result
+                val bar: Bar? = data!!.getValue(BarImpl::class.java)
+                if (bar != null) {
+                    bar.key = data.key
+                    return@Callable bar
+                }
             }
-            else{
-                null
+            return@Callable null
+        })
+    }
+
+    override fun getAll(): Future<Set<Bar>?> {
+        val executor = Executors.newSingleThreadExecutor()
+        return executor.submit(Callable {
+            val task = barsRef.get()
+            Tasks.await(task)
+            if (task.isSuccessful) {
+                val data = task.result
+                val result = LinkedHashSet<Bar>()
+                if (data != null) {
+                    val bars = data.value as Map<*, *>?
+                    for ((key) in bars!!){
+                        val bar = get(key as String).get()
+                        if(bar != null){
+                            result.add(bar)
+                        }
+                    }
+                }
+                return@Callable result
             }
+            return@Callable null
         })
     }
 
@@ -57,8 +80,8 @@ class BarDAOFirebase : BarDAO {
             if (task.isSuccessful) {
                 val data = task.result
                 if (data != null) {
-                    val bars = data.value as List<*>?
-                    for (key in bars!!) {
+                    val bars = data.value as Map<*, *>?
+                    for ((key) in bars!!) {
                         barsRef.child(key as String).child("orders").child(orderKey).removeValue()
                     }
                 }

@@ -11,11 +11,6 @@ import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
 class UserDAOFirebase : UserDAO { //temporary, will be changed after GoogleAuth integration
-    companion object {
-        private val database = Firebase.database
-        private val usersRef = database.getReference("users")
-    }
-
     override fun add(user: User) {
         val key = user.key
         if (key == null) {
@@ -32,15 +27,38 @@ class UserDAOFirebase : UserDAO { //temporary, will be changed after GoogleAuth 
         return executor.submit(Callable {
             val task = usersRef.child(key).get()
             Tasks.await(task)
-            val data = task.result
-            val user: User? = data!!.getValue(UserImpl::class.java)
-            if(user != null){
-                user.key = data.key
-                user
+            if(task.isSuccessful) {
+                val data = task.result
+                val user: User? = data!!.getValue(UserImpl::class.java)
+                if (user != null) {
+                    user.key = data.key
+                    return@Callable user
+                }
             }
-            else{
-                null
+            return@Callable null
+        })
+    }
+
+    override fun getAll(): Future<Set<User>?> {
+        val executor = Executors.newSingleThreadExecutor()
+        return executor.submit(Callable {
+            val task = usersRef.get()
+            Tasks.await(task)
+            if (task.isSuccessful) {
+                val data = task.result
+                val result = LinkedHashSet<User>()
+                if (data != null) {
+                    val users = data.value as Map<*, *>?
+                    for ((key) in users!!){
+                        val user = get(key as String).get()
+                        if(user != null){
+                            result.add(user)
+                        }
+                    }
+                }
+                return@Callable result
             }
+            return@Callable null
         })
     }
 
@@ -62,12 +80,17 @@ class UserDAOFirebase : UserDAO { //temporary, will be changed after GoogleAuth 
             if (task.isSuccessful) {
                 val data = task.result
                 if (data != null) {
-                    val users = data.value as List<*>?
-                    for (key in users!!) {
+                    val users = data.value as Map<*, *>?
+                    for ((key) in users!!) {
                         usersRef.child(key as String).child("bars").child(barKey).removeValue()
                     }
                 }
             }
         }
+    }
+
+    companion object {
+        private val database = Firebase.database
+        private val usersRef = database.getReference("users")
     }
 }
