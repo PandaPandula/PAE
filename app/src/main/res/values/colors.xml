@@ -23,4 +23,11 @@
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#11CFC5</color>
 
+    <color name="colorPrimary1">#FCFCFC</color>
+    <color name="colorAccent1">#FF402D</color>
+
+    <!--colors for light mode-->
+    <color name="contentTextColor1">#020000</color>
+    <color name="whiteTextColor1">#fff</color>
+
 </resources>
