@@ -15,52 +15,52 @@
         tools:ignore="MissingConstraints">
 
         <RelativeLayout
-                android:id="@+id/headerLayout"
-                android:layout_width="match_parent"
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/reports_header_bk"
+            android:paddingLeft="20dp"
+            android:paddingTop="60dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp">
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="2dp"
-                android:background="@drawable/reports_header_bk"
-                android:paddingLeft="20dp"
-                android:paddingTop="60dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="20dp">
+                android:text="01 April 2017 to 01 April 2019"
+                android:textColor="@color/whiteTextColor"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/dateTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:text="01 April 2017 to 01 April 2019"
-                    android:textColor="@color/whiteTextColor"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_dropdown_arrow" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_dropdown_arrow" />
+            <TextView
+                android:id="@+id/salesHeaderTextView"
+                style="@style/reportContentText"
+                android:layout_marginTop="30dp"
+                android:text="Total Sale" />
 
-                <TextView
-                    android:id="@+id/salesHeaderTextView"
-                    style="@style/reportContentText"
-                    android:layout_marginTop="30dp"
-                    android:text="Total Sale" />
+            <TextView
+                style="@style/viewParent.headerText"
+                android:layout_below="@id/salesHeaderTextView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="70dp"
+                android:text="$15,990.00"
+                android:textColor="@color/whiteTextColor" />
 
-                <TextView
-                    style="@style/viewParent.headerText"
-                    android:layout_below="@id/salesHeaderTextView"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="70dp"
-                    android:text="$15,990.00"
-                    android:textColor="@color/whiteTextColor" />
-
-            </RelativeLayout>
+        </RelativeLayout>
 
         <LinearLayout
                 android:id="@+id/cardLayout"
@@ -118,21 +118,21 @@
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/bottom2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/header"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recylerview"
+        <RelativeLayout
+            android:id="@+id/bottom2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_below="@id/cardLayout"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardLayout">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recylerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
