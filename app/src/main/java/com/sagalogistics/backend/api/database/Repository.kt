@@ -14,7 +14,7 @@ import java.util.concurrent.Future
  * trying to access the instance before will throw a [NullPointerException]
  *
  * @author Gerard Queralt
- * @constructor the [factory] responsible for creating each DAO
+ * @constructor private constructor to prevent external instantiation
  */
 class Repository private constructor(factory: RepositoryFactory) {
     /**
@@ -130,7 +130,7 @@ class Repository private constructor(factory: RepositoryFactory) {
         private var instance: Repository? = null
 
         /**
-         * Initialize the [instance] using the [factory]
+         * Initialize the [instance] using the [factory] to create its DAOs
          *
          * This method must be called once before trying to [access][Repository.getInstance] the [instance]
          *

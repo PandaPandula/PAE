@@ -92,7 +92,6 @@ class FutureHelper private constructor(){
         private fun <T : Any> findGetterOfType(type: KClass<T>): KFunction<*> {
             val repoClass = Repository::class
             val funcsOfRepo = repoClass.declaredFunctions
-            //getterOfT is the function in the Repository that gets the type T from the Database
             return funcsOfRepo.find { it.name == "get" + type.simpleName }
                 ?: throw NoSuchMethodException("Repository can't get objects of type " + type.simpleName)
         }
