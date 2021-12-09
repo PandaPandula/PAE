@@ -23,7 +23,7 @@ class OrderImpl : Order, Parcelable {
     constructor() {}
 
     /**
-     * @constructor standard constructor
+     * Standard constructor
      */
     constructor(key: String? = null, items: MutableMap<String, Int> = LinkedHashMap()) {
         this.key = key

@@ -85,7 +85,9 @@ $dokka.location:com.sagalogistics.backend.api.models/Bar/removeOrder/#kotlin.Str
 $dokka.location:com.sagalogistics.backend.api.models/Item///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-item/index.html
 $dokka.location:com.sagalogistics.backend.api.models/Item/image/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-item/image.html
 $dokka.location:com.sagalogistics.backend.api.models/Item/key/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-item/key.html
+$dokka.location:com.sagalogistics.backend.api.models/Item/lowerVariance/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-item/lower-variance.html
 $dokka.location:com.sagalogistics.backend.api.models/Item/name/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-item/name.html
+$dokka.location:com.sagalogistics.backend.api.models/Item/upperVariance/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-item/upper-variance.html
 $dokka.location:com.sagalogistics.backend.api.models/Item/weight/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-item/weight.html
 $dokka.location:com.sagalogistics.backend.api.models/Order///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-order/index.html
 $dokka.location:com.sagalogistics.backend.api.models/Order/getQuantityItem/#kotlin.String/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.api.models/-order/get-quantity-item.html
@@ -171,11 +173,13 @@ $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl.CREATOR
 $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/index.html
 $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/ItemImpl/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/-item-impl.html
 $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/ItemImpl/#android.os.Parcel/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/-item-impl.html
-$dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/ItemImpl/#kotlin.String?#kotlin.String#kotlin.Float#kotlin.String?/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/-item-impl.html
+$dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/ItemImpl/#kotlin.String?#kotlin.String#kotlin.Float#kotlin.Float#kotlin.Float#kotlin.String?/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/-item-impl.html
 $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/describeContents/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/describe-contents.html
 $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/image/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/image.html
 $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/key/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/key.html
+$dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/lowerVariance/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/lower-variance.html
 $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/name/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/name.html
+$dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/upperVariance/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/upper-variance.html
 $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/weight/#/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/weight.html
 $dokka.location:com.sagalogistics.backend.implementation.models/ItemImpl/writeToParcel/#android.os.Parcel#kotlin.Int/PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-item-impl/write-to-parcel.html
 $dokka.location:com.sagalogistics.backend.implementation.models/OrderImpl.CREATOR///PointingToDeclaration/-saga -logistics/com.sagalogistics.backend.implementation.models/-order-impl/-c-r-e-a-t-o-r/index.html

@@ -21,19 +21,31 @@ class WeightCalculator private constructor(){
          *
          * This function will call [Repository.getItem] to get the [weight][Item.weight] of each [item][Item]
          * and multiply it by its amount in the [order]
+         * after considering its [upper][Item.upperVariance] and [lower][Item.lowerVariance] bounds
+         *
+         * The [first][Pair.first] element of the pair will be the upper bound of weight,
+         * and the [second][Pair.second] will be the lower one
          */
-        fun weightOfOrder(order: Order): Float { //maybe consider variation here?
+        fun weightOfOrder(order: Order): Pair<Float, Float> {
             val itemKeys = order.items.keys
             val listOfItems = FutureHelper.getListOfKeys(itemKeys, Item::class)
 
-            var totalWeight = 0f
+            var upperWeight = 0f
+            var lowerWeight = 0f
             for(item in listOfItems) {
                 val weightOfItem = item.weight
+                val upperVarianceOfItem = item.upperVariance
+                val lowerVarianceOfItem = item.lowerVariance
                 val quantityOfItem = order.items[item.key]!!
-                totalWeight += weightOfItem * quantityOfItem
+
+                val upperVariance = (weightOfItem + upperVarianceOfItem) * quantityOfItem
+                val lowerVariance = (weightOfItem - lowerVarianceOfItem) * quantityOfItem
+
+                upperWeight += upperVariance
+                lowerWeight += lowerVariance
             }
 
-            return totalWeight
+            return Pair(upperWeight, lowerWeight)
         }
 
         /**
@@ -41,14 +53,19 @@ class WeightCalculator private constructor(){
          *
          * Similar to [weightOfOrder] but for a single [item][Item]
          */
-        fun weightOfItemInOrder(order: Order, itemKey: String): Float {
+        fun weightOfItemInOrder(order: Order, itemKey: String): Pair<Float, Float> {
             val repo = Repository.getInstance()
             val item = repo.getItem(itemKey).get()!!
 
             val weightOfItem = item.weight
+            val upperVarianceOfItem = item.upperVariance
+            val lowerVarianceOfItem = item.lowerVariance
             val quantityOfItem = order.items[item.key]!!
 
-            return weightOfItem * quantityOfItem
+            val upperVariance = (weightOfItem + upperVarianceOfItem) * quantityOfItem
+            val lowerVariance = (weightOfItem - lowerVarianceOfItem) * quantityOfItem
+
+            return Pair(upperVariance, lowerVariance)
         }
     }
 }

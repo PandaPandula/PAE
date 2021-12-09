@@ -22,7 +22,21 @@ interface Item : Serializable {
     var weight: Float
 
     /**
-     * An image representing the item
+     * The upper variance in weight of the item
+     *
+     * Should be a positive value
+     */
+    var upperVariance: Float
+
+    /**
+     * The lower variance in weight of the item
+     *
+     * Should be a positive value
+     */
+    var lowerVariance: Float
+
+    /**
+     * The url of an image representing the item
      */
     var image: String?
 }

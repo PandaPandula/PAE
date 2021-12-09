@@ -11,7 +11,9 @@ class ItemImpl : Item, Parcelable {
     @set:Exclude
     override var key: String? = null
     override lateinit var name: String
-    override var weight: Float = 0.0f
+    override var weight: Float = 0f
+    override var upperVariance: Float = 0f
+    override var lowerVariance: Float = 0f
     override var image: String? = null
 
     /**
@@ -20,12 +22,14 @@ class ItemImpl : Item, Parcelable {
     constructor() {}
 
     /**
-     * @constructor standard constructor
+     * Standard constructor
      */
-    constructor(key: String? = null, name: String, weight: Float, image: String? = null) {
+    constructor(key: String? = null, name: String, weight: Float, upperVariance: Float = 0f, lowerVariance: Float = upperVariance, image: String? = null) {
         this.key = key
         this.name = name
         this.weight = weight
+        this.upperVariance = upperVariance
+        this.lowerVariance = lowerVariance
         this.image = image
     }
 
@@ -33,6 +37,8 @@ class ItemImpl : Item, Parcelable {
         key = parcel.readString()
         name = parcel.readString()!!
         weight = parcel.readFloat()
+        upperVariance = parcel.readFloat()
+        lowerVariance = parcel.readFloat()
         image = parcel.readString()
     }
 
@@ -44,6 +50,8 @@ class ItemImpl : Item, Parcelable {
         dest.writeString(key)
         dest.writeString(name)
         dest.writeFloat(weight)
+        dest.writeFloat(upperVariance)
+        dest.writeFloat(lowerVariance)
         dest.writeString(image)
     }
 
