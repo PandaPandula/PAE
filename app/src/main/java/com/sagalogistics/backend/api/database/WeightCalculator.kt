@@ -33,13 +33,7 @@ class WeightCalculator private constructor(){
             var upperWeight = 0f
             var lowerWeight = 0f
             for(item in listOfItems) {
-                val weightOfItem = item.weight
-                val upperVarianceOfItem = item.upperVariance
-                val lowerVarianceOfItem = item.lowerVariance
-                val quantityOfItem = order.items[item.key]!!
-
-                val upperVariance = (weightOfItem + upperVarianceOfItem) * quantityOfItem
-                val lowerVariance = (weightOfItem - lowerVarianceOfItem) * quantityOfItem
+                val (upperVariance, lowerVariance) = upperLowerWeightOfItem(order, item)
 
                 upperWeight += upperVariance
                 lowerWeight += lowerVariance
@@ -49,7 +43,7 @@ class WeightCalculator private constructor(){
         }
 
         /**
-         * Calculates the weight of an [item][Item] in the [order]
+         * Calculates the weight of a single [item][Item] in the [order]
          *
          * Similar to [weightOfOrder] but for a single [item][Item]
          */
@@ -57,13 +51,22 @@ class WeightCalculator private constructor(){
             val repo = Repository.getInstance()
             val item = repo.getItem(itemKey).get()!!
 
+            return upperLowerWeightOfItem(order, item)
+        }
+
+        /**
+         * Calculates the weight of a single [item][Item] instance in the [order]
+         *
+         * Auxiliary function to encapsulate calculation logic
+         */
+        private fun upperLowerWeightOfItem(order: Order, item: Item): Pair<Float, Float> {
             val weightOfItem = item.weight
             val upperVarianceOfItem = item.upperVariance
             val lowerVarianceOfItem = item.lowerVariance
             val quantityOfItem = order.items[item.key]!!
 
-            val upperVariance = (weightOfItem + upperVarianceOfItem) * quantityOfItem
-            val lowerVariance = (weightOfItem - lowerVarianceOfItem) * quantityOfItem
+            val upperVariance = weightOfItem * (1 + upperVarianceOfItem) * quantityOfItem
+            val lowerVariance = weightOfItem * (1 - lowerVarianceOfItem) * quantityOfItem
 
             return Pair(upperVariance, lowerVariance)
         }

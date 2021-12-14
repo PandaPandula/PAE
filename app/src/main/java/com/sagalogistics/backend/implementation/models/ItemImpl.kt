@@ -5,6 +5,7 @@ import com.google.firebase.database.Exclude
 import android.os.Parcel
 import android.os.Parcelable.Creator
 import com.sagalogistics.backend.api.models.Item
+import java.lang.IllegalArgumentException
 
 class ItemImpl : Item, Parcelable {
     @get:Exclude
@@ -13,7 +14,17 @@ class ItemImpl : Item, Parcelable {
     override lateinit var name: String
     override var weight: Float = 0f
     override var upperVariance: Float = 0f
+        set(value) {
+            if(value < 0 || value > 100)
+                throw IllegalArgumentException("Percentage must be between 0 and 100")
+            field = value/100f
+        }
     override var lowerVariance: Float = 0f
+        set(value) {
+            if(value < 0 || value > 100)
+                throw IllegalArgumentException("Percentage must be between 0 and 100")
+            field = value/100f
+        }
     override var image: String? = null
 
     /**

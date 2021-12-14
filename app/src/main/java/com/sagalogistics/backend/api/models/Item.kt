@@ -22,16 +22,16 @@ interface Item : Serializable {
     var weight: Float
 
     /**
-     * The upper variance in weight of the item
+     * The upper variance percentage in weight of the item
      *
-     * Should be a positive value
+     * Must be between 0 and 100
      */
     var upperVariance: Float
 
     /**
-     * The lower variance in weight of the item
+     * The lower variance percentage in weight of the item
      *
-     * Should be a positive value
+     * Must be between 0 and 100
      */
     var lowerVariance: Float
 
