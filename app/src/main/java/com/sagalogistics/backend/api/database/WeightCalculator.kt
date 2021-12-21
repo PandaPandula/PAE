@@ -8,7 +8,8 @@ import com.sagalogistics.backend.api.models.User
 /**
  * Utility class used to calculate the weight of an order
  *
- * These functionalities are separated from [Order] in order to prevent coupling it with the [Repository]
+ * These functionalities are separated from [Order] and [User]
+ * in order to prevent coupling it with the [Repository]
  *
  * @author Gerard Queralt
  * @constructor private constructor to prevent instantiation
@@ -18,19 +19,28 @@ class WeightCalculator private constructor(){
      * Class methods
      */
     companion object{
+        /**
+         * Calculates the total weight of all the [orders][Order] of a [user]
+         *
+         * This function will call [Repository.getBar] to get the [orders][Order]
+         * of each of the bars assigned to the user, and call [weightOfOrder] on each of the orders
+         *
+         * The [first][Pair.first] element of the pair will be the lower bound of weight,
+         * and the [second][Pair.second] will be the upper one
+         */
         fun weightOfUserOrders(user: User): Pair<Float, Float> {
             val barKeys = user.bars
             val listOfBars = FutureHelper.getListOfKeys(barKeys, Bar::class)
 
             return listOfBars.fold(Pair(0f, 0f), {
-                total, bar ->
-
+                total, bar
+                ->
                 val orderKeys = bar.orders
                 val listOfOrders = FutureHelper.getListOfKeys(orderKeys, Order::class)
 
                 val (lowerWeightBar, upperWeightBar) = listOfOrders.fold(Pair(0f, 0f), {
-                    totalOrder, order ->
-
+                    totalOrder, order
+                    ->
                     val (lowerWeightOrd, upperWeightOrd) = weightOfOrder(order)
                     Pair(totalOrder.first + lowerWeightOrd, totalOrder.second + upperWeightOrd)
                 })
@@ -52,11 +62,8 @@ class WeightCalculator private constructor(){
             val itemKeys = order.items.keys
             val listOfItems = FutureHelper.getListOfKeys(itemKeys, Item::class)
 
-            return listOfItems.fold(Pair(0f, 0f), {
-                (lowerWeight, upperWeight), item ->
-
-                val (lowerVariance, upperVariance) = upperLowerWeightOfItem(order, item)
-
+            return listOfItems.fold(Pair(0f, 0f), { (lowerWeight, upperWeight), item ->
+                val (lowerVariance, upperVariance) = lowerUpperWeightOfItem(order, item)
                 Pair(lowerWeight + lowerVariance, upperWeight + upperVariance)
             })
         }
@@ -70,7 +77,7 @@ class WeightCalculator private constructor(){
             val repo = Repository.getInstance()
             val item = repo.getItem(itemKey).get()!!
 
-            return upperLowerWeightOfItem(order, item)
+            return lowerUpperWeightOfItem(order, item)
         }
 
         /**
@@ -78,7 +85,7 @@ class WeightCalculator private constructor(){
          *
          * Auxiliary function to encapsulate calculation logic
          */
-        private fun upperLowerWeightOfItem(order: Order, item: Item): Pair<Float, Float> {
+        private fun lowerUpperWeightOfItem(order: Order, item: Item): Pair<Float, Float> {
             val weightOfItem = item.weight
             val lowerVarianceOfItem = item.lowerVariance
             val upperVarianceOfItem = item.upperVariance
