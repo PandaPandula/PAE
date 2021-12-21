@@ -47,7 +47,7 @@ tasks.dokkaHtml.configure {
             perPackageOption {
                 matchingRegex.set("com.sagalogistics.*")
                 suppress.set(true)
-                includeNonPublic.set(true)
+                //includeNonPublic.set(true)
             }
             perPackageOption {
                 matchingRegex.set("com.sagalogistics.backend.*")
