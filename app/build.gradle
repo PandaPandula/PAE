@@ -47,13 +47,13 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     //implementation 'com.google.firebase:firebase-database:19.7.0'
     //implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
-    implementation files('libs/implementation-release.aar')
+    //implementation files('libs/implementation-release.aar')
     //testImplementation 'junit:junit:4.+'
     //androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     //androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //implementation platform('com.google.firebase:firebase-bom:29.0.0')
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
