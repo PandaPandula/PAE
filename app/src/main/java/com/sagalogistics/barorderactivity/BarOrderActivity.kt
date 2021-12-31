@@ -4,8 +4,8 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sagalogistics.backend.api.models.Item
-import com.sagalogistics.backend.implementation.models.ItemImpl
+import com.sagalogistics.lib.models.Item
+import com.sagalogistics.implementation.models.ItemImpl
 import com.sagalogistics.barorderactivity.adapters.CustomAdapter
 
 class BarOrderActivity : Activity()

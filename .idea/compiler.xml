@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="Saga_Logistics.api" target="11" />
+      <module name="Saga_Logistics.app" target="11" />
+      <module name="Saga_Logistics.implementation" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

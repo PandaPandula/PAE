@@ -8,8 +8,8 @@ import com.sagalogistics.registeractivity.RegisterActivity
 import android.content.Intent
 import android.view.View
 import com.sagalogistics.BarOrderActivity
-import com.sagalogistics.backend.api.database.Repository
-import com.sagalogistics.backend.implementation.database.RepositoryFactoryFirebase
+import com.sagalogistics.lib.database.Repository
+import com.sagalogistics.implementation.database.RepositoryFactoryFirebase
 
 
 class LoginActivity : Activity(){

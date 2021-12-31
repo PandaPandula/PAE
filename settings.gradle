@@ -8,3 +8,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Saga Logistics"
 include ':app'
+include ':lib'
+include ':implementation'
