@@ -37,85 +37,179 @@ class Repository private constructor(factory: RepositoryFactory) {
      */
     private val userDAO: UserDAO = factory.createUserDAO()
 
+    /**
+     * Adds an [item] to the database
+     */
     fun addItem(item: Item) {
         itemDAO.add(item)
     }
 
+    /**
+     * Gets the [item][Item] in the database identified by a given [key],
+     * or null if it doesn't exist
+     *
+     * Returns a [Future] representing the result of the asynchronous "get"
+     * (or equivalent) to the database
+     */
     fun getItem(key: String): Future<Item?> {
         return itemDAO.get(key)
     }
 
+    /**
+     * Gets all the [items][Item] in the database
+     *
+     * Returns a [Future] representing a set of all the [items][Item]
+     */
     fun getAllItems(): Future<Set<Item>?> {
         return itemDAO.getAll()
     }
 
+    /**
+     * Updates an [item][Item] in the database identified by a given [key]
+     * and sets its fields to be equal to a given [item]
+     */
     fun updateItem(key: String, item: Item) {
         itemDAO.update(key, item)
     }
 
+    /**
+     * Deletes an [item][Item] in the database identified by a given [key]
+     *
+     * It also deletes it from all the [orders][Order], in case the database is non-relational
+     */
     fun deleteItem(key: String) {
         itemDAO.delete(key)
         orderDAO.deleteItem(key)
     }
 
+    /**
+     * Adds an [order] to the database
+     */
     fun addOrder(order: Order) {
         orderDAO.add(order)
     }
 
+    /**
+     * Gets the [order][Order] in the database identified by a given [key],
+     * or null if it doesn't exist
+     *
+     * Returns a [Future] representing the result of the asynchronous "get"
+     * (or equivalent) to the database
+     */
     fun getOrder(key: String): Future<Order?> {
         return orderDAO.get(key)
     }
 
+    /**
+     * Gets all the [orders][Order] in the database
+     *
+     * Returns a [Future] representing a set of all the [orders][Order]
+     */
     fun getAllOrders(): Future<Set<Order>?> {
         return orderDAO.getAll()
     }
 
+    /**
+     * Updates an [order][Order] in the database identified by a given [key]
+     * and sets its fields to be equal to a given [order]
+     */
     fun updateOrder(key: String, order: Order) {
         orderDAO.update(key, order)
     }
 
+    /**
+     * Deletes an [order][Order] in the database identified by a given [key]
+     *
+     * It also deletes it from all the [bars][Bar], in case the database is non-relational
+     */
     fun deleteOrder(key: String) {
         orderDAO.delete(key)
         barDAO.deleteOrder(key)
     }
 
+    /**
+     * Adds a [bar] to the database
+     */
     fun addBar(bar: Bar){
         barDAO.add(bar)
     }
 
+    /**
+     * Gets the [bar][Bar] in the database identified by a given [key],
+     * or null if it doesn't exist
+     *
+     * Returns a [Future] representing the result of the asynchronous "get"
+     * (or equivalent) to the database
+     */
     fun getBar(key: String): Future<Bar?> {
         return barDAO.get(key)
     }
 
+    /**
+     * Gets all the [bars][Bar] in the database
+     *
+     * Returns a [Future] representing a set of all the [bars][Bar]
+     */
     fun getAllBars(): Future<Set<Bar>?> {
         return barDAO.getAll()
     }
 
+    /**
+     * Updates a [bar][Bar] in the database identified by a given [key]
+     * and sets its fields to be equal to a given [bar]
+     */
     fun updateBar(key: String, bar: Bar) {
         barDAO.update(key, bar)
     }
 
+    /**
+     * Deletes a [bar][Bar] in the database identified by a given [key]
+     *
+     * It also deletes it from all the [users][User], in case the database is non-relational
+     */
     fun deleteBar(key: String) {
         barDAO.delete(key)
         userDAO.deleteBar(key)
     }
 
+    /**
+     * Adds a [user] to the database
+     */
     fun addUser(user: User){
         userDAO.add(user)
     }
 
+    /**
+     * Gets the [user][User] in the database identified by a given [key],
+     * or null if it doesn't exist
+     *
+     * Returns a [Future] representing the result of the asynchronous "get"
+     * (or equivalent) to the database
+     */
     fun getUser(key: String): Future<User?> {
         return userDAO.get(key)
     }
 
+    /**
+     * Gets all the [users][User] in the database
+     *
+     * Returns a [Future] representing a set of all the [users][User]
+     */
     fun getAllUsers(): Future<Set<User>?> {
         return userDAO.getAll()
     }
 
+    /**
+     * Updates a [user][User] in the database identified by a given [key]
+     * and sets its fields to be equal to a given [user]
+     */
     fun updateUser(key: String, user: User) {
         userDAO.update(key, user)
     }
 
+    /**
+     * Deletes a [user][User] in the database identified by a given [key]
+     */
     fun deleteUser(key: String) {
         userDAO.delete(key)
     }
