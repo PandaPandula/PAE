@@ -87,8 +87,8 @@ class WeightCalculator private constructor(){
          */
         private fun lowerUpperWeightOfItem(order: Order, item: Item): Pair<Float, Float> {
             val weightOfItem = item.weight
-            val lowerVarianceOfItem = item.lowerVariance
-            val upperVarianceOfItem = item.upperVariance
+            val lowerVarianceOfItem = item.lowerVariance / 100f
+            val upperVarianceOfItem = item.upperVariance / 100f
             val quantityOfItem = order.items[item.key]!!
 
             val lowerVariance = weightOfItem * (1 - lowerVarianceOfItem) * quantityOfItem

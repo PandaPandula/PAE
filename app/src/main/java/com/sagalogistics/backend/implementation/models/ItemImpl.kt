@@ -17,13 +17,13 @@ class ItemImpl : Item, Parcelable {
         set(value) {
             if(value < 0 || value > 100)
                 throw IllegalArgumentException("Percentage must be between 0 and 100")
-            field = value/100f
+            field = value
         }
     override var lowerVariance: Float = 0f
         set(value) {
             if(value < 0 || value > 100)
                 throw IllegalArgumentException("Percentage must be between 0 and 100")
-            field = value/100f
+            field = value
         }
     override var image: String? = null
 
