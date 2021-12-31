@@ -1,0 +1,9 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:Saga Logistics - Implementation
+com.sagalogistics.implementation.database
+com.sagalogistics.implementation.models
+module:Saga Logistics - Library
+com.sagalogistics.lib.database
+com.sagalogistics.lib.models

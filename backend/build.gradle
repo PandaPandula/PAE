@@ -1,0 +1,17 @@
+plugins {
+    id 'kotlin'
+    id 'org.jetbrains.dokka'
+}
+
+apply plugin: 'org.jetbrains.dokka'
+
+tasks.dokkaHtmlMultiModule.configure {
+    outputDirectory.set(file("../docs"))
+    moduleName.set("Saga Logistics")
+}
+
+tasks.withType(dokkaHtmlPartial.getClass()).configureEach {
+    pluginsMapConfiguration.set(
+            ["org.jetbrains.dokka.base.DokkaBase": """{ "separateInheritedMembers": true}"""]
+    )
+}
