@@ -5,6 +5,9 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
+apply plugin: 'com.android.library'
+apply plugin: 'com.google.gms.google-services'
+
 android {
     compileSdk 31
 
@@ -44,7 +47,7 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
+    api 'com.google.firebase:firebase-database-ktx:20.0.3'
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -45,12 +45,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-    //implementation 'com.google.firebase:firebase-database:19.7.0'
-    //implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
-    //implementation files('libs/implementation-release.aar')
-    //testImplementation 'junit:junit:4.+'
-    //androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    //androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.3'
 
     //implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
@@ -77,13 +73,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     //animated button for login
     implementation 'br.com.simplepass:loading-button-android:1.14.0'
-
-
-
-    //testImplementation 'junit:junit:4.12'
-    //androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    //androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    //implementation "org.jetbrains.kotlin:kotlin-reflect:1.6.0"
 
 }
