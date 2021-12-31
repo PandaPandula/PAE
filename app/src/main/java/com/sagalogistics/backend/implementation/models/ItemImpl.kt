@@ -13,6 +13,11 @@ class ItemImpl : Item, Parcelable {
     override var key: String? = null
     override lateinit var name: String
     override var weight: Float = 0f
+        set(value) {
+            if(value < 0)
+                throw IllegalArgumentException("Weight can't be negative")
+            field = value
+        }
     override var upperVariance: Float = 0f
         set(value) {
             if(value < 0 || value > 100)
