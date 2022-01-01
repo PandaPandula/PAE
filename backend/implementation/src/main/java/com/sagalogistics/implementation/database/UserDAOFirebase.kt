@@ -10,6 +10,7 @@ import java.util.concurrent.Callable
 import java.util.concurrent.Executors
 import java.util.concurrent.Future
 
+//TODO documentation
 class UserDAOFirebase : UserDAO { //temporary, will be changed after GoogleAuth integration
     override fun add(user: User) {
         val key = user.key
@@ -89,8 +90,18 @@ class UserDAOFirebase : UserDAO { //temporary, will be changed after GoogleAuth 
         }
     }
 
+    /**
+     * Class fields
+     */
     companion object {
+        /**
+         * Reference to the [Firebase database][Firebase.database]
+         */
         private val database = Firebase.database
+
+        /**
+         * Reference to the "users" path in the [database]
+         */
         private val usersRef = database.getReference("users")
     }
 }
