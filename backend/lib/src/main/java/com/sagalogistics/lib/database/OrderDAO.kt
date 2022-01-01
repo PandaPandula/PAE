@@ -34,7 +34,7 @@ interface OrderDAO {
     fun delete(key: String)
 
     /**
-     * Deletes an [item][com.sagalogistics.api.models.Item] from all the [orders][Order]
+     * Deletes an [item][com.sagalogistics.lib.models.Item] from all the [orders][Order]
      */
     fun deleteItem(itemKey: String)
 }

@@ -34,7 +34,7 @@ interface BarDAO {
     fun delete(key: String)
 
     /**
-     * Deletes an [order][com.sagalogistics.api.models.Order] from all the [bars][Bar]
+     * Deletes an [order][com.sagalogistics.lib.models.Order] from all the [bars][Bar]
      */
     fun deleteOrder(orderKey: String)
 }

@@ -34,7 +34,7 @@ interface UserDAO {
     fun delete(key: String)
 
     /**
-     * Deletes a [bar][com.sagalogistics.api.models.Bar] from all the [users][User]
+     * Deletes a [bar][com.sagalogistics.lib.models.Bar] from all the [users][User]
      */
     fun deleteBar(barKey: String)
 }
