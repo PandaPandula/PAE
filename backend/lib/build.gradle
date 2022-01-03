@@ -16,5 +16,5 @@ tasks.dokkaHtmlPartial.configure {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-reflect:1.6.0"
+    api "org.jetbrains.kotlin:kotlin-reflect:1.6.10"
 }
