@@ -18,7 +18,6 @@ class CustomAdapter(private val items: List<Item>, private val context: Context)
 
     class ItemHolder(val view: View): RecyclerView.ViewHolder(view) {
         fun render(item: Item) {
-
             val itemName = view.findViewById<TextView>(R.id.name)
             val itemWeight = view.findViewById<TextView>(R.id.weight)
             val itemImg = view.findViewById<ImageView>(R.id.img)
@@ -27,6 +26,7 @@ class CustomAdapter(private val items: List<Item>, private val context: Context)
             itemWeight.text = item.weight.toString()
 
             item.image?.let { itemImg.loadUrl(it) }
+
 
         }
         fun ImageView.loadUrl(url: String) {

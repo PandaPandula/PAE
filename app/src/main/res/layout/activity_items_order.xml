@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".itemsorderactivity.ItemsOrderActivity">
+
     <RelativeLayout
         android:id="@+id/bottom2"
         android:layout_width="match_parent"
