@@ -8,25 +8,24 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
+import com.sagalogistics.lib.models.Bar
 import com.sagalogistics.lib.models.Item
 import com.squareup.picasso.Picasso
 
-class CustomAdapter (private val items: List<Item>): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
+class CustomAdapter(private val items: List<Bar>): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
 
     lateinit var context: Context
     class ItemHolder(private val view: View): RecyclerView.ViewHolder(view) {
-        fun render(item: Item) {
+        fun render(item: Bar) {
 
             val itemName = view.findViewById<TextView>(R.id.name)
             val itemWeight = view.findViewById<TextView>(R.id.weight)
             val itemImg = view.findViewById<ImageView>(R.id.img)
 
             itemName.text = item.name
-            itemWeight.text = item.weight.toString()
+            //itemWeight.text = item.weight.toString()
 
-            item.image?.let { itemImg.loadUrl(it) }
-
-
+            //item.image?.let { itemImg.loadUrl(it) }
 
         }
         fun ImageView.loadUrl(url: String) {
