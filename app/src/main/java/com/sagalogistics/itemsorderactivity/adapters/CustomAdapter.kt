@@ -1,35 +1,32 @@
-package com.sagalogistics.barorderactivity.adapters
+package com.sagalogistics.itemsorderactivity
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
-import com.sagalogistics.itemsorderactivity.ItemsOrderActivity
 import com.sagalogistics.lib.models.Bar
 import com.sagalogistics.lib.models.Item
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val items: List<Bar>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
+class CustomAdapter(private val items: List<Item>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
 
 
     class ItemHolder(val view: View): RecyclerView.ViewHolder(view) {
-        fun render(item: Bar) {
+        fun render(item: Item) {
 
             val itemName = view.findViewById<TextView>(R.id.name)
             val itemWeight = view.findViewById<TextView>(R.id.weight)
             val itemImg = view.findViewById<ImageView>(R.id.img)
 
             itemName.text = item.name
-            //itemWeight.text = item.weight.toString()
+            itemWeight.text = item.weight.toString()
 
-            //item.image?.let { itemImg.loadUrl(it) }
+            item.image?.let { itemImg.loadUrl(it) }
 
         }
         fun ImageView.loadUrl(url: String) {

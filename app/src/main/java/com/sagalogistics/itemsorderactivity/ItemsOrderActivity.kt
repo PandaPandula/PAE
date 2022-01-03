@@ -1,42 +1,37 @@
-package com.sagalogistics
+package com.sagalogistics.itemsorderactivity
 
-import android.app.Activity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sagalogistics.R
 import com.sagalogistics.barorderactivity.adapters.CustomAdapter
-import com.sagalogistics.lib.database.FutureHelper
 import com.sagalogistics.lib.database.Repository
 import com.sagalogistics.lib.models.Bar
 
-
-class BarOrderActivity : Activity()
-{
+class ItemsOrderActivity : AppCompatActivity() {
     lateinit var mRecyclerView : RecyclerView
 
-    private var barsList: List<Bar> = listOf()
+    private var itemList: List<Bar> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bar_order2)
+        setContentView(R.layout.activity_items_order)
+        intent.extras?.get("key")
         setUpRecyclerView()
+
     }
 
-    fun setUpRecyclerView(){
-        mRecyclerView = findViewById(R.id.recylerview)
+    private fun setUpRecyclerView() {
+        mRecyclerView = findViewById(R.id.recylerviewitems)
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.layoutManager = LinearLayoutManager(this)
         val barlist = Repository.getInstance().getUser("-Mq04Y51CY4YFjo7AiqA").get()!!.bars.map{
             Repository.getInstance().getBar(it).get()!!
         }
-        barsList = barlist
+        itemList = barlist
 
-        val adapter = CustomAdapter(barsList,this)
+        val adapter = CustomAdapter(itemList,this)
         mRecyclerView.adapter = adapter
     }
 }
-
-
-
