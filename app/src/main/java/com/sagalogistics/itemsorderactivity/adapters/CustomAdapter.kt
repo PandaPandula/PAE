@@ -11,14 +11,15 @@ import com.sagalogistics.R
 import com.sagalogistics.lib.models.Item
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val items: ArrayList<Pair<Item, Int>>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
+class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
 
 
     class ItemHolder(val view: View): RecyclerView.ViewHolder(view) {
-        fun render(item: Pair<Item, Int>) {
+        fun render(item: Triple<Item, Int, String>) {
             val itemName = view.findViewById<TextView>(R.id.name)
             val itemQuantity = view.findViewById<TextView>(R.id.quantity)
             val itemImg = view.findViewById<ImageView>(R.id.img)
+            val itemOrder = item.third;
 
             //Nom de l'item
             itemName.text = item.first.name

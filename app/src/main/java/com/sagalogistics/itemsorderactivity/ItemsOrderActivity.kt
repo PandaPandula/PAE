@@ -2,7 +2,6 @@ package com.sagalogistics.itemsorderactivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +20,7 @@ class ItemsOrderActivity : AppCompatActivity() {
         setContentView(R.layout.activity_items_order)
 
         //Creem la llista d'items
-        val items = ArrayList<Pair<Item, Int >>()
+        val items = ArrayList<Triple<Item, Int, String>>()
 
         orders = Repository.getInstance().getBar(intent.extras?.get("key") as String).get()?.orders!!
         orders.map{
@@ -31,8 +30,8 @@ class ItemsOrderActivity : AppCompatActivity() {
                     Repository.getInstance().getItem(it2.key).get()?.let { it3 ->
 
                         val quantity = it1.getQuantityItem(it3.key!!)
-                        val item_pair = Pair(it3, quantity)
-                        items.add(item_pair as Pair<Item, Int>)
+                        val item_triple = Triple(it3, quantity, it)
+                        items.add(item_triple as Triple<Item, Int, String>)
                     }
                 }
             }
@@ -45,7 +44,7 @@ class ItemsOrderActivity : AppCompatActivity() {
 
     }
 
-    private fun setUpRecyclerView(items: ArrayList<Pair<Item, Int>>) {
+    private fun setUpRecyclerView(items: ArrayList<Triple<Item, Int, String>>) {
         mRecyclerView = findViewById(R.id.recylerviewitems)
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.layoutManager = LinearLayoutManager(this)
