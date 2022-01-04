@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
+import com.sagalogistics.lib.database.Repository
 import com.sagalogistics.lib.models.Item
 import com.squareup.picasso.Picasso
 
@@ -15,6 +16,7 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
 
 
     class ItemHolder(val view: View): RecyclerView.ViewHolder(view) {
+
         fun render(item: Triple<Item, Int, String>) {
             val itemName = view.findViewById<TextView>(R.id.name)
             val itemQuantity = view.findViewById<TextView>(R.id.quantity)
@@ -44,8 +46,14 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.render(items[position])
+
         holder.view.findViewById<TextView>(R.id.plus).setOnClickListener {
-            holder.view.findViewById<TextView>(R.id.quantity).text
+            val quant = items[position].second.dec()
+            //Actualitzem valor a la base de dades
+            val a = Repository.getInstance().getOrder(items[position].third).get()!!.updateItem(items[position].first.key!!,quant)
+
+            //Actualitzem el valor en local
+            holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
         }
     }
 
