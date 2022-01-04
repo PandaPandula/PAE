@@ -83,12 +83,13 @@
                         <TextView
                             style="@style/reportContentText"
                             android:text="Pes Teòric"
-                            android:id="@+id/PesT"
+
                             android:textColor="#79D0A3" />
 
                         <TextView
                             style="@style/viewParent.headerText"
                             android:text="0"
+                            android:id="@+id/PesT"
                             android:textSize="27sp" />
                     </LinearLayout>
 
