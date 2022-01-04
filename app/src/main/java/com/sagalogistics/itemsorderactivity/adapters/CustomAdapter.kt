@@ -48,12 +48,12 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
         holder.render(items[position])
 
         holder.view.findViewById<TextView>(R.id.plus).setOnClickListener {
-            val quant = items[position].second.dec()
+            val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().toInt().dec()
             //Actualitzem valor a la base de dades
             val a = Repository.getInstance().getOrder(items[position].third).get()!!.updateItem(items[position].first.key!!,quant)
 
             //Actualitzem el valor en local
-            holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
+            if (quant < 0) holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
         }
     }
 

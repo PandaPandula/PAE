@@ -82,12 +82,13 @@
 
                         <TextView
                             style="@style/reportContentText"
-                            android:text="This Month"
+                            android:text="Pes Teòric"
+                            android:id="@+id/PesT"
                             android:textColor="#79D0A3" />
 
                         <TextView
                             style="@style/viewParent.headerText"
-                            android:text="$5,990.00"
+                            android:text="0"
                             android:textSize="27sp" />
                     </LinearLayout>
 
@@ -106,12 +107,13 @@
 
                         <TextView
                             style="@style/reportContentText"
-                            android:text="This Week"
+                            android:text="Pes Real"
                             android:textColor="#79D0A3" />
 
-                        <TextView
+                        <EditText
                             style="@style/viewParent.headerText"
-                            android:text="$200.00"
+                            android:text="0"
+                            android:id="@+id/PesR"
                             android:textSize="27sp" />
                     </LinearLayout>
 
