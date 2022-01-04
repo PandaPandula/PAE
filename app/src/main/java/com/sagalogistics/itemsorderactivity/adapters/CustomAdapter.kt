@@ -17,10 +17,8 @@ class CustomAdapter(private val items: ArrayList<Pair<Item, Int>>, private val c
     class ItemHolder(val view: View): RecyclerView.ViewHolder(view) {
         fun render(item: Pair<Item, Int>) {
             val itemName = view.findViewById<TextView>(R.id.name)
-            val itemQuantity = view.findViewById<TextView>(R.id.weight)
+            val itemQuantity = view.findViewById<TextView>(R.id.quantity)
             val itemImg = view.findViewById<ImageView>(R.id.img)
-            val sum = view.findViewById<ImageView>(R.id.sum)
-            val rest = view.findViewById<ImageView>(R.id.rest)
 
             //Nom de l'item
             itemName.text = item.first.name
