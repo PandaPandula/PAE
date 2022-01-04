@@ -40,7 +40,8 @@ class ItemsOrderActivity : AppCompatActivity() {
         setUpRecyclerView(items)
     }
 
-    fun addSomething(View: View?){
+    fun add(View: View?){
+
 
     }
 
