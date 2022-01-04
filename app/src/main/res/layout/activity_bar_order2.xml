@@ -124,7 +124,7 @@
         <RelativeLayout
             android:id="@+id/bottom2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="320dp"
             android:layout_below="@id/cardLayout"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -135,6 +135,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </RelativeLayout>
+
+        <Button
+            style="@style/reportContentText"
+            android:id="@+id/valButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bottom2"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="validate"
+            android:text="VALIDAR" />
 
     </RelativeLayout>
 

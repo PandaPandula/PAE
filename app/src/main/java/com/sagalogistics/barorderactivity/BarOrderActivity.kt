@@ -3,6 +3,7 @@ package com.sagalogistics
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -20,6 +21,8 @@ class BarOrderActivity : Activity()
     lateinit var mRecyclerView : RecyclerView
     private lateinit var pesT : TextView
     private lateinit var pesR : EditText
+    private lateinit var valButton : Button
+    private lateinit var weightRange : Pair<Float, Float>
 
     private var barsList: List<Bar> = listOf()
 
@@ -28,9 +31,19 @@ class BarOrderActivity : Activity()
         setContentView(R.layout.activity_bar_order2)
         pesR = findViewById(R.id.PesR)
         pesT = findViewById(R.id.PesT)
+        valButton = findViewById(R.id.valButton)
         setUpRecyclerView()
     }
 
+    fun validate () {
+        if (pesR.text.toString().toInt() >  weightRange.first && pesR.text.toString().toInt() >  weightRange.second) {
+            Log.e("aa", "CORRECTE")
+        }else{
+            Log.e("aa", "INCORRECTE")
+        }
+
+
+    }
     fun setUpRecyclerView(){
         mRecyclerView = findViewById(R.id.recylerview)
         mRecyclerView.setHasFixedSize(true)
@@ -40,6 +53,7 @@ class BarOrderActivity : Activity()
 
         //Calculem el weight
         val weightT = WeightCalculator.weightOfUserOrders(user)
+        weightRange = weightT
         val medianweight = (weightT.first + weightT.second / 2).toInt()
         pesT.text = medianweight.toString()
 
