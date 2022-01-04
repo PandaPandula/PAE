@@ -44,6 +44,9 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.render(items[position])
+        holder.view.findViewById<TextView>(R.id.plus).setOnClickListener {
+            holder.view.findViewById<TextView>(R.id.quantity).text
+        }
     }
 
     override fun getItemCount() : Int = items.size
