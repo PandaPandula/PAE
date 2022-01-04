@@ -47,13 +47,21 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.render(items[position])
 
-        holder.view.findViewById<TextView>(R.id.plus).setOnClickListener {
+        holder.view.findViewById<TextView>(R.id.minus).setOnClickListener {
             val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().toInt().dec()
             //Actualitzem valor a la base de dades
             val a = Repository.getInstance().getOrder(items[position].third).get()!!.updateItem(items[position].first.key!!,quant)
 
             //Actualitzem el valor en local
-            if (quant < 0) holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
+            holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
+        }
+        holder.view.findViewById<TextView>(R.id.plus).setOnClickListener {
+            val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().toInt().inc()
+            //Actualitzem valor a la base de dades
+            val a = Repository.getInstance().getOrder(items[position].third).get()!!.updateItem(items[position].first.key!!,quant)
+
+            //Actualitzem el valor en local
+            holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
         }
     }
 
