@@ -15,6 +15,7 @@ import com.sagalogistics.itemsorderactivity.ItemsOrderActivity
 import com.sagalogistics.lib.models.Bar
 import com.sagalogistics.lib.models.Item
 import com.squareup.picasso.Picasso
+import org.w3c.dom.Text
 
 class CustomAdapter(private val items: List<Bar>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
 
@@ -49,7 +50,8 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
             intent.putExtra("key", items[position].key)
             context.startActivity(intent)
 
-        } // click event
+        }
+
     }
 
     override fun getItemCount() : Int = items.size

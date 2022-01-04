@@ -41,6 +41,9 @@ class ItemsOrderActivity : AppCompatActivity() {
 
     fun add(View: View?){
 
+    }
+
+    fun rest(View: View?){
 
     }
 
