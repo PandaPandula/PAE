@@ -1,7 +1,6 @@
 package com.sagalogistics.itemsorderactivity.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,23 +8,26 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
-import com.sagalogistics.itemsorderactivity.ItemsOrderActivity
 import com.sagalogistics.lib.models.Item
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val items: MutableList<Item>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
+class CustomAdapter(private val items: ArrayList<Pair<Item, Int>>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
 
 
     class ItemHolder(val view: View): RecyclerView.ViewHolder(view) {
-        fun render(item: Item) {
+        fun render(item: Pair<Item, Int>) {
             val itemName = view.findViewById<TextView>(R.id.name)
-            val itemWeight = view.findViewById<TextView>(R.id.weight)
+            val itemQuantity = view.findViewById<TextView>(R.id.weight)
             val itemImg = view.findViewById<ImageView>(R.id.img)
 
-            itemName.text = item.name
-            itemWeight.text = item.weight.toString()
+            //Nom de l'item
+            itemName.text = item.first.name
 
-            item.image?.let { itemImg.loadUrl(it) }
+            //Quantitat
+            itemQuantity.text = item.second.toString()
+
+            //Imatge de l'item
+            item.first.image?.let { itemImg.loadUrl(it) }
 
 
         }
