@@ -36,17 +36,11 @@ class CustomAdapter(private val items: MutableList<Item>, private val context: C
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ItemHolder(layoutInflater.inflate(R.layout.innerlayout, parent, false))
+        return ItemHolder(layoutInflater.inflate(R.layout.innerlayout_item, parent, false))
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.render(items[position])
-        holder.view.setOnClickListener {
-            val intent = Intent(context, ItemsOrderActivity::class.java)
-            intent.putExtra("key", items[position].key)
-            context.startActivity(intent)
-
-        } // click event
     }
 
     override fun getItemCount() : Int = items.size

@@ -27,6 +27,7 @@
                 style="@style/viewParent.headerText"
                 android:layout_height="wrap_content"
                 android:text="name"
+                android:onClick="addSomething"
                 android:textColor="@color/primaryTextColor" />
 
             <TextView

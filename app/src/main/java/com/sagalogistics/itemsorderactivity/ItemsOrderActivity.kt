@@ -1,9 +1,13 @@
 package com.sagalogistics.itemsorderactivity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sagalogistics.BarOrderActivity
 import com.sagalogistics.R
 import com.sagalogistics.itemsorderactivity.adapters.CustomAdapter
 import com.sagalogistics.lib.database.Repository
@@ -30,6 +34,10 @@ class ItemsOrderActivity : AppCompatActivity() {
         }
         setUpRecyclerView()
 
+    }
+
+    fun addSomething(View: View?){
+        Log.e("asdf","jhopasdf")
     }
 
     private fun setUpRecyclerView() {
