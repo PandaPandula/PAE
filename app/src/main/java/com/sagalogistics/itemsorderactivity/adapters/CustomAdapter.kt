@@ -1,4 +1,4 @@
-package com.sagalogistics.itemsorderactivity
+package com.sagalogistics.itemsorderactivity.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -9,11 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
-import com.sagalogistics.lib.models.Bar
+import com.sagalogistics.itemsorderactivity.ItemsOrderActivity
 import com.sagalogistics.lib.models.Item
 import com.squareup.picasso.Picasso
 
-class CustomAdapter(private val items: List<Item>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
+class CustomAdapter(private val items: MutableList<Item>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
 
 
     class ItemHolder(val view: View): RecyclerView.ViewHolder(view) {
