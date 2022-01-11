@@ -21,7 +21,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7">
+            android:layout_weight="0.5">
 
             <ImageView
                 android:id="@+id/logo"
@@ -75,7 +75,7 @@
             android:backgroundTint="@color/MediumGreen"
             android:onClick="checkAndLogin"
             android:text="Inicia sessió"
-            android:layout_weight="0.1"
+            android:layout_weight="0.3"
             app:initialCornerAngle="27dp"
             app:spinning_bar_padding="6dp"
             app:spinning_bar_width="4dp" />
