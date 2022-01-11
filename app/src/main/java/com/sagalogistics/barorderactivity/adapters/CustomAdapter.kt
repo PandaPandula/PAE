@@ -61,7 +61,7 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
         fun render(item: Bar) {
 
             val itemName = view.findViewById<TextView>(R.id.name)
-            val itemWeight = view.findViewById<TextView>(com.sagalogistics.R.id.weight)
+            //val itemWeight = view.findViewById<TextView>(com.sagalogistics.R.id.weight)
             val itemImg = view.findViewById<ImageView>(com.sagalogistics.R.id.img)
 
             itemName.text = item.name
