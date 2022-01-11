@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
 import com.sagalogistics.itemsorderactivity.adapters.CustomAdapter
+import com.sagalogistics.lib.database.FutureHelper
 import com.sagalogistics.lib.database.Repository
 import com.sagalogistics.lib.models.Item
+import com.sagalogistics.lib.models.Order
 
 class ItemsOrderActivity : AppCompatActivity() {
     lateinit var mRecyclerView : RecyclerView
@@ -23,7 +25,15 @@ class ItemsOrderActivity : AppCompatActivity() {
         val items = ArrayList<Triple<Item, Int, String>>()
 
         orders = Repository.getInstance().getBar(intent.extras?.get("key") as String).get()?.orders!!
-        orders.map{
+        val ordersPrime = FutureHelper.getListOfKeys(orders, Order::class)
+        ordersPrime.forEach { order ->
+            val itemsPrime = FutureHelper.getListOfKeys(order.items.keys, Item::class)
+            itemsPrime.forEach { item ->
+                val itemTriple = Triple(item, order.items[item.key]!!, order.key!!)
+                items.add(itemTriple)
+            }
+        }
+        /*orders.map{
             Repository.getInstance().getOrder(it).get()?.let { it1 ->
                 it1.items.map { it2 ->
 
@@ -35,7 +45,7 @@ class ItemsOrderActivity : AppCompatActivity() {
                     }
                 }
             }
-        }
+        }*/
         setUpRecyclerView(items)
     }
 
