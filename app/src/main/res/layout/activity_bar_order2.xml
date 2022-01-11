@@ -47,7 +47,7 @@
 
             <TextView
                 android:id="@+id/salesHeaderTextView"
-                style="@style/reportContentText"
+                style="@style/NormalText"
                 android:layout_marginTop="30dp"
                 android:text="Total Sale" />
 
