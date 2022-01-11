@@ -16,7 +16,7 @@ import com.sagalogistics.lib.database.FutureHelper
 import com.sagalogistics.lib.database.Repository
 import com.sagalogistics.lib.database.WeightCalculator
 import com.sagalogistics.lib.models.Bar
-import com.sagalogistics.utils.dialogs.FireMissilesDialogFragment
+import com.sagalogistics.utils.dialogs.OrdersDialog
 import android.content.DialogInterface
 
 
@@ -48,7 +48,7 @@ class BarOrderActivity : AppCompatActivity()
 
     fun validate (view: View?) {
 
-        val newFragment = FireMissilesDialogFragment(R.string.message,R.string.accept,R.string.cancel, ::updateItems)
+        val newFragment = OrdersDialog(R.string.message,R.string.accept,R.string.cancel, ::updateItems)
         newFragment.show(supportFragmentManager, "hola")
 
         if (pesR.text.toString().toInt() >  weightRange.first && pesR.text.toString().toInt() >  weightRange.second) {

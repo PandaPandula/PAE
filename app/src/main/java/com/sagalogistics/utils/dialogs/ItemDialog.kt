@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import com.sagalogistics.R
 import kotlinx.coroutines.NonCancellable.cancel
 
-class FireMissilesDialogFragment(val a : Int, val c : Int, val b : Int, private val callbackCanceled: () -> Unit) : DialogFragment() {
+class ItemDialog(val a : Int, val c : Int, val b : Int) : DialogFragment() {
 
 
     private var peso = 0
@@ -26,7 +26,6 @@ class FireMissilesDialogFragment(val a : Int, val c : Int, val b : Int, private 
             builder.setMessage(a)
                 .setPositiveButton(b,
                     DialogInterface.OnClickListener { dialog, id ->
-                        callbackCanceled()
                     })
                 .setNegativeButton(c,
                     DialogInterface.OnClickListener { dialog, id ->
