@@ -20,14 +20,12 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/logo"
                 android:layout_width="400dp"
-                android:layout_height="400dp"
-
+                android:layout_height="300dp"
                 android:src="@mipmap/unknown" />
 
             <TextView
@@ -39,11 +37,13 @@
                 android:textColor="@color/DarkGreen"/>
         </RelativeLayout>
 
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:layout_weight="0.1">
+            android:layout_weight="0">
 
             <EditText
                 android:id="@+id/editTextEmail"
@@ -70,12 +70,14 @@
         <Button
             android:id="@+id/cirLoginButton"
             style="@style/loginButton"
+            android:layout_width="349dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_weight="0"
+            android:layout_margin="10dp"
             android:backgroundTint="@color/MediumGreen"
             android:onClick="checkAndLogin"
             android:text="Inicia sessió"
-            android:layout_weight="0.3"
             app:initialCornerAngle="27dp"
             app:spinning_bar_padding="6dp"
             app:spinning_bar_width="4dp" />
