@@ -3,42 +3,66 @@ package com.sagalogistics.barorderactivity.adapters
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
 import com.sagalogistics.itemsorderactivity.ItemsOrderActivity
 import com.sagalogistics.lib.models.Bar
-import com.sagalogistics.lib.models.Item
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
-import jdk.nashorn.internal.objects.NativeRegExp.source
 
-import android.graphics.drawable.Drawable
+import android.widget.RelativeLayout
 
-import android.R
-import jdk.nashorn.internal.objects.NativeRegExp.source
+import android.graphics.Color
 
+import android.graphics.drawable.ColorDrawable
+import android.view.Window
+import android.graphics.BitmapFactory
 
-
-
-
+import android.graphics.Bitmap
+import java.io.*
+import java.net.HttpURLConnection
+import java.net.URL
 
 
 class CustomAdapter(private val items: List<Bar>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
+
+
+    fun ImageView.loadUrl(url: String) {
+        Picasso.with(context).load(url).into(this)
+    }
+
+
+    fun showImage() {
+        val builder = Dialog(context)
+        builder.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        builder.window!!.setBackgroundDrawable(
+            ColorDrawable(Color.TRANSPARENT)
+        )
+        builder.setOnDismissListener {
+            //nothing;
+        }
+        val imageView = ImageView(context)
+        imageView.loadUrl("https://pbs.twimg.com/profile_images/421503396319735808/BMzE_v6R_400x400.jpeg")
+        builder.addContentView(
+            imageView, RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
+            )
+        )
+        builder.show()
+    }
 
 
     class ItemHolder(val view: View): RecyclerView.ViewHolder(view) {
         fun render(item: Bar) {
 
             val itemName = view.findViewById<TextView>(R.id.name)
-            val itemWeight = view.findViewById<TextView>(R.id.weight)
-            val itemImg = view.findViewById<ImageView>(R.id.img)
+            val itemWeight = view.findViewById<TextView>(com.sagalogistics.R.id.weight)
+            val itemImg = view.findViewById<ImageView>(com.sagalogistics.R.id.img)
 
             itemName.text = item.name
             //itemWeight.text = item.weight.toString()
@@ -53,7 +77,7 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ItemHolder(layoutInflater.inflate(R.layout.innerlayout, parent, false))
+        return ItemHolder(layoutInflater.inflate(com.sagalogistics.R.layout.innerlayout, parent, false))
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
@@ -64,14 +88,11 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
             context.startActivity(intent)
 
         }
+        holder.view.setOnLongClickListener {
+            showImage()
+            true
+        }
 
-        val dialog =Dialog (context, com.sagalogistics.R.style.ImagePreviewerTheme)
-
-        /* calls newDrawable(), otherwise changes may affect source drawable*/
-
-/* calls newDrawable(), otherwise changes may affect source drawable*/
-        val copy: Drawable = source.getDrawable().getConstantState().newDrawable()
-        dialogView.findViewById(R.id.previewer_image).setImageDrawable(copy)
 
     }
 

@@ -8,7 +8,7 @@ import androidx.fragment.app.DialogFragment
 import com.sagalogistics.R
 import kotlinx.coroutines.NonCancellable.cancel
 
-class FireMissilesDialogFragment : DialogFragment() {
+class FireMissilesDialogFragmentWithImage : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {

@@ -1,8 +1,10 @@
 package com.sagalogistics.itemsorderactivity
 
+import android.app.ProgressDialog.show
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.R
@@ -11,6 +13,7 @@ import com.sagalogistics.lib.database.FutureHelper
 import com.sagalogistics.lib.database.Repository
 import com.sagalogistics.lib.models.Item
 import com.sagalogistics.lib.models.Order
+import com.sagalogistics.utils.dialogs.FireMissilesDialogFragment
 
 class ItemsOrderActivity : AppCompatActivity() {
     lateinit var mRecyclerView : RecyclerView
@@ -49,14 +52,19 @@ class ItemsOrderActivity : AppCompatActivity() {
 
     fun validate(View: View?) {
         //Actualitzem las orders a back
+        val newFragment = FireMissilesDialogFragment()
+        newFragment.show(supportFragmentManager, "hola")
 
     }
 
     fun back (View: View?) {
+
+        val newFragment = FireMissilesDialogFragment()
+        newFragment.show(supportFragmentManager, "hola")
+
         for (order in globalOrder) {
             Repository.getInstance().updateOrder(order.key!!, order)
         }
-        finish()
     }
 
     private fun setUpRecyclerView(items: ArrayList<Triple<Item, Int, String>>) {
