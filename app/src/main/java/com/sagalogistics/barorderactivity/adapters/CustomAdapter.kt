@@ -1,5 +1,6 @@
 package com.sagalogistics.barorderactivity.adapters
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.util.Log
@@ -16,6 +17,18 @@ import com.sagalogistics.lib.models.Bar
 import com.sagalogistics.lib.models.Item
 import com.squareup.picasso.Picasso
 import org.w3c.dom.Text
+import jdk.nashorn.internal.objects.NativeRegExp.source
+
+import android.graphics.drawable.Drawable
+
+import android.R
+import jdk.nashorn.internal.objects.NativeRegExp.source
+
+
+
+
+
+
 
 class CustomAdapter(private val items: List<Bar>, private val context: Context): RecyclerView.Adapter<CustomAdapter.ItemHolder>() {
 
@@ -51,6 +64,14 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
             context.startActivity(intent)
 
         }
+
+        val dialog =Dialog (context, com.sagalogistics.R.style.ImagePreviewerTheme)
+
+        /* calls newDrawable(), otherwise changes may affect source drawable*/
+
+/* calls newDrawable(), otherwise changes may affect source drawable*/
+        val copy: Drawable = source.getDrawable().getConstantState().newDrawable()
+        dialogView.findViewById(R.id.previewer_image).setImageDrawable(copy)
 
     }
 
