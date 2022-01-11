@@ -5,7 +5,6 @@ import com.google.firebase.database.Exclude
 import android.os.Parcel
 import android.os.Parcelable.Creator
 import com.sagalogistics.lib.models.Item
-import java.lang.IllegalArgumentException
 
 class ItemImpl : Item, Parcelable {
     @get:Exclude

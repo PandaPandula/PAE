@@ -31,6 +31,8 @@ class OrderImpl : Order, Parcelable {
     }
 
     override fun updateItem(itemKey: String, quantity: Int) {
+        if (quantity < 0)
+            throw IllegalArgumentException("Quantity of item can't be negative")
         _items[itemKey] = quantity
     }
 
