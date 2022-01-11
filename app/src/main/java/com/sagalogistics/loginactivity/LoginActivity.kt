@@ -17,17 +17,7 @@ class LoginActivity : Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         Repository.initialize(RepositoryFactoryFirebase())
-        val repo = Repository.getInstance()
-        val futureUsers = repo.getAllUsers()
-        val futureBars = repo.getAllBars()
-        val futureOrders = repo.getAllOrders()
-        val futureItems = repo.getAllItems()
-        val users = futureUsers.get()
-        val bars = futureBars.get()
-        val orders = futureOrders.get()
-        val items = futureItems.get()
     }
 
     fun onLoginClick(View: View?) {
