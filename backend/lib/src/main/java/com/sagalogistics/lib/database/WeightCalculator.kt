@@ -54,15 +54,21 @@ class WeightCalculator private constructor(){
          *
          * The [first][Pair.first] element of the pair will be the lower bound of weight,
          * and the [second][Pair.second] will be the upper one
+         *
+         * If the order is [not a return order][Order.isReturn] this function returns
+         * a [pair][Pair] of zeroes
          */
         fun weightOfOrder(order: Order): Pair<Float, Float> {
-            val itemKeys = order.items.keys
-            val listOfItems = FutureHelper.getListOfKeys(itemKeys, Item::class)
+            if (order.isReturn) {
+                val itemKeys = order.items.keys
+                val listOfItems = FutureHelper.getListOfKeys(itemKeys, Item::class)
 
-            return listOfItems.fold(Pair(0f, 0f), { (lowerWeight, upperWeight), item ->
-                val (lowerVariance, upperVariance) = lowerUpperWeightOfItem(order, item)
-                Pair(lowerWeight + lowerVariance, upperWeight + upperVariance)
-            })
+                return listOfItems.fold(Pair(0f, 0f), { (lowerWeight, upperWeight), item ->
+                    val (lowerVariance, upperVariance) = lowerUpperWeightOfItem(order, item)
+                    Pair(lowerWeight + lowerVariance, upperWeight + upperVariance)
+                })
+            }
+            return Pair(0f, 0f)
         }
 
         /**
