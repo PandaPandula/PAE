@@ -85,7 +85,7 @@
 
                         <TextView
                             style="@style/GreenText"
-                            android:text="Pes Teòric"
+                            android:text="Pes  Teòric"
                             android:textColor="@color/DarkGreen" />
 
                         <TextView
