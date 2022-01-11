@@ -18,23 +18,32 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7">
 
             <ImageView
+                android:id="@+id/logo"
                 android:layout_width="400dp"
                 android:layout_height="400dp"
 
                 android:src="@mipmap/unknown" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logo"
+                android:text="Inicia Sessió"
+                style="@style/NormalText"
+                android:textColor="@color/DarkGreen"/>
         </RelativeLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
             style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_weight="0.1">
 
             <EditText
                 android:id="@+id/editTextEmail"
@@ -47,7 +56,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputPassword"
             style="@style/parent"
-            android:layout_marginTop="@dimen/loginViewsMargin">
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            android:layout_weight="0.1">
 
             <EditText
                 android:id="@+id/editTextPassword"
@@ -57,14 +67,6 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            style="@style/viewParent"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:text=""
-            android:textColor="@color/MediumGreen"
-            android:textSize="@dimen/newsMoreTextSize" />
-
         <Button
             android:id="@+id/cirLoginButton"
             style="@style/loginButton"
@@ -73,7 +75,7 @@
             android:backgroundTint="@color/MediumGreen"
             android:onClick="checkAndLogin"
             android:text="Inicia sessió"
-
+            android:layout_weight="0.1"
             app:initialCornerAngle="27dp"
             app:spinning_bar_padding="6dp"
             app:spinning_bar_width="4dp" />

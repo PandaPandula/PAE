@@ -221,7 +221,7 @@ xmlns:aapt="http://schemas.android.com/aapt"
         android:fillColor="#4491a1"
         android:strokeAlpha="0.96"/>
     <path
-        android:pathData="M123.73,126.74l2.37,4.38 -0.81,7.33 3.33,18.55q0.96,-0.02 1.93,-0.04l2.53,-26.08L131.46,124.78Z"
+        android:pathData="M123.73,126.74l1,7.33 3.33,18.55q0.96,-0.02 1.93,-0.04l2.53,-26.08L131.46,124.78Z"
         android:fillAlpha="0.96"
         android:fillColor="#ff9877"
         android:strokeAlpha="0.96"/>
