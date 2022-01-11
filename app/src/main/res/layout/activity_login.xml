@@ -31,10 +31,11 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    style="@style/viewParent.headerText.NoMode"
+                    style="@style/GreenText"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:text="Inicia sessió " />
+                    android:layout_margin="20dp"
+                    android:text="SAGA " />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -74,16 +75,17 @@
                 style="@style/viewParent"
                 android:layout_gravity="end"
                 android:layout_marginTop="10dp"
-                android:text="Forgot Password?"
-                android:textColor="@color/primaryTextColor"
+                android:text=""
+                android:textColor="@color/textG"
                 android:textSize="@dimen/newsMoreTextSize" />
 
-            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            <Button
                 android:id="@+id/cirLoginButton"
                 style="@style/loginButton"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/loginViewsMargin"
-                android:text="Login"
+                android:text="Inicia sessió"
+                android:backgroundTint="@color/textG"
                 app:initialCornerAngle="27dp"
                 app:spinning_bar_color="#FFF"
                 app:spinning_bar_padding="6dp"
@@ -94,7 +96,7 @@
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:onClick="onLoginClick"
-                android:text="New user? Register Now"
+                android:text=""
                 android:textAlignment="center"
                 android:textColor="@color/themeColor"
                 android:textSize="17sp"
@@ -109,7 +111,7 @@
 
         </LinearLayout>
     </ScrollView>
-
+<!--
     <View
         android:layout_width="11dp"
         android:layout_height="match_parent"
@@ -126,4 +128,5 @@
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="30dp"
         android:onClick="onLoginClick"/>
+        -->
 </RelativeLayout>

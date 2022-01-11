@@ -19,10 +19,6 @@ import com.sagalogistics.lib.models.Bar
 import com.sagalogistics.utils.dialogs.OrdersDialog
 import android.content.DialogInterface
 
-
-
-
-
 class BarOrderActivity : AppCompatActivity()
 {
     lateinit var mRecyclerView : RecyclerView
