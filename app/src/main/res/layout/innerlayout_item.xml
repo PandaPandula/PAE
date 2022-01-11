@@ -9,67 +9,95 @@
         android:id="@+id/card_view"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-
-            <ImageView
-                android:id="@+id/img"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentLeft="true" />
-
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_margin="20dp"
-                android:layout_toEndOf="@id/img"
-                android:text="name"
-                android:textColor="@color/contentTextColor"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:gravity="left"
+                android:padding="6dp"
+                android:weightSum="1"
+                android:layout_margin="10dp">
+                <RelativeLayout
+                    android:id="@+id/relative1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3">
 
-            <TextView
-                android:id="@+id/quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="170dp"
-                android:layout_toEndOf="@id/name"
-                android:text="4"
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentLeft="true"
+                        />
 
-                android:textColor="@color/contentTextColor"
-                android:textSize="24dp" />
+                    <TextView
+                        android:id="@+id/name"
+                        style="@style/NormalText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="15dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_toEndOf="@id/img"
+                        android:text="name"
+                        />
+                </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33">
+                        <Button
+                            android:id="@+id/minus"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/custom_btn_remove"
+                            android:backgroundTint="@color/textG" />
 
-            <TextView
-                android:id="@+id/plus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="150dp"
-                android:layout_toEndOf="@id/name"
-                android:onClick="addSomething"
-                android:text="+"
-                android:textColor="@color/contentTextColor"
-                android:textSize="24dp" />
-
-            <TextView
-                android:id="@+id/minus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toEndOf="@id/quantity"
-                android:onClick="addSomething"
-                android:text="-"
-                android:textColor="@color/contentTextColor"
-
-                android:textSize="24dp" />
-
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33">
+                        <TextView
+                            android:id="@+id/quantity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="0"
+                            style="@style/NormalText"
+                            android:textColor="@color/black"
+                             />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.33">
+                        <Button
+                            android:id="@+id/plus"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/custom_btn_add"
+                            android:backgroundTint="@color/textG" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

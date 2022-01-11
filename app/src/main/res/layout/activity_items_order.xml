@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".itemsorderactivity.ItemsOrderActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/bottom2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recylerviewitems"
             android:layout_width="match_parent"
-            android:layout_height="650dp" />
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"/>
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -27,7 +27,8 @@
             android:gravity="center_horizontal"
             android:padding="6dp"
             android:weightSum="1"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            >
 
             <Button
                 android:id="@+id/item_cancel"
@@ -38,6 +39,7 @@
                 android:layout_weight="0.5"
                 android:padding="0.8dp"
                 android:text="CANCELAR"
+                style="@style/Cancel"
                 android:onClick="back"/>
 
             <Button
@@ -50,7 +52,8 @@
                 android:layout_weight="0.5"
                 android:onClick="validate"
                 android:padding="0.8dp"
+                style="@style/Validate"
                 android:text="VALIDAR" />
         </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

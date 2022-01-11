@@ -81,10 +81,9 @@
                         android:orientation="vertical">
 
                         <TextView
-                            style="@style/reportContentText"
+                            style="@style/GreenText"
                             android:text="Pes Teòric"
-
-                            android:textColor="#79D0A3" />
+                            android:textColor="@color/textG" />
 
                         <TextView
                             style="@style/viewParent.headerText"
@@ -107,9 +106,9 @@
                         android:orientation="vertical">
 
                         <TextView
-                            style="@style/reportContentText"
+                            style="@style/GreenText"
                             android:text="Pes Real"
-                            android:textColor="#79D0A3" />
+                            android:textColor="@color/textG" />
 
                         <EditText
                             style="@style/viewParent.headerText"
@@ -138,7 +137,7 @@
 
         <Button
             android:id="@+id/valButton"
-            style="@style/reportContentText"
+            style="@style/Validate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/bottom2"
