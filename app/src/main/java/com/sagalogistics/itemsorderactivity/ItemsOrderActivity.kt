@@ -14,6 +14,7 @@ import com.sagalogistics.lib.models.Order
 
 class ItemsOrderActivity : AppCompatActivity() {
     lateinit var mRecyclerView : RecyclerView
+    private lateinit var globalOrder : Set<Order>;
 
     private var orders: MutableList<String> = mutableListOf()
 
@@ -26,6 +27,7 @@ class ItemsOrderActivity : AppCompatActivity() {
 
         orders = Repository.getInstance().getBar(intent.extras?.get("key") as String).get()?.orders!!
         val ordersPrime = FutureHelper.getListOfKeys(orders, Order::class)
+        globalOrder = ordersPrime
         ordersPrime.forEach { order ->
             val itemsPrime = FutureHelper.getListOfKeys(order.items.keys, Item::class)
             itemsPrime.forEach { item ->
@@ -33,19 +35,7 @@ class ItemsOrderActivity : AppCompatActivity() {
                 items.add(itemTriple)
             }
         }
-        /*orders.map{
-            Repository.getInstance().getOrder(it).get()?.let { it1 ->
-                it1.items.map { it2 ->
 
-                    Repository.getInstance().getItem(it2.key).get()?.let { it3 ->
-
-                        val quantity = it1.getQuantityItem(it3.key!!)
-                        val item_triple = Triple(it3, quantity, it)
-                        items.add(item_triple as Triple<Item, Int, String>)
-                    }
-                }
-            }
-        }*/
         setUpRecyclerView(items)
     }
 
@@ -55,6 +45,17 @@ class ItemsOrderActivity : AppCompatActivity() {
 
     fun rest(View: View?){
 
+    }
+
+    fun validate(View: View?) {
+        //Actualitzem las orders a back
+        for (order in globalOrder) {
+            Repository.getInstance().updateOrder(order.key!!, order)
+        }
+    }
+
+    fun back (View: View?) {
+        finish()
     }
 
     private fun setUpRecyclerView(items: ArrayList<Triple<Item, Int, String>>) {

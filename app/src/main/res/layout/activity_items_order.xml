@@ -28,27 +28,29 @@
             android:padding="6dp"
             android:weightSum="1"
             android:layout_margin="10dp">
+
             <Button
                 android:id="@+id/item_cancel"
                 android:layout_width="wrap_content"
-                android:layout_weight="0.5"
                 android:layout_height="match_parent"
                 android:layout_below="@id/recylerviewitems"
-                android:padding="0.8dp"
                 android:layout_margin="5dp"
-                android:text="BACK"
-                />
-            <Button
+                android:layout_weight="0.5"
+                android:padding="0.8dp"
+                android:text="CANCELAR"
+                android:onClick="back"/>
 
+            <Button
+                android:id="@+id/_item_validar"
                 android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/recylerviewitems"
+                android:layout_margin="5dp"
                 android:layout_toRightOf="@id/item_cancel"
                 android:layout_weight="0.5"
-                android:layout_height="match_parent"
+                android:onClick="validate"
                 android:padding="0.8dp"
-                android:layout_below="@id/recylerviewitems"
-                android:layout_margin="5dp"
-                android:text="VALIDATE"
-                />
+                android:text="VALIDAR" />
         </LinearLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
