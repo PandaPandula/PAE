@@ -16,6 +16,22 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recylerviewitems"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="650dp" />
+        
+        <Button
+            android:id="@+id/item_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/recylerviewitems"
+            android:text="BACK"
+            />
+        <Button
+
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@id/item_cancel"
+            android:layout_height="match_parent"
+            android:layout_below="@id/recylerviewitems"
+            android:text="VALIDATE"
+            />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

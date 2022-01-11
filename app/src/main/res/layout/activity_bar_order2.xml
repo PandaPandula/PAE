@@ -137,8 +137,8 @@
         </RelativeLayout>
 
         <Button
-            style="@style/reportContentText"
             android:id="@+id/valButton"
+            style="@style/reportContentText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/bottom2"
