@@ -68,7 +68,7 @@
 
     <style name="modifiedEditText" parent="parent">
         <item name="android:textSize">@dimen/newsMoreTextSize</item>
-        <item name="android:backgroundTint">@color/textG</item>
+        <item name="android:backgroundTint">@color/MediumGreen</item>
     </style>
 
     <style name="loginButton" parent="viewParent">
@@ -128,6 +128,16 @@
         <item name="android:layout_below">@id/dateTextView</item>
     </style>
 
+    <style name="WhiteText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:layout_below">@id/dateTextView</item>
+    </style>
+
     <style name="MarkText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -141,7 +151,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:textColor">@color/textG</item>
+        <item name="android:textColor">@color/MediumGreen</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">25sp</item>
         <item name="android:layout_below">@id/dateTextView</item>
@@ -151,8 +161,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:textColor">@color/grey</item>
-        <item name="backgroundTint">@color/textG</item>
+        <item name="android:textColor">@color/DarkGreen</item>
+        <item name="backgroundTint">@color/MediumGreen</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:layout_below">@id/dateTextView</item>
@@ -162,8 +172,8 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:textColor">@color/textG</item>
-        <item name="backgroundTint">@color/grey</item>
+        <item name="android:textColor">@color/LightGreen</item>
+        <item name="backgroundTint">@color/DarkGreen</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:layout_below">@id/dateTextView</item>

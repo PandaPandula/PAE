@@ -4,11 +4,11 @@
         android:bottomLeftRadius="13dp"
         android:bottomRightRadius="13dp" />
     <gradient
-        android:angle="0"
+        android:angle="30"
         android:centerX="0%"
-        android:centerColor="#56C4AD"
-        android:startColor="#20B1BD"
-        android:endColor="#82D3A0"
+        android:centerColor="@color/DarkGreen"
+        android:startColor="@color/DarkGreen"
+        android:endColor="@color/LightGreen"
         android:type="linear"
         />
     <padding
