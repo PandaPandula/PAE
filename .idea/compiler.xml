@@ -2,6 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
+      <module name="Saga.app" target="11" />
+      <module name="Saga.backend" target="11" />
+      <module name="Saga.backend.implementation" target="11" />
       <module name="Saga_Logistics.api" target="11" />
       <module name="Saga_Logistics.app" target="11" />
       <module name="Saga_Logistics.backend" target="11" />
