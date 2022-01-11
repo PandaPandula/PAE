@@ -49,12 +49,13 @@ class ItemsOrderActivity : AppCompatActivity() {
 
     fun validate(View: View?) {
         //Actualitzem las orders a back
-        for (order in globalOrder) {
-            Repository.getInstance().updateOrder(order.key!!, order)
-        }
+
     }
 
     fun back (View: View?) {
+        for (order in globalOrder) {
+            Repository.getInstance().updateOrder(order.key!!, order)
+        }
         finish()
     }
 

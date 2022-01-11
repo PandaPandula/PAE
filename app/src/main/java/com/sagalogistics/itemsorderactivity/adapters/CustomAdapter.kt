@@ -55,7 +55,7 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
 
             //Actualitzem el valor en local
             holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
-            //Repository.getInstance().updateOrder(a.key!!, a)
+            Repository.getInstance().updateOrder(a.key!!, a)
         }
         holder.view.findViewById<TextView>(R.id.plus).setOnClickListener {
             val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().toInt().inc()
@@ -65,7 +65,7 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
 
             //Actualitzem el valor en local
             holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
-            //Repository.getInstance().updateOrder(a.key!!, a)
+            Repository.getInstance().updateOrder(a.key!!, a)
         }
 
 
