@@ -27,7 +27,7 @@
                     android:id="@+id/relative1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.3">
+                    android:layout_weight="0.4">
 
                     <androidx.cardview.widget.CardView
                         android:id="@id/card_img"
@@ -57,9 +57,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="10dp"
-                            android:text="name"
                             android:layout_weight="0.8"
-                            />
+                            android:text="name" />
+
                         <TextView
                             android:id="@+id/marca"
                             style="@style/MarkText"
@@ -76,7 +76,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.7">
+                    android:layout_weight="0.6">
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -88,7 +88,8 @@
                             android:layout_height="40dp"
                             android:layout_centerInParent="true"
                             android:background="@drawable/custom_btn_remove"
-                            android:backgroundTint="@color/textG" />
+                            android:backgroundTint="@color/textG"
+                            android:layout_margin="10dp"/>
 
                     </RelativeLayout>
                     <RelativeLayout
@@ -116,7 +117,8 @@
                             android:layout_height="40dp"
                             android:layout_centerInParent="true"
                             android:background="@drawable/custom_btn_add"
-                            android:backgroundTint="@color/textG" />
+                            android:backgroundTint="@color/textG"
+                            android:layout_margin="10dp"/>
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
