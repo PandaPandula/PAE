@@ -82,8 +82,16 @@ class UserDAOFirebase : UserDAO { //temporary, will be changed after GoogleAuth 
                 val data = task.result
                 if (data != null) {
                     val users = data.value as Map<*, *>?
-                    for ((key) in users!!) {
-                        usersRef.child(key as String).child("bars").child(barKey).removeValue()
+                    for ((key, value) in users!!) {
+                        val barsList = (value as Map<*, *>)["bars"] as List<*>
+                        for (bar in barsList) {
+                            if (barKey == bar) {
+                                usersRef.child(key as String)
+                                    .child("bars")
+                                    .child(barsList.indexOf(bar).toString())
+                                    .removeValue()
+                            }
+                        }
                     }
                 }
             }

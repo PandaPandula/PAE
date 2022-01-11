@@ -110,8 +110,16 @@ class BarDAOFirebase : BarDAO {
                 val data = task.result
                 if (data != null) {
                     val bars = data.value as Map<*, *>?
-                    for ((key) in bars!!) {
-                        barsRef.child(key as String).child("orders").child(orderKey).removeValue()
+                    for ((key, value) in bars!!) {
+                        val ordersList = (value as Map<*, *>)["orders"] as List<*>
+                        for (order in ordersList){
+                            if (orderKey == order) {
+                                barsRef.child(key as String)
+                                    .child("orders")
+                                    .child(ordersList.indexOf(order).toString())
+                                    .removeValue()
+                            }
+                        }
                     }
                 }
             }

@@ -39,7 +39,12 @@ class ItemImpl : Item, Parcelable {
     /**
      * Standard constructor
      */
-    constructor(key: String? = null, name: String, weight: Float, upperVariance: Float = 0f, lowerVariance: Float = upperVariance, image: String? = null) {
+    constructor(key: String? = null,
+                name: String,
+                weight: Float,
+                upperVariance: Float = 0f,
+                lowerVariance: Float = upperVariance,
+                image: String? = null) {
         this.key = key
         this.name = name
         this.weight = weight
