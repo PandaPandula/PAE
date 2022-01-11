@@ -10,6 +10,7 @@ class OrderImpl : Order, Parcelable {
     @get:Exclude
     @set:Exclude
     override var key: String? = null
+    override var isReturn: Boolean = true
     override var items: MutableMap<String, Int>
         get() = LinkedHashMap(_items)
         set(value) {
@@ -25,12 +26,17 @@ class OrderImpl : Order, Parcelable {
     /**
      * Standard constructor
      */
-    constructor(key: String? = null, items: MutableMap<String, Int> = LinkedHashMap()) {
+    constructor(key: String? = null,
+                items: MutableMap<String, Int> = LinkedHashMap(),
+                isReturn: Boolean = true) {
         this.key = key
         this.items = items
+        this.isReturn = isReturn
     }
 
     override fun updateItem(itemKey: String, quantity: Int) {
+        if (quantity < 0)
+            throw IllegalArgumentException("Quantity of item can't be negative")
         _items[itemKey] = quantity
     }
 

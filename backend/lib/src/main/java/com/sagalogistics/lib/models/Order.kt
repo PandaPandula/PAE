@@ -18,6 +18,11 @@ interface Order : Serializable {
     var items: MutableMap<String, Int>
 
     /**
+     * A binary to differentiate return orders from delivery orders
+     */
+    var isReturn: Boolean
+
+    /**
      * Updates the quantity of an item in the order
      */
     fun updateItem(itemKey: String, quantity: Int)
