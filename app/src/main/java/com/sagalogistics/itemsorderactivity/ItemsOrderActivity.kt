@@ -52,15 +52,16 @@ class ItemsOrderActivity : AppCompatActivity() {
 
     fun validate(View: View?) {
         //Actualitzem las orders a back
-        val newFragment = FireMissilesDialogFragment()
+     /*   val newFragment = FireMissilesDialogFragment(R.string.message,R.string.accept,R.string.cancel)
         newFragment.show(supportFragmentManager, "hola")
+        */
 
     }
 
     fun back (View: View?) {
-
-        val newFragment = FireMissilesDialogFragment()
-        newFragment.show(supportFragmentManager, "hola")
+/*
+        val newFragment = FireMissilesDialogFragment(R.string.message,R.string.accept,R.string.cancel)
+        newFragment.show(supportFragmentManager, "hola")*/
 
         for (order in globalOrder) {
             Repository.getInstance().updateOrder(order.key!!, order)

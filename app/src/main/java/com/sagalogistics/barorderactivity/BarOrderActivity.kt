@@ -3,10 +3,12 @@ package com.sagalogistics
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sagalogistics.barorderactivity.adapters.CustomAdapter
@@ -15,13 +17,17 @@ import com.sagalogistics.lib.database.Repository
 import com.sagalogistics.lib.database.WeightCalculator
 import com.sagalogistics.lib.models.Bar
 import com.sagalogistics.utils.dialogs.FireMissilesDialogFragment
+import android.content.DialogInterface
 
 
-class BarOrderActivity : Activity()
+
+
+
+class BarOrderActivity : AppCompatActivity()
 {
     lateinit var mRecyclerView : RecyclerView
     private lateinit var pesT : TextView
-    private lateinit var pesR : EditText
+    private lateinit var pesR : TextView
     private lateinit var valButton : Button
     private lateinit var weightRange : Pair<Float, Float>
 
@@ -36,9 +42,13 @@ class BarOrderActivity : Activity()
         setUpRecyclerView()
     }
 
-    fun validate () {
+    private fun updateItems() {
+        pesR.text = "hola"
+    }
 
-        val newFragment = FireMissilesDialogFragment()
+    fun validate (view: View?) {
+
+        val newFragment = FireMissilesDialogFragment(R.string.message,R.string.accept,R.string.cancel, ::updateItems)
         newFragment.show(supportFragmentManager, "hola")
 
         if (pesR.text.toString().toInt() >  weightRange.first && pesR.text.toString().toInt() >  weightRange.second) {
@@ -48,20 +58,20 @@ class BarOrderActivity : Activity()
         }
 
 
+
     }
     fun setUpRecyclerView(){
         mRecyclerView = findViewById(R.id.recylerview)
         mRecyclerView.setHasFixedSize(true)
         mRecyclerView.layoutManager = LinearLayoutManager(this)
         //Agafem l'usuari
-        val user = Repository.getInstance().getUser("-Mq04Y51CY4YFjo7AiqA").get()!!
+        val user = Repository.getInstance().getUser("DemoUser").get()!!
 
         //Calculem el weight
         val weightT = WeightCalculator.weightOfUserOrders(user)
         weightRange = weightT
         val medianweight = (weightT.first + weightT.second / 2).toInt()
         pesT.text = medianweight.toString()
-
         //Agafem els bars de l'usuari
         val barlist = user.bars.map{
             Repository.getInstance().getBar(it).get()!!

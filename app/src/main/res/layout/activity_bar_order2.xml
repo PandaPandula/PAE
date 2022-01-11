@@ -113,7 +113,7 @@
                             android:text="Pes Real"
                             android:textColor="@color/textG" />
 
-                        <EditText
+                        <TextView
                             style="@style/viewParent.headerText"
                             android:text="0"
                             android:id="@+id/PesR"
