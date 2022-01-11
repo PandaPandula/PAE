@@ -31,10 +31,11 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    style="@style/viewParent.headerText.NoMode"
+                    style="@style/GreenText"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:text="Already \nhave an \nAccount?" />
+                    android:layout_margin="20dp"
+                    android:text="SAGA " />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -74,16 +75,17 @@
                 style="@style/viewParent"
                 android:layout_gravity="end"
                 android:layout_marginTop="10dp"
-                android:text="Forgot Password?"
-                android:textColor="@color/primaryTextColor"
+                android:text=""
+                android:textColor="@color/textG"
                 android:textSize="@dimen/newsMoreTextSize" />
 
-            <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
+            <Button
                 android:id="@+id/cirLoginButton"
                 style="@style/loginButton"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/loginViewsMargin"
-                android:text="Login"
+                android:text="Inicia sessió"
+                android:backgroundTint="@color/textG"
                 app:initialCornerAngle="27dp"
                 app:spinning_bar_color="#FFF"
                 app:spinning_bar_padding="6dp"
@@ -94,7 +96,7 @@
                 style="@style/parent"
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 android:onClick="onLoginClick"
-                android:text="New user? Register Now"
+                android:text=""
                 android:textAlignment="center"
                 android:textColor="@color/themeColor"
                 android:textSize="17sp"
@@ -104,54 +106,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:weightSum="12">
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/colorPrimaryDark" />
-
-                <TextView
-                    style="@style/viewParent.headerText.NoMode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="6"
-                    android:text="Use other Methods"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/colorPrimaryDark" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_facebook" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:src="@drawable/ic_google_plus" />
-            </LinearLayout>
+                android:gravity="center"/>
 
         </LinearLayout>
     </ScrollView>
-
+<!--
     <View
         android:layout_width="11dp"
         android:layout_height="match_parent"
@@ -168,4 +128,5 @@
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="30dp"
         android:onClick="onLoginClick"/>
+        -->
 </RelativeLayout>

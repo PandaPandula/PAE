@@ -13,7 +13,7 @@ import com.sagalogistics.lib.database.FutureHelper
 import com.sagalogistics.lib.database.Repository
 import com.sagalogistics.lib.models.Item
 import com.sagalogistics.lib.models.Order
-import com.sagalogistics.utils.dialogs.FireMissilesDialogFragment
+import com.sagalogistics.utils.dialogs.ItemDialog
 
 class ItemsOrderActivity : AppCompatActivity() {
     lateinit var mRecyclerView : RecyclerView
@@ -52,16 +52,16 @@ class ItemsOrderActivity : AppCompatActivity() {
 
     fun validate(View: View?) {
         //Actualitzem las orders a back
-        val newFragment = FireMissilesDialogFragment()
+        val newFragment = ItemDialog(R.string.message,R.string.accept,R.string.cancel)
         newFragment.show(supportFragmentManager, "hola")
+
 
     }
 
     fun back (View: View?) {
 
-        val newFragment = FireMissilesDialogFragment()
+        val newFragment = ItemDialog(R.string.message,R.string.accept,R.string.cancel)
         newFragment.show(supportFragmentManager, "hola")
-
         for (order in globalOrder) {
             Repository.getInstance().updateOrder(order.key!!, order)
         }

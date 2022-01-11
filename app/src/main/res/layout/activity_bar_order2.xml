@@ -47,7 +47,7 @@
 
             <TextView
                 android:id="@+id/salesHeaderTextView"
-                style="@style/reportContentText"
+                style="@style/NormalText"
                 android:layout_marginTop="30dp"
                 android:text="Total Sale" />
 
@@ -72,7 +72,9 @@
                 <androidx.cardview.widget.CardView
                     style="@style/reportsCardStyle"
                     app:cardBackgroundColor="@color/whiteTextColor"
-                    app:cardCornerRadius="16dp">
+                    app:cardCornerRadius="16dp"
+
+                    >
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -81,13 +83,13 @@
                         android:orientation="vertical">
 
                         <TextView
-                            style="@style/reportContentText"
+                            style="@style/GreenText"
                             android:text="Pes Teòric"
-
-                            android:textColor="#79D0A3" />
+                            android:textColor="@color/textG" />
 
                         <TextView
                             style="@style/viewParent.headerText"
+
                             android:text="0"
                             android:id="@+id/PesT"
                             android:textSize="27sp" />
@@ -107,11 +109,11 @@
                         android:orientation="vertical">
 
                         <TextView
-                            style="@style/reportContentText"
+                            style="@style/GreenText"
                             android:text="Pes Real"
-                            android:textColor="#79D0A3" />
+                            android:textColor="@color/textG" />
 
-                        <EditText
+                        <TextView
                             style="@style/viewParent.headerText"
                             android:text="0"
                             android:id="@+id/PesR"
@@ -121,34 +123,45 @@
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/bottom2"
-            android:layout_width="match_parent"
-            android:layout_height="320dp"
-            android:layout_below="@id/cardLayout"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardLayout">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recylerview"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/cardLayout"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/bottom2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </RelativeLayout>
+                android:layout_height="320dp"
+                android:layout_below="@id/cardLayout"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardLayout"
+                android:layout_weight="0.8">
 
-        <Button
-            android:id="@+id/valButton"
-            style="@style/reportContentText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/bottom2"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:onClick="validate"
-            android:text="VALIDAR" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recylerview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/valButton"
+                style="@style/Validate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="validate"
+                android:text="VALIDAR"
+                android:layout_weight="0.2"/>
+
+        </LinearLayout>
+
+
+
 
     </RelativeLayout>
 

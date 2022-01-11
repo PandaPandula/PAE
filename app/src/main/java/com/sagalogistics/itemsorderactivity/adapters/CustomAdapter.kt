@@ -19,12 +19,17 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
 
         fun render(item: Triple<Item, Int, String>) {
             val itemName = view.findViewById<TextView>(R.id.name)
+            val itemMarca = view.findViewById<TextView>(R.id.marca)
             val itemQuantity = view.findViewById<TextView>(R.id.quantity)
             val itemImg = view.findViewById<ImageView>(R.id.img)
             val itemOrder = item.third;
 
             //Nom de l'item
             itemName.text = item.first.name
+
+            //Marca de l'item
+           // itemMarca.text = item.first.name
+            itemMarca.text = item.first.name.split("-").toString()[1].toString()
 
             //Quantitat
             itemQuantity.text = item.second.toString()
