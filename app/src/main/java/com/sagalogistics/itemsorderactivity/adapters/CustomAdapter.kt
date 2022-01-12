@@ -31,7 +31,7 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
             itemMarca.text = item.first.name.split(" - ")[1]
 
             //Quantitat
-            itemQuantity.text = item.second.toString().plus("/").plus(item.second)
+            itemQuantity.text = item.second.toString()
 
             //Imatge de l'item
             item.first.image?.let { itemImg.loadUrl(it) }
@@ -53,32 +53,26 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
 
         holder.view.findViewById<TextView>(R.id.minus).setOnClickListener {
             //Agafem el valor q modifquem
-            val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().split("/")[0].toInt().dec()
-
-            //Agafem el valor original
-            val original = holder.view.findViewById<TextView>(R.id.quantity).text.toString().split("/")[1]
+            val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().toInt().dec()
 
             //Actualitzem valor a la base de dades
             val a = Repository.getInstance().getOrder(items[position].third).get()!!
             a.updateItem(items[position].first.key!!,quant)
 
             //Actualitzem el valor en local
-            holder.view.findViewById<TextView>(R.id.quantity).text = original.plus("/").plus(quant.toString())
+            holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
             Repository.getInstance().updateOrder(a.key!!, a)
         }
         holder.view.findViewById<TextView>(R.id.plus).setOnClickListener {
             //Agafem el valor q modifquem
-            val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().split("/")[0].toInt().inc()
-
-            //Agafem el valor original
-            val original = holder.view.findViewById<TextView>(R.id.quantity).text.toString().split("/")[1]
+            val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().toInt().inc()
 
             //Actualitzem valor a la base de dades
             val a = Repository.getInstance().getOrder(items[position].third).get()!!
             a.updateItem(items[position].first.key!!,quant)
 
             //Actualitzem el valor en local
-            holder.view.findViewById<TextView>(R.id.quantity).text = original.plus("/").plus(quant.toString())
+            holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
             Repository.getInstance().updateOrder(a.key!!, a)
         }
 
