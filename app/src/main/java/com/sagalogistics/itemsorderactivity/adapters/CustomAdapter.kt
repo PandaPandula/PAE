@@ -52,26 +52,33 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
         holder.render(items[position])
 
         holder.view.findViewById<TextView>(R.id.minus).setOnClickListener {
+            //Agafem el valor q modifquem
             val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().split("/")[0].toInt().dec()
+
+            //Agafem el valor original
+            val original = holder.view.findViewById<TextView>(R.id.quantity).text.toString().split("/")[1]
 
             //Actualitzem valor a la base de dades
             val a = Repository.getInstance().getOrder(items[position].third).get()!!
             a.updateItem(items[position].first.key!!,quant)
 
             //Actualitzem el valor en local
-            val aux = holder.view.findViewById<TextView>(R.id.quantity).text
-            val quantorigi = aux.split("/")[0]
-            holder.view.findViewById<TextView>(R.id.quantity).text = quantorigi.plus("/").plus(aux)
+            holder.view.findViewById<TextView>(R.id.quantity).text = original.plus("/").plus(quant.toString())
             Repository.getInstance().updateOrder(a.key!!, a)
         }
         holder.view.findViewById<TextView>(R.id.plus).setOnClickListener {
-            val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().toInt().inc()
+            //Agafem el valor q modifquem
+            val quant = holder.view.findViewById<TextView>(R.id.quantity).text.toString().split("/")[0].toInt().inc()
+
+            //Agafem el valor original
+            val original = holder.view.findViewById<TextView>(R.id.quantity).text.toString().split("/")[1]
+
             //Actualitzem valor a la base de dades
             val a = Repository.getInstance().getOrder(items[position].third).get()!!
             a.updateItem(items[position].first.key!!,quant)
 
             //Actualitzem el valor en local
-            holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
+            holder.view.findViewById<TextView>(R.id.quantity).text = original.plus("/").plus(quant.toString())
             Repository.getInstance().updateOrder(a.key!!, a)
         }
 
