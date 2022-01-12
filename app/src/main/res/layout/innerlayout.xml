@@ -56,27 +56,35 @@
 
                         <RelativeLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.6">
-
-                            <TextView
-                                android:id="@+id/name"
-                                style="@style/NormalText"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.6"
+                            android:layout_gravity="center"
+                            >
+                            <RelativeLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
-                                android:layout_margin="1dp"
-                                android:text="name" />
+                                android:layout_centerVertical="true">
+                                <TextView
+                                    android:id="@+id/name"
+                                    style="@style/NormalText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_margin="1dp"
+                                    android:text="name" />
 
-                            <TextView
-                                android:id="@+id/direccio"
-                                style="@style/MarkText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/name"
-                                android:layout_alignParentStart="true"
-                                android:layout_margin="1dp"
-                                android:text="name" />
+                                <TextView
+                                    android:id="@+id/direccio"
+                                    style="@style/MarkText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/name"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_margin="1dp"
+                                    android:text="name" />
+
+                            </RelativeLayout>
+
 
                         </RelativeLayout>
 
@@ -91,8 +99,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:layout_centerVertical="true"
-                                android:paddingLeft="130dp"
                                 android:text="OK"
+                                android:paddingLeft="130dp"
                                 android:textColor="@color/DarkGreen"
                                 android:visibility="visible" />
 
