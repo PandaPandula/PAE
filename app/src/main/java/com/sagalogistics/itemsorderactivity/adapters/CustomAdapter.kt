@@ -31,7 +31,7 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
             itemMarca.text = item.first.name.split(" - ")[1]
 
             //Quantitat
-            itemQuantity.text = item.second.toString()
+            itemQuantity.text = item.second.toString().plus("/").plus(item.second)
 
             //Imatge de l'item
             item.first.image?.let { itemImg.loadUrl(it) }
@@ -58,7 +58,9 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
             a.updateItem(items[position].first.key!!,quant)
 
             //Actualitzem el valor en local
-            holder.view.findViewById<TextView>(R.id.quantity).text = quant.toString()
+            val aux = holder.view.findViewById<TextView>(R.id.quantity).text
+            val quantorigi = aux.split("/")[0]
+            holder.view.findViewById<TextView>(R.id.quantity).text = quantorigi.plus("/").plus(aux)
             Repository.getInstance().updateOrder(a.key!!, a)
         }
         holder.view.findViewById<TextView>(R.id.plus).setOnClickListener {
