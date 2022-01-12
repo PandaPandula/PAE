@@ -46,7 +46,7 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
             //nothing;
         }
         val imageView = ImageView(context)
-        imageView.loadUrl("https://pbs.twimg.com/profile_images/421503396319735808/BMzE_v6R_400x400.jpeg")
+        imageView.loadUrl("https://joomly.net/frontend/web/images/googlemap/map.png")
         builder.addContentView(
             imageView, RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -61,17 +61,19 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
         fun render(item: Bar) {
 
             val itemName = view.findViewById<TextView>(R.id.name)
-            val itemLoca = view.findViewById<TextView>(com.sagalogistics.R.id.direccio)
-            val itemImg = view.findViewById<ImageView>(com.sagalogistics.R.id.img)
+            val itemLoca = view.findViewById<TextView>(R.id.direccio)
+            val itemImg = view.findViewById<ImageView>(R.id.img)
 
             itemName.text = item.name
             itemLoca.text = "Sant Pepito 123"
 
+            //Imatge de l'item
             //item.image?.let { itemImg.loadUrl(it) }
 
         }
         fun ImageView.loadUrl(url: String) {
-            Picasso.with(context).load(url).into(this)
+            //Picasso.with(context).load(url).into(this)
+            Picasso.with(context).load("http://barlorenzo.com/wp-content/uploads/2019/08/slider01.jpg").into(this)
         }
     }
 

@@ -6,10 +6,12 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
 
-    <string name="cancel">Cancel</string>
-    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="accept">Acceptar</string>
 
-    <string name="message">Segur que vols validar l\'inventari</string>
+    <string name="ItemDialog">Segur que vols validar l\'inventari</string>
+    <string name="OrdersDialog">Segur que vols validar totes les comandes</string>
+    <string name="BackDialog">Segur que vols tornar a la pàgina anterior</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="login_email_hint">Nom usuari</string>

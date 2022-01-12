@@ -14,7 +14,7 @@ class FireMissilesDialogFragmentWithImage : DialogFragment() {
         return activity?.let {
             // Use the Builder class for convenient dialog construction
             val builder = AlertDialog.Builder(it)
-            builder.setMessage(R.string.message)
+            builder.setMessage(R.string.accept)
                 .setPositiveButton(R.string.accept,
                     DialogInterface.OnClickListener { dialog, id ->
                         requireActivity().finish()

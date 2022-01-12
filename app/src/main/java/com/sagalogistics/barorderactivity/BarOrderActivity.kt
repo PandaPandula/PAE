@@ -18,12 +18,14 @@ import com.sagalogistics.lib.database.WeightCalculator
 import com.sagalogistics.lib.models.Bar
 import com.sagalogistics.utils.dialogs.OrdersDialog
 import android.content.DialogInterface
+import com.sagalogistics.utils.dialogs.ItemDialog
 
 class BarOrderActivity : AppCompatActivity()
 {
     lateinit var mRecyclerView : RecyclerView
     private lateinit var pesT : TextView
     private lateinit var pesR : TextView
+    private lateinit var result : TextView
     private lateinit var valButton : Button
     private lateinit var weightRange : Pair<Float, Float>
 
@@ -34,26 +36,31 @@ class BarOrderActivity : AppCompatActivity()
         setContentView(R.layout.activity_bar_order2)
         pesR = findViewById(R.id.PesR)
         pesT = findViewById(R.id.PesT)
+        result = findViewById(R.id.result)
         valButton = findViewById(R.id.valButton)
         setUpRecyclerView()
     }
 
     private fun updateItems() {
-        pesR.text = "hola"
+
+        if (pesR.text.toString().toInt() >  weightRange.first && pesR.text.toString().toInt() >  weightRange.second) {
+           result.text = "El pes és correcte"
+        }else{
+            result.text = "El pes és incorrecte"
+        }
+    }
+
+    private fun pes (view: View?) {
+        val randomPes = (0..100).random() + Integer.parseInt(pesT.text.toString())
+
+        pesR.text = randomPes.toString()
+
     }
 
     fun validate (view: View?) {
 
-        val newFragment = OrdersDialog(R.string.message,R.string.accept,R.string.cancel, ::updateItems)
+        val newFragment = OrdersDialog(R.string.OrdersDialog,R.string.accept,R.string.cancel, ::updateItems)
         newFragment.show(supportFragmentManager, "hola")
-
-        if (pesR.text.toString().toInt() >  weightRange.first && pesR.text.toString().toInt() >  weightRange.second) {
-            Log.e("aa", "CORRECTE")
-        }else{
-            Log.e("aa", "INCORRECTE")
-        }
-
-
 
     }
     fun setUpRecyclerView(){

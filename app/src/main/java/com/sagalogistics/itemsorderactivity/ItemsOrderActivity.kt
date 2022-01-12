@@ -52,7 +52,7 @@ class ItemsOrderActivity : AppCompatActivity() {
 
     fun validate(View: View?) {
         //Actualitzem las orders a back
-        val newFragment = ItemDialog(R.string.message,R.string.accept,R.string.cancel)
+        val newFragment = ItemDialog(R.string.ItemDialog,R.string.accept,R.string.cancel)
         newFragment.show(supportFragmentManager, "hola")
 
 
@@ -60,7 +60,7 @@ class ItemsOrderActivity : AppCompatActivity() {
 
     fun back (View: View?) {
 
-        val newFragment = ItemDialog(R.string.message,R.string.accept,R.string.cancel)
+        val newFragment = ItemDialog(R.string.BackDialog,R.string.accept,R.string.cancel)
         newFragment.show(supportFragmentManager, "hola")
         for (order in globalOrder) {
             Repository.getInstance().updateOrder(order.key!!, order)
