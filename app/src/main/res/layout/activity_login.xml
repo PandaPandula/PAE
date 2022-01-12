@@ -73,7 +73,7 @@
             android:text="He oblidat la contrassenya"
             android:textColor="@color/MediumGreen"
             android:layout_weight="0.1"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="25dp"/>
 
         <Button
             android:id="@+id/cirLoginButton"

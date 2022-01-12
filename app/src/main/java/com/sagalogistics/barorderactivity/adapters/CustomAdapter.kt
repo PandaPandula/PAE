@@ -23,6 +23,9 @@ import android.view.Window
 import android.graphics.BitmapFactory
 
 import android.graphics.Bitmap
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import com.sagalogistics.utils.dialogs.ItemDialog
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL
@@ -34,7 +37,6 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
     fun ImageView.loadUrl(url: String) {
         Picasso.with(context).load(url).into(this)
     }
-
 
     fun showImage() {
         val builder = Dialog(context)
@@ -64,22 +66,22 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
             val itemLoca = view.findViewById<TextView>(R.id.direccio)
             val itemImg = view.findViewById<ImageView>(R.id.img)
 
-            itemName.text = item.name
+            itemName.text = item.name.split(".")[0]
             itemLoca.text = "Sant Pepito 123"
 
             //Imatge de l'item
-            //item.image?.let { itemImg.loadUrl(it) }
+            itemImg.loadUrl("http://barlorenzo.com/wp-content/uploads/2019/08/slider01.jpg")
 
         }
         fun ImageView.loadUrl(url: String) {
             //Picasso.with(context).load(url).into(this)
-            Picasso.with(context).load("http://barlorenzo.com/wp-content/uploads/2019/08/slider01.jpg").into(this)
+            Picasso.with(context).load(url).into(this)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return ItemHolder(layoutInflater.inflate(com.sagalogistics.R.layout.innerlayout, parent, false))
+        return ItemHolder(layoutInflater.inflate(R.layout.innerlayout, parent, false))
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
@@ -95,6 +97,7 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
             true
         }
 
+        if(items[position].name.split(".")[1].toInt() == 1) holder.view.findViewById<TextView>(R.id.status).visibility = VISIBLE
 
     }
 

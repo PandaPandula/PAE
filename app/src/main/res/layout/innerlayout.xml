@@ -79,20 +79,22 @@
                                 android:text="name" />
 
                         </RelativeLayout>
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent">
+
                             <TextView
+                                android:id="@+id/status"
+                                style="@style/GreenText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="OK"
-                                android:paddingLeft="150dp"
-                                android:visibility="gone"
-                                android:layout_centerVertical="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:paddingLeft="130dp"
+                                android:text="OK"
                                 android:textColor="@color/DarkGreen"
-                                style="@style/GreenText"
-                                />
+                                android:visibility="visible" />
 
 
                         </RelativeLayout>

@@ -6,10 +6,13 @@ import android.content.DialogInterface
 import android.icu.number.IntegerWidth
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.MutableLiveData
 import com.sagalogistics.R
 import kotlinx.coroutines.NonCancellable.cancel
 
 class ItemDialog(val a : Int, val c : Int, val b : Int) : DialogFragment() {
+
+    val isDone = MutableLiveData(false)
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
@@ -18,6 +21,7 @@ class ItemDialog(val a : Int, val c : Int, val b : Int) : DialogFragment() {
             builder.setMessage(a)
                 .setPositiveButton(b,
                     DialogInterface.OnClickListener { dialog, id ->
+                        isDone.postValue(true)
                     })
                 .setNegativeButton(c,
                     DialogInterface.OnClickListener { dialog, id ->

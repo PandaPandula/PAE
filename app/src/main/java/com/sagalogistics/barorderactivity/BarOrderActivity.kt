@@ -43,13 +43,7 @@ class BarOrderActivity : AppCompatActivity()
 
     override fun onResume() {
         super.onResume()
-        val user = Repository.getInstance().getUser("DemoUser").get()!!
-
-        //Calculem el weight
-        val weightT = WeightCalculator.weightOfUserOrders(user)
-        weightRange = weightT
-        val medianweight = ((weightT.first + weightT.second) / 2).toInt()
-        pesT.text = medianweight.toString()
+        setUpRecyclerView()
     }
 
     private fun updateItems() {
@@ -67,6 +61,7 @@ class BarOrderActivity : AppCompatActivity()
         pesR.text = randomPes.toString()
 
     }
+
 
     fun validate (view: View?) {
 
