@@ -11,14 +11,6 @@ import kotlinx.coroutines.NonCancellable.cancel
 
 class ItemDialog(val a : Int, val c : Int, val b : Int) : DialogFragment() {
 
-
-    private var peso = 0
-
-
-    fun getInfo() : Int{
-        return peso
-    }
-
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             // Use the Builder class for convenient dialog construction

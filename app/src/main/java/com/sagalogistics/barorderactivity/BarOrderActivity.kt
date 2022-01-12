@@ -41,6 +41,17 @@ class BarOrderActivity : AppCompatActivity()
         setUpRecyclerView()
     }
 
+    override fun onResume() {
+        super.onResume()
+        val user = Repository.getInstance().getUser("DemoUser").get()!!
+
+        //Calculem el weight
+        val weightT = WeightCalculator.weightOfUserOrders(user)
+        weightRange = weightT
+        val medianweight = ((weightT.first + weightT.second) / 2).toInt()
+        pesT.text = medianweight.toString()
+    }
+
     private fun updateItems() {
 
         if (pesR.text.toString().toInt() >  weightRange.first && pesR.text.toString().toInt() >  weightRange.second) {
@@ -50,7 +61,7 @@ class BarOrderActivity : AppCompatActivity()
         }
     }
 
-    private fun pes (view: View?) {
+    fun pes (view: View?) {
         val randomPes = (0..100).random() + Integer.parseInt(pesT.text.toString())
 
         pesR.text = randomPes.toString()
