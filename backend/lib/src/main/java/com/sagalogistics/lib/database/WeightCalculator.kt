@@ -45,7 +45,7 @@ class WeightCalculator private constructor(){
          * The [first][Pair.first] element of the pair will be the lower bound of weight,
          * and the [second][Pair.second] will be the upper one
          */
-        private fun weightOfBarOrders(bar: Bar): Pair<Float, Float> {
+        fun weightOfBarOrders(bar: Bar): Pair<Float, Float> {
             val orderKeys = bar.orders
             val listOfOrders = FutureHelper.getListOfKeys(orderKeys, Order::class)
 
