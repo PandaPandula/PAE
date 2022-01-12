@@ -178,7 +178,7 @@
                 android:onClick="validate"
                 android:textSize="20dp"
                 android:text="VALIDAR"
-                android:layout_weight="0.2"/>
+                android:layout_weight="0.1"/>
 
         </LinearLayout>
 
@@ -186,5 +186,28 @@
 
 
     </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/introductionCreateTags"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Tots els establiments s'han validat" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Inicia una nova ruta i\n se t'assignaran nous bars"/>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

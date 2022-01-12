@@ -100,10 +100,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
                                 android:layout_centerVertical="true"
-                                android:text="OK"
                                 android:paddingLeft="130dp"
+                                android:text="OK"
                                 android:textColor="@color/DarkGreen"
-                                android:visibility="visible" />
+                                android:visibility="gone" />
 
 
                         </RelativeLayout>

@@ -9,15 +9,11 @@ import androidx.fragment.app.DialogFragment
 import com.sagalogistics.R
 import kotlinx.coroutines.NonCancellable.cancel
 
-class OrdersDialog(val a : Int, val c : Int, val b : Int, private val callbackCanceled: () -> Unit) : DialogFragment() {
+class OrdersDialog(val a : Int, val b : Int, val c : Int, private val callbackCanceled: () -> Unit) : DialogFragment() {
 
 
-    private var peso = 0
+    var apretado = 0
 
-
-    fun getInfo() : Int{
-        return peso
-    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
@@ -26,12 +22,13 @@ class OrdersDialog(val a : Int, val c : Int, val b : Int, private val callbackCa
             builder.setMessage(a)
                 .setPositiveButton(b,
                     DialogInterface.OnClickListener { dialog, id ->
-                        callbackCanceled()
+
+                            callbackCanceled()
+
                     })
                 .setNegativeButton(c,
                     DialogInterface.OnClickListener { dialog, id ->
                         // User cancelled the dialog
-                        requireActivity().finish()
                     })
             // Create the AlertDialog object and return it
             builder.create()

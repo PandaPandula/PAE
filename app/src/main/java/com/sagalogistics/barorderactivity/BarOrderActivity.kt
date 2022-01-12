@@ -18,6 +18,10 @@ import com.sagalogistics.lib.database.WeightCalculator
 import com.sagalogistics.lib.models.Bar
 import com.sagalogistics.utils.dialogs.OrdersDialog
 import android.content.DialogInterface
+import android.text.Layout
+import android.view.View.*
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException
+import com.google.android.material.snackbar.Snackbar
 import com.sagalogistics.utils.dialogs.ItemDialog
 
 class BarOrderActivity : AppCompatActivity()
@@ -26,6 +30,7 @@ class BarOrderActivity : AppCompatActivity()
     private lateinit var pesT : TextView
     private lateinit var pesR : TextView
     private lateinit var result : TextView
+    private lateinit var sadfas : View
     private lateinit var valButton : Button
     private lateinit var weightRange : Pair<Float, Float>
 
@@ -37,6 +42,7 @@ class BarOrderActivity : AppCompatActivity()
         pesR = findViewById(R.id.PesR)
         pesT = findViewById(R.id.PesT)
         result = findViewById(R.id.result)
+        sadfas = findViewById(R.id.introductionCreateTags)
         valButton = findViewById(R.id.valButton)
         setUpRecyclerView()
     }
@@ -48,20 +54,26 @@ class BarOrderActivity : AppCompatActivity()
 
     private fun updateItems() {
 
-        if (pesR.text.toString().toInt() >  weightRange.first && pesR.text.toString().toInt() >  weightRange.second) {
-           result.text = "El pes és correcte"
+        if (pesR.text.toString().toFloat() >=  weightRange.first && pesR.text.toString().toFloat() <= weightRange.second) {
+            val snack = Snackbar.make(findViewById(R.id.bottom2),"EL PESATGE ÉS CORRECTE",Snackbar.LENGTH_LONG)
+            snack.show()
+            mRecyclerView.visibility = INVISIBLE
+            sadfas.visibility = VISIBLE
+            valButton.text = "NOVA RUTA"
+
+
         }else{
-            result.text = "El pes és incorrecte"
+            val snack = Snackbar.make(findViewById(R.id.bottom2),"EL PESATGE ÉS INCORRECTE",Snackbar.LENGTH_LONG)
+            snack.show()
         }
     }
 
     fun pes (view: View?) {
-        val randomPes = (0..100).random() + Integer.parseInt(pesT.text.toString())
+        val randomPes = (-30..30).random() + Integer.parseInt(pesT.text.toString())
 
         pesR.text = randomPes.toString()
 
     }
-
 
     fun validate (view: View?) {
 
@@ -79,7 +91,7 @@ class BarOrderActivity : AppCompatActivity()
         //Calculem el weight
         val weightT = WeightCalculator.weightOfUserOrders(user)
         weightRange = weightT
-        val medianweight = (weightT.first + weightT.second / 2).toInt()
+        val medianweight = ((weightT.first + weightT.second) / 2)
         pesT.text = medianweight.toString()
         //Agafem els bars de l'usuari
         val barlist = user.bars.map{
