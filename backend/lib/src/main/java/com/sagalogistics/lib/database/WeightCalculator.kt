@@ -17,7 +17,7 @@ class WeightCalculator private constructor(){
      */
     companion object{
         /**
-         * Calculates the total weight of all the [return][Order.isReturn] [orders][Order] of a [user]
+         * Calculates the total weight of all the [return][Order.isReturn]&nbsp;[orders][Order] of a [user]
          *
          * This function will call [Repository.getBar] to get the [bars][Bar]
          * assigned to the user, and call [weightOfBarOrders] on each of them
@@ -37,7 +37,7 @@ class WeightCalculator private constructor(){
         }
 
         /**
-         * Calculates the total weight of all the [return][Order.isReturn] [orders][Order] of a [bar]
+         * Calculates the total weight of all the [return][Order.isReturn]&nbsp;[orders][Order] of a [bar]
          *
          * This function will call [Repository.getOrder] to get the [orders][Order]
          * made by the bar, and call [weightOfOrder] on each of them
@@ -57,7 +57,7 @@ class WeightCalculator private constructor(){
         }
 
         /**
-         * Calculates the total weight of a [return][Order.isReturn] [order]
+         * Calculates the total weight of a [return][Order.isReturn]&nbsp;[order]
          *
          * This function will call [Repository.getItem] to get the [weight][Item.weight]
          * of each [item][Item] and multiply it by its amount in the [order]
