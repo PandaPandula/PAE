@@ -16,13 +16,21 @@ class BarImpl : Bar, Parcelable{
             _orders = ArrayList(value)
         }
     private var _orders: MutableList<String> = ArrayList()
+    override var address: String? = null
+    override var image: String? = null
 
     constructor() {}
 
-    constructor(key: String? = null, name: String, orders: MutableList<String> = ArrayList()){
+    constructor(key: String? = null,
+                name: String,
+                orders: MutableList<String> = ArrayList(),
+                address: String? = null,
+                image: String? = null){
         this.key = key
         this.name = name
         this.orders = orders
+        this.address = address
+        this.image = image
     }
 
     override fun addOrder(orderKey: String) {

@@ -22,6 +22,18 @@ interface Bar : Serializable{
     var orders: MutableList<String>
 
     /**
+     * The address of the bar
+     *
+     * For front-end purposes
+     */
+    var address: String?
+
+    /**
+     * The url of an image of the bar
+     */
+    var image: String?
+
+    /**
      * Adds an order to the bar
      */
     fun addOrder(orderKey: String)
