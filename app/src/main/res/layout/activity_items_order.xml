@@ -54,6 +54,8 @@
                 android:padding="0.8dp"
                 style="@style/Validate"
                 android:text="VALIDAR" />
+
+
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

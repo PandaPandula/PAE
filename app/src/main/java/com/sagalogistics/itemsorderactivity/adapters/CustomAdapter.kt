@@ -28,7 +28,6 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
             itemName.text = item.first.name
 
             //Marca de l'item
-           // itemMarca.text = item.first.name
             itemMarca.text = item.first.name.split("-").toString()[1].toString()
 
             //Quantitat

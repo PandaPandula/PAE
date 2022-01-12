@@ -57,7 +57,7 @@
             android:id="@+id/textInputPassword"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:layout_weight="0.1">
+            >
 
             <EditText
                 android:id="@+id/editTextPassword"
@@ -67,9 +67,17 @@
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="He oblidat la contrassenya"
+            android:textColor="@color/MediumGreen"
+            android:layout_weight="0.1"
+            android:layout_marginTop="5dp"/>
+
         <Button
             android:id="@+id/cirLoginButton"
-            style="@style/loginButton"
+            style="@style/Validate"
             android:layout_width="349dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/loginViewsMargin"

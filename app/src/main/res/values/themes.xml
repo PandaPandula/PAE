@@ -72,10 +72,12 @@
     </style>
 
     <style name="loginButton" parent="viewParent">
-        <item name="android:background">@drawable/button_background_blue</item>
+        <item name="android:background">@drawable/button_background_medium_green</item>
         <item name="android:textColor">@color/whiteTextColor</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+
 
     <style name="spinnerHintText" parent="parent">
         <item name="android:textSize">@dimen/newsMoreTextSize</item>
@@ -157,23 +159,25 @@
         <item name="android:layout_below">@id/dateTextView</item>
     </style>
 
-    <style name="Validate">
+    <style name="Validate" parent="viewParent">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textColor">@color/DarkGreen</item>
-        <item name="backgroundTint">@color/MediumGreen</item>
+        <item name="android:background">@drawable/button_background_medium_green</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:layout_below">@id/dateTextView</item>
     </style>
+
+
 
     <style name="Cancel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textColor">@color/LightGreen</item>
-        <item name="backgroundTint">@color/DarkGreen</item>
+        <item name="android:background">@drawable/button_background_dark_green</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:layout_below">@id/dateTextView</item>
