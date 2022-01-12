@@ -67,14 +67,13 @@ class CustomAdapter(private val items: List<Bar>, private val context: Context):
             val itemImg = view.findViewById<ImageView>(R.id.img)
 
             itemName.text = item.name.split(".")[0]
-            itemLoca.text = "Sant Pepito 123"
+            itemLoca.text = item.address
 
             //Imatge de l'item
-            itemImg.loadUrl("http://barlorenzo.com/wp-content/uploads/2019/08/slider01.jpg")
+            item.image?.let { itemImg.loadUrl(it) }
 
         }
         fun ImageView.loadUrl(url: String) {
-            //Picasso.with(context).load(url).into(this)
             Picasso.with(context).load(url).into(this)
         }
     }
