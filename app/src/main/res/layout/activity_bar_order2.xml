@@ -45,9 +45,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:onClick="pes"
-                android:scaleX="1.3"
-                android:scaleY="1.3"
-                android:src="@drawable/ic_settings" />
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/ic_bluetooth" />
 
             <TextView
                 android:id="@+id/salesHeaderTextView"
