@@ -17,10 +17,10 @@ class WeightCalculator private constructor(){
      */
     companion object{
         /**
-         * Calculates the total weight of all the [orders][Order] of a [user]
+         * Calculates the total weight of all the [return][Order.isReturn] [orders][Order] of a [user]
          *
-         * This function will call [Repository.getBar] to get the [orders][Order]
-         * of each of the bars assigned to the user, and call [weightOfOrder] on each of the orders
+         * This function will call [Repository.getBar] to get the [bars][Bar]
+         * assigned to the user, and call [weightOfBarOrders] on each of them
          *
          * The [first][Pair.first] element of the pair will be the lower bound of weight,
          * and the [second][Pair.second] will be the upper one
@@ -29,27 +29,38 @@ class WeightCalculator private constructor(){
             val barKeys = user.bars
             val listOfBars = FutureHelper.getListOfKeys(barKeys, Bar::class)
 
-            return listOfBars.fold(Pair(0f, 0f), {
-                total, bar
+            return listOfBars.fold(Pair(0f, 0f), { (lowerWeight, upperWeight), bar
                 ->
-                val orderKeys = bar.orders
-                val listOfOrders = FutureHelper.getListOfKeys(orderKeys, Order::class)
-
-                val (lowerWeightBar, upperWeightBar) = listOfOrders.fold(Pair(0f, 0f), {
-                    totalOrder, order
-                    ->
-                    val (lowerWeightOrd, upperWeightOrd) = weightOfOrder(order)
-                    Pair(totalOrder.first + lowerWeightOrd, totalOrder.second + upperWeightOrd)
-                })
-                Pair(total.first + lowerWeightBar,total.second + upperWeightBar)
+                val (lowerWeightBar, upperWeightBar) = weightOfBarOrders(bar)
+                Pair(lowerWeight + lowerWeightBar, upperWeight + upperWeightBar)
             })
         }
 
         /**
-         * Calculates the total weight of an [order]
+         * Calculates the total weight of all the [return][Order.isReturn] [orders][Order] of a [bar]
          *
-         * This function will call [Repository.getItem] to get the [weight][Item.weight] of each [item][Item]
-         * and multiply it by its amount in the [order]
+         * This function will call [Repository.getOrder] to get the [orders][Order]
+         * made by the bar, and call [weightOfOrder] on each of them
+         *
+         * The [first][Pair.first] element of the pair will be the lower bound of weight,
+         * and the [second][Pair.second] will be the upper one
+         */
+        private fun weightOfBarOrders(bar: Bar): Pair<Float, Float> {
+            val orderKeys = bar.orders
+            val listOfOrders = FutureHelper.getListOfKeys(orderKeys, Order::class)
+
+            return listOfOrders.fold(Pair(0f, 0f), { (lowerWeight, upperWeight), order
+                ->
+                val (lowerWeightOrd, upperWeightOrd) = weightOfOrder(order)
+                Pair(lowerWeight + lowerWeightOrd, upperWeight + upperWeightOrd)
+            })
+        }
+
+        /**
+         * Calculates the total weight of a [return][Order.isReturn] [order]
+         *
+         * This function will call [Repository.getItem] to get the [weight][Item.weight]
+         * of each [item][Item] and multiply it by its amount in the [order]
          * after considering its [upper][Item.upperVariance] and [lower][Item.lowerVariance] bounds
          *
          * The [first][Pair.first] element of the pair will be the lower bound of weight,
