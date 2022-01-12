@@ -25,10 +25,10 @@ class CustomAdapter(private val items: ArrayList<Triple<Item, Int, String>>, pri
             val itemOrder = item.third;
 
             //Nom de l'item
-            itemName.text = item.first.name
+            itemName.text = item.first.name.split(" - ")[0]
 
             //Marca de l'item
-            itemMarca.text = item.first.name.split(" - ").toString()[1].toString()
+            itemMarca.text = item.first.name.split(" - ")[1]
 
             //Quantitat
             itemQuantity.text = item.second.toString()

@@ -167,7 +167,7 @@
 
             <Button
                 android:id="@+id/valButton"
-                style="@style/Validate"
+                style="@style/loginButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
