@@ -24,7 +24,7 @@ interface Bar : Serializable{
     /**
      * The address of the bar
      *
-     * For front-end purposes
+     * For front-end purposes mainly
      */
     var address: String?
 

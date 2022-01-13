@@ -3,7 +3,6 @@ package com.sagalogistics.implementation.models
 import android.os.Parcelable
 import com.google.firebase.database.Exclude
 import android.os.Parcel
-import android.os.Parcelable.Creator
 import com.sagalogistics.lib.models.Item
 
 /**
@@ -64,7 +63,9 @@ class ItemImpl : Item, Parcelable {
     override var image: String? = null
 
     /**
-     * Empty constructor needed for serialization; should not be used
+     * Empty constructor needed for serialization
+     *
+     * Should not be used, since an item is expected to have a [name] and a [weight]
      */
     constructor() {}
 
@@ -98,15 +99,6 @@ class ItemImpl : Item, Parcelable {
     }
 
     /**
-     * Implementation of [Parcelable.describeContents]
-     *
-     * Returns 0
-     */
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    /**
      * Implementation of [Parcelable.writeToParcel]
      */
     override fun writeToParcel(dest: Parcel, flags: Int) {
@@ -119,9 +111,18 @@ class ItemImpl : Item, Parcelable {
     }
 
     /**
-     * [Creator] for the [Parcelable] implementation
+     * Implementation of [Parcelable.describeContents]
+     *
+     * Returns 0
      */
-    companion object CREATOR : Creator<ItemImpl> {
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    /**
+     * [Creator][Parcelable.Creator] for the [Parcelable] implementation
+     */
+    companion object CREATOR : Parcelable.Creator<ItemImpl> {
         /**
          * Creates an [ItemImpl] from a [parcel]
          */
@@ -130,7 +131,7 @@ class ItemImpl : Item, Parcelable {
         }
 
         /**
-         * Returns an array of [size] nulls
+         * Returns an empty array of [ItemImpl] of a given [size]
          */
         override fun newArray(size: Int): Array<ItemImpl?> {
             return arrayOfNulls(size)
