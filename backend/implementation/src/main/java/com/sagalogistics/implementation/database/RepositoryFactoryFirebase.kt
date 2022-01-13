@@ -5,6 +5,8 @@ import com.sagalogistics.lib.database.*
 /**
  * Implementation of [RepositoryFactory] using a Firebase database and the data accessor objects
  * in this package
+ *
+ * @constructor default constructor
  */
 class RepositoryFactoryFirebase : RepositoryFactory {
     /**
