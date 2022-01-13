@@ -41,6 +41,8 @@ If you'd like to add our library or its implementation to your project, you must
 
 `com.sagalogistics.lib`
 
+`org.jetbrains.kotlin:kotlin-reflect`
+
 `com.google.firebase:firebase-database-ktx`
 
 ## License
