@@ -8,7 +8,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:478773197679:android:00f8b302d34bb8c42c069a",
+        "mobilesdk_app_id": "1:478773197679:android:3eb915e5f0c1ea7c2c069a",
         "android_client_info": {
           "package_name": "com.sagalogistics.implementation"
         }
@@ -37,9 +37,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:478773197679:android:87826036372ce1592c069a",
+        "mobilesdk_app_id": "1:478773197679:android:d00b8712c6bcf9852c069a",
         "android_client_info": {
-          "package_name": "com.sagalogistics.pae"
+          "package_name": "com.sagalogistics.saga"
         }
       },
       "oauth_client": [
